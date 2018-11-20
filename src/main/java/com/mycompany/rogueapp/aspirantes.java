@@ -9,7 +9,7 @@ public class aspirantes extends CouchDbDocument {
     //Llave foranea de users
     String username;
     //Llave tabla aspiratenes
-    String id;
+    String identidad;
     String primerNombre;
     String segundoNombre;
     String primerApellido;
@@ -18,9 +18,9 @@ public class aspirantes extends CouchDbDocument {
     //Para que los usuarios puedan hacer CRUD de los perfiles creados por ellos
     String createdBy;
 
-    public aspirantes(String username, String id, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, Date fechaNacimiento, String createdBy) {
+    public aspirantes(String username, String identidad, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, Date fechaNacimiento, String createdBy) {
         this.username = username;
-        this.id = id;
+        this.identidad = identidad;
         this.primerNombre = primerNombre;
         this.segundoNombre = segundoNombre;
         this.primerApellido = primerApellido;
@@ -37,12 +37,12 @@ public class aspirantes extends CouchDbDocument {
         this.username = username;
     }
 
-    public String getId() {
-        return id;
+    public String getIdentidad() {
+        return identidad;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setIdentidad(String identidad) {
+        this.identidad = identidad;
     }
 
     public String getPrimerNombre() {
@@ -92,6 +92,12 @@ public class aspirantes extends CouchDbDocument {
     public void setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
     }
+
+    @Override
+    public String toString() {
+        return "aspirantes{" + "username=" + username + ", identidad=" + identidad + ", primerNombre=" + primerNombre + ", segundoNombre=" + segundoNombre + ", primerApellido=" + primerApellido + ", segundoApellido=" + segundoApellido + ", fechaNacimiento=" + fechaNacimiento + ", createdBy=" + createdBy + '}';
+    }
+    
     
     
 }

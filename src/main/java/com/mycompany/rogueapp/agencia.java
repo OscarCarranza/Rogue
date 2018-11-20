@@ -89,6 +89,10 @@ public class agencia extends CouchDbDocument {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    
+
+    @Override
+    public String toString() {
+        return "agencia{" + "username=" + username + ", RTN=" + RTN + ", nombre=" + nombre + ", direccion=" + direccion + ", telefono=" + telefono + ", correo=" + correo + ", director=" + director + ", descripcion=" + descripcion + '}';
+    }
     
 }
