@@ -28,14 +28,15 @@ public class javaCouchDB {
         PropertyConfigurator.configure(log4jProp);
 //--------------- Creating Connection--------------------------//  
         HttpClient httpClient = new StdHttpClient.Builder()
-                .url("http://localhost:5984")
+                .url("http://192.168.1.8:5984")
+                .port(5984)
                 .username("administrator2")
                 .password("123456789")
                 .build();
         CouchDbInstance dbInstance = new StdCouchDbInstance(httpClient);
 //--------------- Creating database----------------------------//  
-        CouchDbConnector db = new StdCouchDbConnector("javatpoint", dbInstance);
-        db.createDatabaseIfNotExists();
+        //CouchDbConnector db = new StdCouchDbConnector("test1", dbInstance);
+        //db.createDatabaseIfNotExists();
 //--------------- Creating Document----------------------------//  
        // DesignDocument dd = new DesignDocument("light");
        // db.create(dd);
