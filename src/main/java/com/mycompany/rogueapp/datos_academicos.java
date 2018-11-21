@@ -3,11 +3,24 @@ package com.mycompany.rogueapp;
 import org.ektorp.support.CouchDbDocument;
 
 public class datos_academicos extends CouchDbDocument {
+
+    String _rev;
+    String _id;
     String username;
     grados_academicos titulo;
     String institucion;
     String anioGrad;
-    String promedioGrad;  
+    String promedioGrad;
+
+    public datos_academicos(String _id, String _rev, String username, grados_academicos titulo, String institucion, String anioGrad, String promedioGrad) {
+        this._id = _id;
+        this._rev = _rev;
+        this.username = username;
+        this.titulo = titulo;
+        this.institucion = institucion;
+        this.anioGrad = anioGrad;
+        this.promedioGrad = promedioGrad;
+    }
 
     public datos_academicos(String username, grados_academicos titulo, String institucion, String anioGrad, String promedioGrad) {
         this.username = username;
@@ -58,8 +71,28 @@ public class datos_academicos extends CouchDbDocument {
     }
 
     @Override
+    public String getRevision() {
+        return _rev;
+    }
+
+    @Override
+    public void setRevision(String _rev) {
+        this._rev = _rev;
+    }
+
+    @Override
+    public String getId() {
+        return _id;
+    }
+
+    @Override
+    public void setId(String _id) {
+        this._id = _id;
+    }
+
+    @Override
     public String toString() {
         return "datos_academicos{" + "username=" + username + ", titulo=" + titulo + ", institucion=" + institucion + ", anioGrad=" + anioGrad + ", promedioGrad=" + promedioGrad + '}';
     }
-    
+
 }

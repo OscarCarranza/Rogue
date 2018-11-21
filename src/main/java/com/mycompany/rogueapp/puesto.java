@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import org.ektorp.support.CouchDbDocument;
 
 public class puesto extends CouchDbDocument {
+
+    String _rev;
+    String _id;
     String idPuesto;
     String RTNagencia;
     String rangoJerarquico;
@@ -11,6 +14,17 @@ public class puesto extends CouchDbDocument {
     String tipoPlaza;
     int cantidadPlazas;
     ArrayList<datos_academicos> datosAcademicos = new ArrayList();
+
+    public puesto(String _id, String _rev, String idPuesto, String RTNagencia, String rangoJerarquico, String rangoSalarial, String tipoPlaza, int cantidadPlazas) {
+        this._id = _id;
+        this._rev = _rev;
+        this.idPuesto = idPuesto;
+        this.RTNagencia = RTNagencia;
+        this.rangoJerarquico = rangoJerarquico;
+        this.rangoSalarial = rangoSalarial;
+        this.tipoPlaza = tipoPlaza;
+        this.cantidadPlazas = cantidadPlazas;
+    }
 
     public puesto(String idPuesto, String RTNagencia, String rangoJerarquico, String rangoSalarial, String tipoPlaza, int cantidadPlazas) {
         this.idPuesto = idPuesto;
@@ -78,8 +92,28 @@ public class puesto extends CouchDbDocument {
     }
 
     @Override
+    public String getRevision() {
+        return _rev;
+    }
+
+    @Override
+    public void setRevision(String _rev) {
+        this._rev = _rev;
+    }
+
+    @Override
+    public String getId() {
+        return _id;
+    }
+
+    @Override
+    public void setId(String _id) {
+        this._id = _id;
+    }
+
+    @Override
     public String toString() {
         return "puesto{" + "idPuesto=" + idPuesto + ", RTNagencia=" + RTNagencia + ", rangoJerarquico=" + rangoJerarquico + ", rangoSalarial=" + rangoSalarial + ", tipoPlaza=" + tipoPlaza + ", cantidadPlazas=" + cantidadPlazas + ", datosAcademicos=" + datosAcademicos + '}';
     }
-    
+
 }

@@ -4,6 +4,8 @@ import org.ektorp.support.CouchDbDocument;
 
 public class agencia extends CouchDbDocument {
 
+    String _id;
+    String _rev;
     //Clave foranea de users
     String username;
     //Clave de la tabla agencia
@@ -14,6 +16,19 @@ public class agencia extends CouchDbDocument {
     String correo;
     String director;
     String descripcion;
+
+    public agencia(String _id, String _rev, String username, String RTN, String nombre, String direccion, int telefono, String correo, String director, String descripcion) {
+        this._id = _id;
+        this._rev = _rev;
+        this.username = username;
+        this.RTN = RTN;
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.correo = correo;
+        this.director = director;
+        this.descripcion = descripcion;
+    }
 
     public agencia(String username, String RTN, String nombre, String direccion, int telefono, String correo, String director, String descripcion) {
         this.username = username;
@@ -91,8 +106,28 @@ public class agencia extends CouchDbDocument {
     }
 
     @Override
+    public String getRevision() {
+        return _rev;
+    }
+
+    @Override
+    public void setRevision(String _rev) {
+        this._rev = _rev;
+    }
+
+    @Override
+    public String getId() {
+        return _id;
+    }
+
+    @Override
+    public void setId(String _id) {
+        this._id = _id;
+    }
+
+    @Override
     public String toString() {
         return "agencia{" + "username=" + username + ", RTN=" + RTN + ", nombre=" + nombre + ", direccion=" + direccion + ", telefono=" + telefono + ", correo=" + correo + ", director=" + director + ", descripcion=" + descripcion + '}';
     }
-    
+
 }

@@ -1,11 +1,12 @@
 package com.mycompany.rogueapp;
 
-
 import java.util.Date;
 import org.ektorp.support.CouchDbDocument;
 
 public class aspirantes extends CouchDbDocument {
 
+    String _id;
+    String _rev;
     //Llave foranea de users
     String username;
     //Llave tabla aspiratenes
@@ -17,6 +18,19 @@ public class aspirantes extends CouchDbDocument {
     Date fechaNacimiento;
     //Para que los usuarios puedan hacer CRUD de los perfiles creados por ellos
     String createdBy;
+
+    public aspirantes(String _id, String _rev, String username, String identidad, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, Date fechaNacimiento, String createdBy) {
+        this._id = _id;
+        this._rev = _rev;
+        this.username = username;
+        this.identidad = identidad;
+        this.primerNombre = primerNombre;
+        this.segundoNombre = segundoNombre;
+        this.primerApellido = primerApellido;
+        this.segundoApellido = segundoApellido;
+        this.fechaNacimiento = fechaNacimiento;
+        this.createdBy = createdBy;
+    }
 
     public aspirantes(String username, String identidad, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, Date fechaNacimiento, String createdBy) {
         this.username = username;
@@ -94,10 +108,28 @@ public class aspirantes extends CouchDbDocument {
     }
 
     @Override
+    public String getRevision() {
+        return _rev;
+    }
+
+    @Override
+    public void setRevision(String _rev) {
+        this._rev = _rev;
+    }
+
+    @Override
+    public String getId() {
+        return _id;
+    }
+
+    @Override
+    public void setId(String _id) {
+        this._id = _id;
+    }
+
+    @Override
     public String toString() {
         return "aspirantes{" + "username=" + username + ", identidad=" + identidad + ", primerNombre=" + primerNombre + ", segundoNombre=" + segundoNombre + ", primerApellido=" + primerApellido + ", segundoApellido=" + segundoApellido + ", fechaNacimiento=" + fechaNacimiento + ", createdBy=" + createdBy + '}';
     }
-    
-    
-    
+
 }
