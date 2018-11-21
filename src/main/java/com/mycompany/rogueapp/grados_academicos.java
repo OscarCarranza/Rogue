@@ -6,7 +6,9 @@ public class grados_academicos extends CouchDbDocument {
 
     String _rev;
     String _id;
+    //Titulo obtenido ej Ing Sistemas deben ser UNICOS y son creados por el admin
     String gradoAcademico;
+    //Secundaria, Pregrado o Posgrado
     String nivel;
 
     public grados_academicos(String _id, String _rev, String gradoAcademico, String nivel) {

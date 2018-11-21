@@ -13,7 +13,7 @@ public class puesto extends CouchDbDocument {
     String rangoSalarial;
     String tipoPlaza;
     int cantidadPlazas;
-    ArrayList<datos_academicos> datosAcademicos = new ArrayList();
+    ArrayList<grados_academicos> gradosAcademicos = new ArrayList();
 
     public puesto(String _id, String _rev, String idPuesto, String RTNagencia, String rangoJerarquico, String rangoSalarial, String tipoPlaza, int cantidadPlazas) {
         this._id = _id;
@@ -83,12 +83,12 @@ public class puesto extends CouchDbDocument {
         this.cantidadPlazas = cantidadPlazas;
     }
 
-    public ArrayList<datos_academicos> getDatosAcademicos() {
-        return datosAcademicos;
+    public ArrayList<grados_academicos> getGradosAcademicos() {
+        return gradosAcademicos;
     }
 
-    public void setDatosAcademicos(ArrayList<datos_academicos> datosAcademicos) {
-        this.datosAcademicos = datosAcademicos;
+    public void setGradosAcademicos(ArrayList<grados_academicos> gradosAcademicos) {
+        this.gradosAcademicos = gradosAcademicos;
     }
 
     @Override
@@ -113,7 +113,7 @@ public class puesto extends CouchDbDocument {
 
     @Override
     public String toString() {
-        return "puesto{" + "idPuesto=" + idPuesto + ", RTNagencia=" + RTNagencia + ", rangoJerarquico=" + rangoJerarquico + ", rangoSalarial=" + rangoSalarial + ", tipoPlaza=" + tipoPlaza + ", cantidadPlazas=" + cantidadPlazas + ", datosAcademicos=" + datosAcademicos + '}';
+        return "puesto{" + "idPuesto=" + idPuesto + ", RTNagencia=" + RTNagencia + ", rangoJerarquico=" + rangoJerarquico + ", rangoSalarial=" + rangoSalarial + ", tipoPlaza=" + tipoPlaza + ", cantidadPlazas=" + cantidadPlazas + ", datosAcademicos=" + gradosAcademicos + '}';
     }
 
 }
