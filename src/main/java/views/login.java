@@ -19,6 +19,51 @@ public class login extends javax.swing.JFrame {
      * Creates new form login
      */
     public login() {
+     /*   
+           Properties log4jProp = new Properties();
+        log4jProp.setProperty("log4j.rootLogger", "WARN");
+        PropertyConfigurator.configure(log4jProp);
+//--------------- Creating Connection--------------------------//  
+        HttpClient httpClient = new StdHttpClient.Builder()
+                .url("http://192.168.1.8:5984")
+                .username("administrator2")
+                .password("123456789")
+                .build();
+        CouchDbInstance dbInstance = new StdCouchDbInstance(httpClient);
+//--------------- Creating database----------------------------//  
+        CouchDbConnector db = new StdCouchDbConnector("aspirantes", dbInstance);
+        db.createDatabaseIfNotExists();
+//--------------- Creating Document----------------------------//  
+        String date = new Date().toString();
+        aspirantes Aspi = new aspirantes("gisselle", "1517199500614", "gisselle", "dilcia", "lagos", "doblado", date, "Ricardo");
+        //   DesignDocument dd = new DesignDocument("light");
+        // db.create(Aspi);
+
+//--------------- Reatriving Documents ---------------------------//
+        List<String> docIds = db.getAllDocIds();
+        Gson gson = new Gson();
+        ViewQuery q = new ViewQuery().allDocs().includeDocs(true).keys(docIds);
+        ArrayList<aspirantes> listAspirantes = new ArrayList();
+        for (int i = 0; i < db.queryView(q).getRows().size(); i++) {
+            System.out.println(db.queryView(q).getRows().get(i).getDoc());
+            listAspirantes.add(gson.fromJson(db.queryView(q).getRows().get(i).getDoc(), aspirantes.class));
+        }
+        for (int i = 0; i < listAspirantes.size(); i++) {
+            System.out.println(listAspirantes.get(i));
+        }
+//------------------------------ delete data -------------------//
+        System.out.println(listAspirantes.get(0).getId() + " " + listAspirantes.get(0).getRevision());
+        //    db.delete(listAspirantes.get(0).getId(),listAspirantes.get(0).getRevision());
+
+//----------------------------- update data--------------------//
+       
+ aspirantes Aspi2 = new aspirantes(listAspirantes.get(0).getId(),listAspirantes.get(0).getRevision(),"Madrina", "1517199500614", "gisselle", "dilcia", "lagos", "doblado", date, "Ricardo");
+    Aspi=Aspi2;
+   
+         db.update(Aspi); 
+        Aspi.getRevision();
+
+*/
 
         initComponents();
         
