@@ -26,23 +26,13 @@ public class login extends javax.swing.JFrame {
         //C:\Users\oscar\Documents\NetBeansProjects\Rogue\src\main\java\views\login.java
         
           
-            label_Employee.setIcon(new ImageIcon("src/main/java/imgs/buttonEmployee.png"));
-            label_agency.setIcon(new ImageIcon("src/main/java/imgs/buttonAgency.png"));
-            label_logout.setIcon(new ImageIcon("src/main/java/imgs/logOut.png"));
-            label_fondo.setIcon(new ImageIcon("src/main/java/imgs/rogueLogo.png"));
-            jLabel18.setIcon(new ImageIcon("src/main/java/imgs/volver.png"));
-            jLabel9.setIcon(new ImageIcon("src/main/java/imgs/logOut.png"));
-            back5.setIcon(new ImageIcon("src/main/java/imgs/back.png"));
-            jLabel11.setIcon(new ImageIcon("src/main/java/imgs/wallpaper.png"));
-            back6.setIcon(new ImageIcon("src/main/java/imgs/back.png"));
-            jLabel14.setIcon(new ImageIcon("src/main/java/imgs/logOut.png"));
-            jLabel16.setIcon(new ImageIcon("src/main/java/imgs/wallpaper.png"));
-            jLabel17.setIcon(new ImageIcon("src/main/java/imgs/volver.png"));
-            jLabel1.setIcon(new ImageIcon("src/main/java/imgs/rogueLogo.png"));
+            
+            jLabel18.setVisible(true);
             errorLogin.setVisible(false);
             tf_pwd.setBackground(new Color(0,0,0,0));
             tf_user.setBackground(new Color(0,0,0,0));
             this.setLocationRelativeTo(null);
+            agencies1.dispose();
 
 
             tf_name.setBackground(new Color(0,0,0,0));
@@ -130,6 +120,7 @@ public class login extends javax.swing.JFrame {
         table_agencies1 = new javax.swing.JTable();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel17 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -137,6 +128,7 @@ public class login extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         tf_pwd = new javax.swing.JTextField();
         tf_user = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
         errorLogin = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -149,6 +141,7 @@ public class login extends javax.swing.JFrame {
         label_Employee.setBackground(new java.awt.Color(255, 51, 51));
         label_Employee.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         label_Employee.setForeground(new java.awt.Color(255, 255, 255));
+        label_Employee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonEmployee.png"))); // NOI18N
         label_Employee.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         label_Employee.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -161,6 +154,7 @@ public class login extends javax.swing.JFrame {
         label_logout.setBackground(new java.awt.Color(255, 51, 51));
         label_logout.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         label_logout.setForeground(new java.awt.Color(255, 255, 255));
+        label_logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logOut.png"))); // NOI18N
         label_logout.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         label_logout.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -173,6 +167,7 @@ public class login extends javax.swing.JFrame {
         label_agency.setBackground(new java.awt.Color(255, 51, 51));
         label_agency.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         label_agency.setForeground(new java.awt.Color(255, 255, 255));
+        label_agency.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonAgency.png"))); // NOI18N
         label_agency.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         label_agency.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -181,6 +176,8 @@ public class login extends javax.swing.JFrame {
         });
         jPanel3.add(label_agency);
         label_agency.setBounds(320, 270, 240, 250);
+
+        label_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/roguelogo.png"))); // NOI18N
         jPanel3.add(label_fondo);
         label_fondo.setBounds(0, 0, 1260, 680);
 
@@ -217,13 +214,14 @@ public class login extends javax.swing.JFrame {
         jPanel4.add(jSeparator1);
         jSeparator1.setBounds(100, 170, 1010, 10);
 
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/volver.png"))); // NOI18N
         jLabel18.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel18MouseClicked(evt);
             }
         });
         jPanel4.add(jLabel18);
-        jLabel18.setBounds(30, 30, 0, 0);
+        jLabel18.setBounds(30, 30, 107, 40);
 
         jLabel8.setBackground(new java.awt.Color(255, 51, 51));
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -242,6 +240,7 @@ public class login extends javax.swing.JFrame {
         jLabel9.setBackground(new java.awt.Color(255, 51, 51));
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logOut.png"))); // NOI18N
         jLabel9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -258,6 +257,8 @@ public class login extends javax.swing.JFrame {
         jLabel10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel4.add(jLabel10);
         jLabel10.setBounds(100, 100, 180, 50);
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/wallpaper.png"))); // NOI18N
         jPanel4.add(jLabel11);
         jLabel11.setBounds(0, 0, 1260, 680);
 
@@ -292,6 +293,7 @@ public class login extends javax.swing.JFrame {
         panel_Rep.add(AddRep);
         AddRep.setBounds(440, 320, 145, 34);
 
+        tf_address.setBackground(new java.awt.Color(0, 0, 0));
         tf_address.setForeground(new java.awt.Color(255, 255, 255));
         tf_address.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         tf_address.addActionListener(new java.awt.event.ActionListener() {
@@ -302,6 +304,7 @@ public class login extends javax.swing.JFrame {
         panel_Rep.add(tf_address);
         tf_address.setBounds(300, 150, 210, 33);
 
+        tf_director.setBackground(new java.awt.Color(0, 0, 0));
         tf_director.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         tf_director.setForeground(new java.awt.Color(255, 255, 255));
         tf_director.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00;(¤#,##0.00)"))));
@@ -333,6 +336,7 @@ public class login extends javax.swing.JFrame {
         panel_Rep.add(label_numParte);
         label_numParte.setBounds(560, 110, 40, 16);
 
+        tf_rtn.setBackground(new java.awt.Color(0, 0, 0));
         tf_rtn.setForeground(new java.awt.Color(255, 255, 255));
         tf_rtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         tf_rtn.addActionListener(new java.awt.event.ActionListener() {
@@ -354,11 +358,13 @@ public class login extends javax.swing.JFrame {
         panel_Rep.add(label_marca);
         label_marca.setBounds(220, 110, 60, 17);
 
+        tf_name.setBackground(new java.awt.Color(0, 0, 0));
         tf_name.setForeground(new java.awt.Color(255, 255, 255));
         tf_name.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         panel_Rep.add(tf_name);
         tf_name.setBounds(290, 100, 220, 31);
 
+        tf_tel.setBackground(new java.awt.Color(0, 0, 0));
         tf_tel.setForeground(new java.awt.Color(255, 255, 255));
         tf_tel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         tf_tel.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -377,6 +383,7 @@ public class login extends javax.swing.JFrame {
 
         back5.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
         back5.setForeground(new java.awt.Color(153, 153, 153));
+        back5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back.png"))); // NOI18N
         back5.setToolTipText("");
         back5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -392,6 +399,7 @@ public class login extends javax.swing.JFrame {
         panel_Rep.add(label_marca2);
         label_marca2.setBounds(210, 260, 80, 17);
 
+        tf_desc.setBackground(new java.awt.Color(0, 0, 0));
         tf_desc.setForeground(new java.awt.Color(255, 255, 255));
         tf_desc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         panel_Rep.add(tf_desc);
@@ -411,6 +419,7 @@ public class login extends javax.swing.JFrame {
         panel_Rep.add(label_name3);
         label_name3.setBounds(210, 210, 130, 17);
 
+        tf_pass.setBackground(new java.awt.Color(0, 0, 0));
         tf_pass.setForeground(new java.awt.Color(255, 255, 255));
         tf_pass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         tf_pass.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
@@ -434,6 +443,7 @@ public class login extends javax.swing.JFrame {
         panel_Rep.add(label_proveedor2);
         label_proveedor2.setBounds(560, 160, 80, 17);
 
+        tf_email.setBackground(new java.awt.Color(0, 0, 0));
         tf_email.setForeground(new java.awt.Color(255, 255, 255));
         tf_email.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         tf_email.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
@@ -482,6 +492,7 @@ public class login extends javax.swing.JFrame {
         panel_Rep1.add(AddRep1);
         AddRep1.setBounds(440, 320, 145, 34);
 
+        tf_director1.setBackground(new java.awt.Color(0, 0, 0));
         tf_director1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         tf_director1.setForeground(new java.awt.Color(255, 255, 255));
         tf_director1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00;(¤#,##0.00)"))));
@@ -519,6 +530,7 @@ public class login extends javax.swing.JFrame {
         panel_Rep1.add(label_marca1);
         label_marca1.setBounds(210, 110, 100, 17);
 
+        tf_lastname2.setBackground(new java.awt.Color(0, 0, 0));
         tf_lastname2.setForeground(new java.awt.Color(255, 255, 255));
         tf_lastname2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         panel_Rep1.add(tf_lastname2);
@@ -532,6 +544,7 @@ public class login extends javax.swing.JFrame {
 
         back6.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
         back6.setForeground(new java.awt.Color(153, 153, 153));
+        back6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back.png"))); // NOI18N
         back6.setToolTipText("");
         back6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -561,6 +574,7 @@ public class login extends javax.swing.JFrame {
         panel_Rep1.add(label_name4);
         label_name4.setBounds(210, 210, 130, 17);
 
+        tf_pass1.setBackground(new java.awt.Color(0, 0, 0));
         tf_pass1.setForeground(new java.awt.Color(255, 255, 255));
         tf_pass1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         tf_pass1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
@@ -584,6 +598,7 @@ public class login extends javax.swing.JFrame {
         panel_Rep1.add(label_proveedor3);
         label_proveedor3.setBounds(520, 160, 120, 17);
 
+        tf_email1.setBackground(new java.awt.Color(0, 0, 0));
         tf_email1.setForeground(new java.awt.Color(255, 255, 255));
         tf_email1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         tf_email1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
@@ -601,16 +616,19 @@ public class login extends javax.swing.JFrame {
         panel_Rep1.add(tf_email1);
         tf_email1.setBounds(340, 200, 140, 31);
 
+        tf_name1.setBackground(new java.awt.Color(0, 0, 0));
         tf_name1.setForeground(new java.awt.Color(255, 255, 255));
         tf_name1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         panel_Rep1.add(tf_name1);
         tf_name1.setBounds(330, 100, 150, 31);
 
+        tf_lastname1.setBackground(new java.awt.Color(0, 0, 0));
         tf_lastname1.setForeground(new java.awt.Color(255, 255, 255));
         tf_lastname1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         panel_Rep1.add(tf_lastname1);
         tf_lastname1.setBounds(330, 150, 150, 31);
 
+        tf_name2.setBackground(new java.awt.Color(0, 0, 0));
         tf_name2.setForeground(new java.awt.Color(255, 255, 255));
         tf_name2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
         panel_Rep1.add(tf_name2);
@@ -659,6 +677,15 @@ public class login extends javax.swing.JFrame {
         jPanel5.add(jLabel17);
         jLabel17.setBounds(30, 30, 110, 0);
 
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/volver.png"))); // NOI18N
+        jLabel19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel19MouseClicked(evt);
+            }
+        });
+        jPanel5.add(jLabel19);
+        jLabel19.setBounds(30, 30, 107, 40);
+
         jLabel13.setBackground(new java.awt.Color(255, 51, 51));
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
@@ -676,6 +703,7 @@ public class login extends javax.swing.JFrame {
         jLabel14.setBackground(new java.awt.Color(255, 51, 51));
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logOut.png"))); // NOI18N
         jLabel14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -692,6 +720,8 @@ public class login extends javax.swing.JFrame {
         jLabel15.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel5.add(jLabel15);
         jLabel15.setBounds(100, 100, 220, 50);
+
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/wallpaper.png"))); // NOI18N
         jPanel5.add(jLabel16);
         jLabel16.setBounds(0, 0, 1260, 680);
 
@@ -750,6 +780,16 @@ public class login extends javax.swing.JFrame {
         jPanel1.add(tf_user);
         tf_user.setBounds(460, 310, 340, 40);
 
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back.png"))); // NOI18N
+        jLabel4.setText("jLabel4");
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(1170, 40, 61, 30);
+
         errorLogin.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         errorLogin.setForeground(new java.awt.Color(255, 51, 51));
         errorLogin.setText("    Usuario o contraseña incorrecta");
@@ -769,6 +809,8 @@ public class login extends javax.swing.JFrame {
         });
         jPanel1.add(jLabel2);
         jLabel2.setBounds(460, 450, 340, 40);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/roguelogo.png"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 1260, 680);
 
@@ -828,10 +870,12 @@ public class login extends javax.swing.JFrame {
 
     private void label_logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_logoutMouseClicked
        jFrame2.dispose();
+       this.setVisible(true);
     }//GEN-LAST:event_label_logoutMouseClicked
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
-        // TODO add your handling code here:
+       agencies.dispose();
+       this.setVisible(true);
     }//GEN-LAST:event_jLabel9MouseClicked
 
     private void AddRepMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddRepMouseClicked
@@ -869,12 +913,15 @@ public class login extends javax.swing.JFrame {
             error = true;
         }
 
-        
 
         // error misssing marca
         if(tf_desc.getText().equals("")){
             tf_desc.setBorder(BorderFactory.createLineBorder(Color.red));
             error = true;
+        }
+        
+        if(!error){
+            //DB insert
         }
 
         
@@ -977,7 +1024,7 @@ public class login extends javax.swing.JFrame {
     private void back6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_back6MouseClicked
         newAgency1.setVisible(false);
         newAgency1.dispose();
-        scrollPane_agencies.setVisible(true);
+        scrollPane_agencies1.setVisible(true);
     }//GEN-LAST:event_back6MouseClicked
 
     private void tf_pass1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_pass1ActionPerformed
@@ -997,7 +1044,7 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_tf_email1KeyTyped
 
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
-       newAgency1.setSize(scrollPane_agencies1.getSize());
+        newAgency1.setSize(scrollPane_agencies1.getSize());
         newAgency1.setLocationRelativeTo(scrollPane_agencies1);
         scrollPane_agencies1.setVisible(false);
         panel_Rep1.setBackground(new Color(0,0,0,0));  
@@ -1006,7 +1053,8 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel13MouseClicked
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
-        // TODO add your handling code here:
+       agencies1.dispose();
+       this.setVisible(true);
     }//GEN-LAST:event_jLabel14MouseClicked
 
     private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
@@ -1018,10 +1066,19 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel18MouseClicked
 
     private void label_EmployeeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_EmployeeMouseClicked
-        agencies.pack();
-        agencies.setLocationRelativeTo(jFrame2);
-        agencies.setVisible(true);
+        agencies1.pack();
+        agencies1.setLocationRelativeTo(jFrame2);
+        agencies1.setVisible(true);
     }//GEN-LAST:event_label_EmployeeMouseClicked
+
+    private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
+       agencies1.dispose();
+       
+    }//GEN-LAST:event_jLabel19MouseClicked
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+       System.exit(0);
+    }//GEN-LAST:event_jLabel4MouseClicked
 
     /**
      * @param args the command line arguments
@@ -1078,8 +1135,10 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
