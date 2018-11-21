@@ -4,10 +4,25 @@
  * and open the template in the editor.
  */
 package views;
+
+import com.mycompany.rogueapp.users;
 import java.awt.Color;
+import java.awt.List;
 import java.awt.event.KeyEvent;
+import java.net.MalformedURLException;
+import java.util.ArrayList;
+import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
+import org.apache.log4j.PropertyConfigurator;
+import org.ektorp.CouchDbConnector;
+import org.ektorp.CouchDbInstance;
+import org.ektorp.ViewQuery;
+import org.ektorp.http.HttpClient;
+import org.ektorp.http.StdHttpClient;
+import org.ektorp.impl.StdCouchDbConnector;
+import org.ektorp.impl.StdCouchDbInstance;
 
 /**
  *
@@ -19,30 +34,76 @@ public class login extends javax.swing.JFrame {
      * Creates new form login
      */
     public login() {
+    /*    try {
+            Properties log4jProp = new Properties();
+            log4jProp.setProperty("log4j.rootLogger", "WARN");
+            PropertyConfigurator.configure(log4jProp);
+//--------------- Creating Connection--------------------------//
+            HttpClient httpClient = new StdHttpClient.Builder()
+                    .url("http://127.0.0.1:5984")
+                    .username("administrator2")
+                    .password("123456789")
+                    .build();
+            dbInstance = new StdCouchDbInstance(httpClient);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        /*
+//--------------- Creating database----------------------------//
+CouchDbConnector db = new StdCouchDbConnector("aspirantes", dbInstance);
+db.createDatabaseIfNotExists();
+//--------------- Creating Document----------------------------//
+String date = new Date().toString();
+aspirantes Aspi = new aspirantes("gisselle", "1517199500614", "gisselle", "dilcia", "lagos", "doblado", date, "Ricardo");
+//   DesignDocument dd = new DesignDocument("light");
+// db.create(Aspi);
+
+        
+//--------------- Reatriving Documents ---------------------------//
+List<String> docIds = db.getAllDocIds();
+Gson gson = new Gson();
+ViewQuery q = new ViewQuery().allDocs().includeDocs(true).keys(docIds);
+ArrayList<aspirantes> listAspirantes = new ArrayList();
+for (int i = 0; i < db.queryView(q).getRows().size(); i++) {
+System.out.println(db.queryView(q).getRows().get(i).getDoc());
+listAspirantes.add(gson.fromJson(db.queryView(q).getRows().get(i).getDoc(), aspirantes.class));
+}
+for (int i = 0; i < listAspirantes.size(); i++) {
+System.out.println(listAspirantes.get(i));
+}
+//------------------------------ delete data -------------------//
+System.out.println(listAspirantes.get(0).getId() + " " + listAspirantes.get(0).getRevision());
+//    db.delete(listAspirantes.get(0).getId(),listAspirantes.get(0).getRevision());
+
+//----------------------------- update data--------------------//
+
+aspirantes Aspi2 = new aspirantes(listAspirantes.get(0).getId(),listAspirantes.get(0).getRevision(),"Madrina", "1517199500614", "gisselle", "dilcia", "lagos", "doblado", date, "Ricardo");
+Aspi=Aspi2;
+
+db.update(Aspi);
+Aspi.getRevision();
+
+         */
 
         initComponents();
-        
+
         //C:\Users\oscar\Documents\NetBeansProjects\Rogue\src\main\java\imgs\Black-Wallpaper-1080-12.jpg
         //C:\Users\oscar\Documents\NetBeansProjects\Rogue\src\main\java\views\login.java
-        
-          
-            
-            jLabel18.setVisible(true);
-            errorLogin.setVisible(false);
-            tf_pwd.setBackground(new Color(0,0,0,0));
-            tf_user.setBackground(new Color(0,0,0,0));
-            this.setLocationRelativeTo(null);
-            agencies1.dispose();
+        jLabel18.setVisible(true);
+        errorLogin.setVisible(false);
+        tf_pwd.setBackground(new Color(0, 0, 0, 0));
+        tf_user.setBackground(new Color(0, 0, 0, 0));
+        this.setLocationRelativeTo(null);
+        agencies1.dispose();
 
-
-            tf_name.setBackground(new Color(0,0,0,0));
-            tf_desc.setBackground(new Color(0,0,0,0));
-            tf_rtn.setBackground(new Color(0,0,0,0));
-            tf_address.setBackground(new Color(0,0,0,0));
-            tf_tel.setBackground(new Color(0,0,0,0));
-            tf_director.setBackground(new Color(0,0,0,0));
-            tf_pass.setBackground(new Color(0,0,0,0));
-            tf_email.setBackground(new Color(0,0,0,0));
+        tf_name.setBackground(new Color(0, 0, 0, 0));
+        tf_desc.setBackground(new Color(0, 0, 0, 0));
+        tf_rtn.setBackground(new Color(0, 0, 0, 0));
+        tf_address.setBackground(new Color(0, 0, 0, 0));
+        tf_tel.setBackground(new Color(0, 0, 0, 0));
+        tf_director.setBackground(new Color(0, 0, 0, 0));
+        tf_pass.setBackground(new Color(0, 0, 0, 0));
+        tf_email.setBackground(new Color(0, 0, 0, 0));
     }
 
     /**
@@ -841,90 +902,108 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_tf_userKeyTyped
 
     private void tf_userMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_userMouseClicked
-        if(tf_user.getText().contains("Username")){
-           tf_user.setText("");
+        if (tf_user.getText().contains("Username")) {
+            tf_user.setText("");
         }
 
-        if(tf_pwd.getText().contains("")){
-           tf_pwd.setText("  Password");
-       }
+        if (tf_pwd.getText().contains("")) {
+            tf_pwd.setText("  Password");
+        }
     }//GEN-LAST:event_tf_userMouseClicked
 
     private void tf_pwdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_pwdMouseClicked
-       if(tf_pwd.getText().contains("Password")){
-           tf_pwd.setText("");
-       }
-       
-       if(tf_user.getText().equals("")){
-           tf_user.setText("  Username");
+        if (tf_pwd.getText().contains("Password")) {
+            tf_pwd.setText("");
         }
-       
+
+        if (tf_user.getText().equals("")) {
+            tf_user.setText("  Username");
+        }
+
     }//GEN-LAST:event_tf_pwdMouseClicked
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-       jFrame2.pack();
-       jFrame2.setLocationRelativeTo(null);
-       jFrame2.setVisible(true);
-       this.setVisible(false);
+     /*   CouchDbConnector db = new StdCouchDbConnector("users", dbInstance);
+
+        List<String> docIds = db.getAllDocIds();
+        Gson gson = new Gson();
+        ViewQuery q = new ViewQuery().allDocs().includeDocs(true).keys(docIds);
+        ArrayList<users> listUsers = new ArrayList();
+        for (int i = 0; i < db.queryView(q).getRows().size(); i++) {
+            System.out.println(db.queryView(q).getRows().get(i).getDoc());
+            listUsers.add(gson.fromJson(db.queryView(q).getRows().get(i).getDoc(), users.class));
+        }
+        for (int i = 0; i < listUsers.size(); i++) {
+            if (this.tf_user.getText().equals(listUsers.get(i).getUsername()) && this.tf_pwd.getText().equals(listUsers.get(i).getPassword())) {
+                System.out.println("entro");
+                jFrame2.pack();
+                jFrame2.setLocationRelativeTo(null);
+                jFrame2.setVisible(true);
+                this.setVisible(false);
+            } else {
+                errorLogin.setVisible(true);
+                System.out.println("no entro");
+            }
+
+        }*/
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void label_logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_logoutMouseClicked
-       jFrame2.dispose();
-       this.setVisible(true);
+        jFrame2.dispose();
+        this.setVisible(true);
     }//GEN-LAST:event_label_logoutMouseClicked
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
-       agencies.dispose();
-       this.setVisible(true);
+        agencies.dispose();
+        this.setVisible(true);
     }//GEN-LAST:event_jLabel9MouseClicked
 
     private void AddRepMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddRepMouseClicked
         boolean error = false;
 
-        if(tf_address.getText().equals("")){
+        if (tf_address.getText().equals("")) {
             tf_address.setBorder(BorderFactory.createLineBorder(Color.red));
             error = true;
         }
 
-        if(tf_director.getText().equals("")){
+        if (tf_director.getText().equals("")) {
             tf_director.setBorder(BorderFactory.createLineBorder(Color.red));
             error = true;
         }
 
-        if(tf_name.getText().equals("")){
+        if (tf_name.getText().equals("")) {
             tf_name.setBorder(BorderFactory.createLineBorder(Color.red));
             error = true;
         }
 
-        if(tf_tel.getText().equals("")){
+        if (tf_tel.getText().equals("")) {
             tf_tel.setBorder(BorderFactory.createLineBorder(Color.red));
             error = true;
         }
 
         //error Missing NumPart
-        if(tf_rtn.getText().equals("")){
+        if (tf_rtn.getText().equals("")) {
             tf_rtn.setBorder(BorderFactory.createLineBorder(Color.red));
             error = true;
         }
 
         //error Missing num Fact
-        if(tf_pass.getText().equals("")){
+        if (tf_pass.getText().equals("")) {
             tf_pass.setBorder(BorderFactory.createLineBorder(Color.red));
             error = true;
         }
 
-
         // error misssing marca
-        if(tf_desc.getText().equals("")){
+        if (tf_desc.getText().equals("")) {
             tf_desc.setBorder(BorderFactory.createLineBorder(Color.red));
             error = true;
         }
-        
-        if(!error){
+
+        if (!error) {
             //DB insert
         }
 
-        
+
     }//GEN-LAST:event_AddRepMouseClicked
 
     private void tf_addressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_addressActionPerformed
@@ -956,8 +1035,8 @@ public class login extends javax.swing.JFrame {
         newAgency.setSize(scrollPane_agencies.getSize());
         newAgency.setLocationRelativeTo(scrollPane_agencies);
         scrollPane_agencies.setVisible(false);
-        panel_Rep.setBackground(new Color(0,0,0,0));  
-        newAgency.setBackground(new Color(0,0,0,0));
+        panel_Rep.setBackground(new Color(0, 0, 0, 0));
+        newAgency.setBackground(new Color(0, 0, 0, 0));
         newAgency.setVisible(true);
     }//GEN-LAST:event_jLabel8MouseClicked
 
@@ -977,28 +1056,28 @@ public class login extends javax.swing.JFrame {
 
     private void tf_telKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tf_telKeyTyped
         char c = evt.getKeyChar();
-        if (!((c >= '0') && (c <= '9') ||
-             (c == KeyEvent.VK_BACK_SPACE) ||
-             (c == KeyEvent.VK_DELETE))) {
+        if (!((c >= '0') && (c <= '9')
+                || (c == KeyEvent.VK_BACK_SPACE)
+                || (c == KeyEvent.VK_DELETE))) {
             getToolkit().beep();
             evt.consume();
         }
-        
-        if(tf_tel.getText().length() == 8){
+
+        if (tf_tel.getText().length() == 8) {
             evt.consume();
         }
     }//GEN-LAST:event_tf_telKeyTyped
 
     private void tf_rtnKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tf_rtnKeyTyped
         char c = evt.getKeyChar();
-        if (!((c >= '0') && (c <= '9') ||
-             (c == KeyEvent.VK_BACK_SPACE) ||
-             (c == KeyEvent.VK_DELETE))) {
+        if (!((c >= '0') && (c <= '9')
+                || (c == KeyEvent.VK_BACK_SPACE)
+                || (c == KeyEvent.VK_DELETE))) {
             getToolkit().beep();
             evt.consume();
         }
-        
-        if(tf_rtn.getText().length() == 14){
+
+        if (tf_rtn.getText().length() == 14) {
             evt.consume();
         }
     }//GEN-LAST:event_tf_rtnKeyTyped
@@ -1009,14 +1088,14 @@ public class login extends javax.swing.JFrame {
 
     private void tf_director1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tf_director1KeyTyped
         char c = evt.getKeyChar();
-        if (!((c >= '0') && (c <= '9') ||
-             (c == KeyEvent.VK_BACK_SPACE) ||
-             (c == KeyEvent.VK_DELETE))) {
+        if (!((c >= '0') && (c <= '9')
+                || (c == KeyEvent.VK_BACK_SPACE)
+                || (c == KeyEvent.VK_DELETE))) {
             getToolkit().beep();
             evt.consume();
         }
-        
-        if(tf_rtn.getText().length() == 13){
+
+        if (tf_rtn.getText().length() == 13) {
             evt.consume();
         }
     }//GEN-LAST:event_tf_director1KeyTyped
@@ -1047,14 +1126,14 @@ public class login extends javax.swing.JFrame {
         newAgency1.setSize(scrollPane_agencies1.getSize());
         newAgency1.setLocationRelativeTo(scrollPane_agencies1);
         scrollPane_agencies1.setVisible(false);
-        panel_Rep1.setBackground(new Color(0,0,0,0));  
-        newAgency1.setBackground(new Color(0,0,0,0));
+        panel_Rep1.setBackground(new Color(0, 0, 0, 0));
+        newAgency1.setBackground(new Color(0, 0, 0, 0));
         newAgency1.setVisible(true);
     }//GEN-LAST:event_jLabel13MouseClicked
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
-       agencies1.dispose();
-       this.setVisible(true);
+        agencies1.dispose();
+        this.setVisible(true);
     }//GEN-LAST:event_jLabel14MouseClicked
 
     private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
@@ -1062,7 +1141,7 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel17MouseClicked
 
     private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
-       agencies.setVisible(false);
+        agencies.setVisible(false);
     }//GEN-LAST:event_jLabel18MouseClicked
 
     private void label_EmployeeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_EmployeeMouseClicked
@@ -1072,12 +1151,12 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_label_EmployeeMouseClicked
 
     private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
-       agencies1.dispose();
-       
+        agencies1.dispose();
+
     }//GEN-LAST:event_jLabel19MouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-       System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_jLabel4MouseClicked
 
     /**
@@ -1195,4 +1274,5 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JTextField tf_tel;
     private javax.swing.JTextField tf_user;
     // End of variables declaration//GEN-END:variables
+  CouchDbInstance dbInstance;
 }
