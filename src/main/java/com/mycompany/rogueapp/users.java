@@ -1,10 +1,22 @@
 package com.mycompany.rogueapp;
+
 import org.ektorp.support.CouchDbDocument;
 
-public class users extends CouchDbDocument {    
+public class users extends CouchDbDocument {
+
+    String _rev;
+    String _id;
     String username;
     String password;
     String type;
+
+    public users(String _id, String _rev, String username, String password, String type) {
+        this._id = _id;
+        this._rev = _rev;
+        this.username = username;
+        this.password = password;
+        this.type = type;
+    }
 
     public users(String username, String password, String type) {
         this.username = username;
@@ -34,6 +46,26 @@ public class users extends CouchDbDocument {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    @Override
+    public String getRevision() {
+        return _rev;
+    }
+
+    @Override
+    public void setRevision(String _rev) {
+        this._rev = _rev;
+    }
+
+    @Override
+    public String getId() {
+        return _id;
+    }
+
+    @Override
+    public void setId(String _id) {
+        this._id = _id;
     }
 
     @Override
