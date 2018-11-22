@@ -22,7 +22,7 @@ public class createPuestos extends javax.swing.JPanel {
     CouchDbInstance dbInstance;
 
     public createPuestos() {
-        this.dbInstance=dbInstance;
+        this.dbInstance = dbInstance;
         initComponents();
     }
 
@@ -39,12 +39,10 @@ public class createPuestos extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         tf_createIdPuesto = new javax.swing.JTextField();
-        cb_createMinRangoSalarial = new javax.swing.JComboBox();
-        cb_createMaxRangoSalarial = new javax.swing.JComboBox();
+        cb_createRangoSalarial = new javax.swing.JComboBox();
         cb_createTipoPlaza = new javax.swing.JComboBox();
         sp_createCantidadPlazas = new javax.swing.JSpinner();
         cb_createRangoJerarquico = new javax.swing.JComboBox();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -77,18 +75,13 @@ public class createPuestos extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setText("Crear puesto vacante");
 
-        cb_createMinRangoSalarial.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "5,000", "10,000", "20,000" }));
-
-        cb_createMaxRangoSalarial.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10,000", "20,000", "30,000" }));
+        cb_createRangoSalarial.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "5,000 - 10,000", "10,500 - 20,000 ", "20,500 - 30,000" }));
 
         cb_createTipoPlaza.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tiempo completo", "Medio tiempo", "Contrato", "Temporal" }));
 
         sp_createCantidadPlazas.setModel(new javax.swing.SpinnerNumberModel(1, 1, 10, 1));
 
         cb_createRangoJerarquico.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Supervisor", "Gerente", "Director", "Nivel bajo" }));
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel2.setText("-");
 
         jLabel3.setText("idPuesto");
 
@@ -133,12 +126,7 @@ public class createPuestos extends javax.swing.JPanel {
                                         .addComponent(jLabel6))
                                     .addGap(41, 41, 41)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(cb_createMinRangoSalarial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jLabel2)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(cb_createMaxRangoSalarial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(cb_createRangoSalarial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(cb_createTipoPlaza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(cb_createRangoJerarquico, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(tf_createIdPuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
@@ -157,11 +145,9 @@ public class createPuestos extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cb_createRangoJerarquico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addGap(29, 29, 29)
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cb_createMinRangoSalarial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cb_createMaxRangoSalarial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
+                    .addComponent(cb_createRangoSalarial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -179,53 +165,49 @@ public class createPuestos extends javax.swing.JPanel {
 
     private void cb_createPuestoVacanteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cb_createPuestoVacanteMouseClicked
         // TODO add your handling code here:
-                boolean error = false;
+        boolean error = false;
 
         if (tf_createIdPuesto.getText().equals("")) {
             tf_createIdPuesto.setBorder(BorderFactory.createLineBorder(Color.red));
             error = true;
         }
-        
-        
+
         if (!error) {
 
             System.out.println("DB insert");
-            
-            String idPuesto = tf_createIdPuesto.getText();       
+
+            String idPuesto = tf_createIdPuesto.getText();
             String rangoJerarquico = cb_createRangoJerarquico.getSelectedItem().toString();
-            String rangoSalarial =  cb_createMinRangoSalarial.getSelectedItem().toString() + " - " + cb_createMaxRangoSalarial.getSelectedItem().toString();
+            String rangoSalarial = cb_createRangoSalarial.getSelectedItem().toString();
             String tipoPlaza = cb_createTipoPlaza.getSelectedItem().toString();
             int cantidadPlazas = parseInt(sp_createCantidadPlazas.getValue().toString());
 
             puesto newPuesto = new puesto(idPuesto, rntAgencia, rangoJerarquico, rangoSalarial, tipoPlaza, cantidadPlazas);
-            
+
             //--------------- Creating database----------------------------//
-            CouchDbConnector dbPuesto = new StdCouchDbConnector("puesto",dbInstance);
+            CouchDbConnector dbPuesto = new StdCouchDbConnector("puesto", dbInstance);
             dbPuesto.createDatabaseIfNotExists();
             dbPuesto.create(newPuesto);
-            
+
             tf_createIdPuesto.setText("");
             cb_createRangoJerarquico.setSelectedIndex(0);
-            cb_createMinRangoSalarial.setSelectedIndex(0);
+            cb_createRangoSalarial.setSelectedIndex(0);
             cb_createRangoJerarquico.setSelectedIndex(0);
             cb_createTipoPlaza.setSelectedIndex(0);
             sp_createCantidadPlazas.setValue(1);
-            
-            
+
         }
 
-        
+
     }//GEN-LAST:event_cb_createPuestoVacanteMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox cb_createMaxRangoSalarial;
-    private javax.swing.JComboBox cb_createMinRangoSalarial;
     private javax.swing.JButton cb_createPuestoVacante;
     private javax.swing.JComboBox cb_createRangoJerarquico;
+    private javax.swing.JComboBox cb_createRangoSalarial;
     private javax.swing.JComboBox cb_createTipoPlaza;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
