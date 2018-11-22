@@ -5,24 +5,14 @@
  */
 package views;
 
-import com.mycompany.rogueapp.users;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.KeyEvent;
-import java.net.MalformedURLException;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Properties;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.BorderFactory;
-import org.apache.log4j.PropertyConfigurator;
-import org.ektorp.CouchDbConnector;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.table.DefaultTableModel;
 import org.ektorp.CouchDbInstance;
-import org.ektorp.ViewQuery;
-import org.ektorp.http.HttpClient;
-import org.ektorp.http.StdHttpClient;
-import org.ektorp.impl.StdCouchDbConnector;
-import org.ektorp.impl.StdCouchDbInstance;
 
 /**
  *
@@ -94,7 +84,7 @@ Aspi.getRevision();
         tf_pwd.setBackground(new Color(0, 0, 0, 0));
         tf_user.setBackground(new Color(0, 0, 0, 0));
         this.setLocationRelativeTo(null);
-        agencies1.dispose();
+        employees.dispose();
 
         tf_name.setBackground(new Color(0, 0, 0, 0));
         tf_desc.setBackground(new Color(0, 0, 0, 0));
@@ -115,9 +105,10 @@ Aspi.getRevision();
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jFrame2 = new javax.swing.JFrame();
+        supermain = new javax.swing.JFrame();
         jPanel3 = new javax.swing.JPanel();
         label_Employee = new javax.swing.JLabel();
+        label_admins = new javax.swing.JLabel();
         label_logout = new javax.swing.JLabel();
         label_agency = new javax.swing.JLabel();
         label_fondo = new javax.swing.JLabel();
@@ -131,6 +122,26 @@ Aspi.getRevision();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        employees = new javax.swing.JFrame();
+        jPanel5 = new javax.swing.JPanel();
+        scrollPane_agencies1 = new javax.swing.JScrollPane();
+        table_agencies1 = new javax.swing.JTable();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        admins = new javax.swing.JFrame();
+        jPanel6 = new javax.swing.JPanel();
+        scrollPane_agencies2 = new javax.swing.JScrollPane();
+        table_agencies2 = new javax.swing.JTable();
+        jSeparator6 = new javax.swing.JSeparator();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
         newAgency = new javax.swing.JDialog();
         panel_Rep = new javax.swing.JPanel();
         AddRep = new javax.swing.JLabel();
@@ -153,7 +164,7 @@ Aspi.getRevision();
         tf_pass = new javax.swing.JTextField();
         label_proveedor2 = new javax.swing.JLabel();
         tf_email = new javax.swing.JTextField();
-        newAgency1 = new javax.swing.JDialog();
+        newEmployee = new javax.swing.JDialog();
         panel_Rep1 = new javax.swing.JPanel();
         AddRep1 = new javax.swing.JLabel();
         tf_director1 = new javax.swing.JFormattedTextField();
@@ -175,27 +186,142 @@ Aspi.getRevision();
         tf_lastname1 = new javax.swing.JTextField();
         tf_name2 = new javax.swing.JTextField();
         dateChooserCombo1 = new datechooser.beans.DateChooserCombo();
-        agencies1 = new javax.swing.JFrame();
-        jPanel5 = new javax.swing.JPanel();
-        scrollPane_agencies1 = new javax.swing.JScrollPane();
-        table_agencies1 = new javax.swing.JTable();
-        jSeparator2 = new javax.swing.JSeparator();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
+        newAdmin = new javax.swing.JDialog();
+        panel_Rep2 = new javax.swing.JPanel();
+        AddRep2 = new javax.swing.JLabel();
+        tf_password = new javax.swing.JTextField();
+        label_descRep2 = new javax.swing.JLabel();
+        label_marca4 = new javax.swing.JLabel();
+        tf_username = new javax.swing.JTextField();
+        back7 = new javax.swing.JLabel();
+        jSeparator5 = new javax.swing.JSeparator();
+        label_Rep4 = new javax.swing.JLabel();
+        supermain1 = new javax.swing.JFrame();
+        jPanel7 = new javax.swing.JPanel();
+        label_logout1 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        label_fondo1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        newEmployee1 = new javax.swing.JDialog();
+        panel_Rep3 = new javax.swing.JPanel();
+        AddRep3 = new javax.swing.JLabel();
+        AddRep8 = new javax.swing.JLabel();
+        label_descRep3 = new javax.swing.JLabel();
+        label_numParte2 = new javax.swing.JLabel();
+        label_marca5 = new javax.swing.JLabel();
+        back8 = new javax.swing.JLabel();
+        jSeparator7 = new javax.swing.JSeparator();
+        label_Rep5 = new javax.swing.JLabel();
+        label_proveedor5 = new javax.swing.JLabel();
+        tf_institution = new javax.swing.JTextField();
+        tf_year = new javax.swing.JSpinner();
+        tf_average = new javax.swing.JSpinner();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        academicTable = new javax.swing.JTable();
+        tf_titulo = new javax.swing.JComboBox<>();
+        newEmployee2 = new javax.swing.JDialog();
+        panel_Rep4 = new javax.swing.JPanel();
+        AddRep4 = new javax.swing.JLabel();
+        tf_director3 = new javax.swing.JFormattedTextField();
+        label_descRep4 = new javax.swing.JLabel();
+        label_proveedor6 = new javax.swing.JLabel();
+        label_numParte3 = new javax.swing.JLabel();
+        label_marca7 = new javax.swing.JLabel();
+        tf_lastname5 = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        back9 = new javax.swing.JLabel();
+        label_marca8 = new javax.swing.JLabel();
+        jSeparator8 = new javax.swing.JSeparator();
+        label_Rep6 = new javax.swing.JLabel();
+        label_name6 = new javax.swing.JLabel();
+        tf_pass3 = new javax.swing.JTextField();
+        label_proveedor7 = new javax.swing.JLabel();
+        tf_email3 = new javax.swing.JTextField();
+        tf_name5 = new javax.swing.JTextField();
+        tf_lastname6 = new javax.swing.JTextField();
+        tf_name6 = new javax.swing.JTextField();
+        dateChooserCombo3 = new datechooser.beans.DateChooserCombo();
+        newEmployee3 = new javax.swing.JDialog();
+        panel_Rep5 = new javax.swing.JPanel();
+        AddRep5 = new javax.swing.JLabel();
+        tf_director4 = new javax.swing.JFormattedTextField();
+        label_descRep5 = new javax.swing.JLabel();
+        label_proveedor8 = new javax.swing.JLabel();
+        label_numParte4 = new javax.swing.JLabel();
+        label_marca9 = new javax.swing.JLabel();
+        tf_lastname7 = new javax.swing.JTextField();
+        jLabel26 = new javax.swing.JLabel();
+        back10 = new javax.swing.JLabel();
+        label_marca10 = new javax.swing.JLabel();
+        jSeparator9 = new javax.swing.JSeparator();
+        label_Rep7 = new javax.swing.JLabel();
+        label_name7 = new javax.swing.JLabel();
+        tf_pass4 = new javax.swing.JTextField();
+        label_proveedor9 = new javax.swing.JLabel();
+        tf_email4 = new javax.swing.JTextField();
+        tf_name7 = new javax.swing.JTextField();
+        tf_lastname8 = new javax.swing.JTextField();
+        tf_name8 = new javax.swing.JTextField();
+        dateChooserCombo4 = new datechooser.beans.DateChooserCombo();
+        newEmployee4 = new javax.swing.JDialog();
+        panel_Rep6 = new javax.swing.JPanel();
+        AddRep6 = new javax.swing.JLabel();
+        tf_director5 = new javax.swing.JFormattedTextField();
+        label_descRep6 = new javax.swing.JLabel();
+        label_proveedor10 = new javax.swing.JLabel();
+        label_numParte5 = new javax.swing.JLabel();
+        label_marca11 = new javax.swing.JLabel();
+        tf_lastname9 = new javax.swing.JTextField();
+        jLabel32 = new javax.swing.JLabel();
+        back11 = new javax.swing.JLabel();
+        label_marca12 = new javax.swing.JLabel();
+        jSeparator10 = new javax.swing.JSeparator();
+        label_Rep8 = new javax.swing.JLabel();
+        label_name8 = new javax.swing.JLabel();
+        tf_pass5 = new javax.swing.JTextField();
+        label_proveedor11 = new javax.swing.JLabel();
+        tf_email5 = new javax.swing.JTextField();
+        tf_name9 = new javax.swing.JTextField();
+        tf_lastname10 = new javax.swing.JTextField();
+        tf_name10 = new javax.swing.JTextField();
+        dateChooserCombo5 = new datechooser.beans.DateChooserCombo();
+        newEmployee5 = new javax.swing.JDialog();
+        panel_Rep7 = new javax.swing.JPanel();
+        AddRep7 = new javax.swing.JLabel();
+        tf_director6 = new javax.swing.JFormattedTextField();
+        label_descRep7 = new javax.swing.JLabel();
+        label_proveedor12 = new javax.swing.JLabel();
+        label_numParte6 = new javax.swing.JLabel();
+        label_marca13 = new javax.swing.JLabel();
+        tf_lastname11 = new javax.swing.JTextField();
+        jLabel33 = new javax.swing.JLabel();
+        back12 = new javax.swing.JLabel();
+        label_marca14 = new javax.swing.JLabel();
+        jSeparator11 = new javax.swing.JSeparator();
+        label_Rep9 = new javax.swing.JLabel();
+        label_name9 = new javax.swing.JLabel();
+        tf_pass6 = new javax.swing.JTextField();
+        label_proveedor13 = new javax.swing.JLabel();
+        tf_email6 = new javax.swing.JTextField();
+        tf_name11 = new javax.swing.JTextField();
+        tf_lastname12 = new javax.swing.JTextField();
+        tf_name12 = new javax.swing.JTextField();
+        dateChooserCombo6 = new datechooser.beans.DateChooserCombo();
         jPanel1 = new javax.swing.JPanel();
         tf_pwd = new javax.swing.JTextField();
         tf_user = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         errorLogin = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
-        jFrame2.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        jFrame2.setUndecorated(true);
+        supermain.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        supermain.setUndecorated(true);
 
         jPanel3.setLayout(null);
 
@@ -210,7 +336,20 @@ Aspi.getRevision();
             }
         });
         jPanel3.add(label_Employee);
-        label_Employee.setBounds(710, 270, 240, 250);
+        label_Employee.setBounds(530, 270, 240, 250);
+
+        label_admins.setBackground(new java.awt.Color(255, 51, 51));
+        label_admins.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        label_admins.setForeground(new java.awt.Color(255, 255, 255));
+        label_admins.setIcon(new javax.swing.ImageIcon(getClass().getResource("/admins.png"))); // NOI18N
+        label_admins.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        label_admins.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_adminsMouseClicked(evt);
+            }
+        });
+        jPanel3.add(label_admins);
+        label_admins.setBounds(820, 270, 250, 250);
 
         label_logout.setBackground(new java.awt.Color(255, 51, 51));
         label_logout.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -236,20 +375,20 @@ Aspi.getRevision();
             }
         });
         jPanel3.add(label_agency);
-        label_agency.setBounds(320, 270, 240, 250);
+        label_agency.setBounds(240, 270, 240, 250);
 
         label_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/roguelogo.png"))); // NOI18N
         jPanel3.add(label_fondo);
         label_fondo.setBounds(0, 0, 1260, 680);
 
-        javax.swing.GroupLayout jFrame2Layout = new javax.swing.GroupLayout(jFrame2.getContentPane());
-        jFrame2.getContentPane().setLayout(jFrame2Layout);
-        jFrame2Layout.setHorizontalGroup(
-            jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout supermainLayout = new javax.swing.GroupLayout(supermain.getContentPane());
+        supermain.getContentPane().setLayout(supermainLayout);
+        supermainLayout.setHorizontalGroup(
+            supermainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 1251, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
-        jFrame2Layout.setVerticalGroup(
-            jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        supermainLayout.setVerticalGroup(
+            supermainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 679, Short.MAX_VALUE)
         );
 
@@ -332,6 +471,175 @@ Aspi.getRevision();
         agenciesLayout.setVerticalGroup(
             agenciesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 679, Short.MAX_VALUE)
+        );
+
+        employees.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        employees.setUndecorated(true);
+
+        jPanel5.setLayout(null);
+
+        table_agencies1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Nombre", "Apellido", "Email", "Teléfono", "Detalles", "Eliminar"
+            }
+        ));
+        scrollPane_agencies1.setViewportView(table_agencies1);
+        if (table_agencies1.getColumnModel().getColumnCount() > 0) {
+            table_agencies1.getColumnModel().getColumn(1).setHeaderValue("Nombre");
+            table_agencies1.getColumnModel().getColumn(3).setHeaderValue("Email");
+            table_agencies1.getColumnModel().getColumn(4).setHeaderValue("Teléfono");
+            table_agencies1.getColumnModel().getColumn(5).setHeaderValue("Detalles");
+            table_agencies1.getColumnModel().getColumn(6).setHeaderValue("Eliminar");
+        }
+
+        jPanel5.add(scrollPane_agencies1);
+        scrollPane_agencies1.setBounds(100, 200, 1010, 402);
+
+        jSeparator2.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel5.add(jSeparator2);
+        jSeparator2.setBounds(100, 170, 1010, 10);
+
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/volver.png"))); // NOI18N
+        jLabel19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel19MouseClicked(evt);
+            }
+        });
+        jPanel5.add(jLabel19);
+        jLabel19.setBounds(30, 30, 107, 40);
+
+        jLabel13.setBackground(new java.awt.Color(255, 51, 51));
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("  + Nuevo Aplicante");
+        jLabel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jLabel13.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel13MouseClicked(evt);
+            }
+        });
+        jPanel5.add(jLabel13);
+        jLabel13.setBounds(970, 110, 140, 30);
+
+        jLabel14.setBackground(new java.awt.Color(255, 51, 51));
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logOut.png"))); // NOI18N
+        jLabel14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel14MouseClicked(evt);
+            }
+        });
+        jPanel5.add(jLabel14);
+        jLabel14.setBounds(1120, 20, 110, 70);
+
+        jLabel15.setBackground(new java.awt.Color(255, 51, 51));
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("Aplicantes");
+        jLabel15.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel5.add(jLabel15);
+        jLabel15.setBounds(100, 100, 220, 50);
+
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/wallpaper.png"))); // NOI18N
+        jPanel5.add(jLabel16);
+        jLabel16.setBounds(0, 0, 1260, 680);
+
+        javax.swing.GroupLayout employeesLayout = new javax.swing.GroupLayout(employees.getContentPane());
+        employees.getContentPane().setLayout(employeesLayout);
+        employeesLayout.setHorizontalGroup(
+            employeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 1251, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        employeesLayout.setVerticalGroup(
+            employeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 679, Short.MAX_VALUE)
+        );
+
+        admins.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        admins.setUndecorated(true);
+
+        jPanel6.setLayout(null);
+
+        table_agencies2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Username", "Password"
+            }
+        ));
+        scrollPane_agencies2.setViewportView(table_agencies2);
+
+        jPanel6.add(scrollPane_agencies2);
+        scrollPane_agencies2.setBounds(100, 200, 1010, 402);
+
+        jSeparator6.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel6.add(jSeparator6);
+        jSeparator6.setBounds(100, 170, 1010, 10);
+
+        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/volver.png"))); // NOI18N
+        jLabel21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel21MouseClicked(evt);
+            }
+        });
+        jPanel6.add(jLabel21);
+        jLabel21.setBounds(30, 30, 107, 40);
+
+        jLabel22.setBackground(new java.awt.Color(255, 51, 51));
+        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel22.setText("  + Nuevo Admin");
+        jLabel22.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jLabel22.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel22MouseClicked(evt);
+            }
+        });
+        jPanel6.add(jLabel22);
+        jLabel22.setBounds(970, 110, 140, 30);
+
+        jLabel23.setBackground(new java.awt.Color(255, 51, 51));
+        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logOut.png"))); // NOI18N
+        jLabel23.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel23.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel23MouseClicked(evt);
+            }
+        });
+        jPanel6.add(jLabel23);
+        jLabel23.setBounds(1120, 20, 110, 70);
+
+        jLabel24.setBackground(new java.awt.Color(255, 51, 51));
+        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel24.setText("Administradores");
+        jLabel24.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel6.add(jLabel24);
+        jLabel24.setBounds(100, 100, 320, 50);
+
+        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/wallpaper.png"))); // NOI18N
+        jPanel6.add(jLabel25);
+        jLabel25.setBounds(0, 0, 1260, 680);
+
+        javax.swing.GroupLayout adminsLayout = new javax.swing.GroupLayout(admins.getContentPane());
+        admins.getContentPane().setLayout(adminsLayout);
+        adminsLayout.setHorizontalGroup(
+            adminsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 1251, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        adminsLayout.setVerticalGroup(
+            adminsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 679, Short.MAX_VALUE)
         );
 
         newAgency.setModalityType(java.awt.Dialog.ModalityType.TOOLKIT_MODAL);
@@ -533,8 +841,8 @@ Aspi.getRevision();
             .addComponent(panel_Rep, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
         );
 
-        newAgency1.setModalityType(java.awt.Dialog.ModalityType.TOOLKIT_MODAL);
-        newAgency1.setUndecorated(true);
+        newEmployee.setModalityType(java.awt.Dialog.ModalityType.TOOLKIT_MODAL);
+        newEmployee.setUndecorated(true);
 
         panel_Rep1.setBackground(new java.awt.Color(0, 0, 0));
         panel_Rep1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
@@ -697,104 +1005,1039 @@ Aspi.getRevision();
         panel_Rep1.add(dateChooserCombo1);
         dateChooserCombo1.setBounds(645, 250, 150, 31);
 
-        javax.swing.GroupLayout newAgency1Layout = new javax.swing.GroupLayout(newAgency1.getContentPane());
-        newAgency1.getContentPane().setLayout(newAgency1Layout);
-        newAgency1Layout.setHorizontalGroup(
-            newAgency1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout newEmployeeLayout = new javax.swing.GroupLayout(newEmployee.getContentPane());
+        newEmployee.getContentPane().setLayout(newEmployeeLayout);
+        newEmployeeLayout.setHorizontalGroup(
+            newEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panel_Rep1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 1010, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
-        newAgency1Layout.setVerticalGroup(
-            newAgency1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        newEmployeeLayout.setVerticalGroup(
+            newEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panel_Rep1, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
         );
 
-        agencies1.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        agencies1.setUndecorated(true);
+        newAdmin.setModalityType(java.awt.Dialog.ModalityType.TOOLKIT_MODAL);
+        newAdmin.setUndecorated(true);
 
-        jPanel5.setLayout(null);
+        panel_Rep2.setBackground(new java.awt.Color(0, 0, 0));
+        panel_Rep2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        panel_Rep2.setLayout(null);
 
-        table_agencies1.setModel(new javax.swing.table.DefaultTableModel(
+        AddRep2.setBackground(new java.awt.Color(255, 51, 51));
+        AddRep2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        AddRep2.setForeground(new java.awt.Color(255, 255, 255));
+        AddRep2.setText("           Aceptar");
+        AddRep2.setOpaque(true);
+        AddRep2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AddRep2MouseClicked(evt);
+            }
+        });
+        panel_Rep2.add(AddRep2);
+        AddRep2.setBounds(440, 280, 145, 34);
+
+        tf_password.setBackground(new java.awt.Color(0, 0, 0));
+        tf_password.setForeground(new java.awt.Color(255, 255, 255));
+        tf_password.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        tf_password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_passwordActionPerformed(evt);
+            }
+        });
+        panel_Rep2.add(tf_password);
+        tf_password.setBounds(300, 210, 490, 33);
+
+        label_descRep2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        label_descRep2.setForeground(new java.awt.Color(255, 255, 255));
+        label_descRep2.setText("Contaseña");
+        panel_Rep2.add(label_descRep2);
+        label_descRep2.setBounds(210, 220, 80, 17);
+
+        label_marca4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        label_marca4.setForeground(new java.awt.Color(255, 255, 255));
+        label_marca4.setText("Username");
+        panel_Rep2.add(label_marca4);
+        label_marca4.setBounds(210, 170, 70, 17);
+
+        tf_username.setBackground(new java.awt.Color(0, 0, 0));
+        tf_username.setForeground(new java.awt.Color(255, 255, 255));
+        tf_username.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        panel_Rep2.add(tf_username);
+        tf_username.setBounds(300, 160, 490, 31);
+
+        back7.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
+        back7.setForeground(new java.awt.Color(153, 153, 153));
+        back7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back.png"))); // NOI18N
+        back7.setToolTipText("");
+        back7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                back7MouseClicked(evt);
+            }
+        });
+        panel_Rep2.add(back7);
+        back7.setBounds(960, 30, 30, 30);
+        panel_Rep2.add(jSeparator5);
+        jSeparator5.setBounds(210, 140, 580, 10);
+
+        label_Rep4.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        label_Rep4.setForeground(new java.awt.Color(255, 255, 255));
+        label_Rep4.setText("Nuevo Administrador");
+        panel_Rep2.add(label_Rep4);
+        label_Rep4.setBounds(210, 110, 220, 23);
+
+        javax.swing.GroupLayout newAdminLayout = new javax.swing.GroupLayout(newAdmin.getContentPane());
+        newAdmin.getContentPane().setLayout(newAdminLayout);
+        newAdminLayout.setHorizontalGroup(
+            newAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panel_Rep2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 1010, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        newAdminLayout.setVerticalGroup(
+            newAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panel_Rep2, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
+        );
+
+        supermain1.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        supermain1.setUndecorated(true);
+
+        jPanel7.setLayout(null);
+
+        label_logout1.setBackground(new java.awt.Color(255, 51, 51));
+        label_logout1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        label_logout1.setForeground(new java.awt.Color(255, 255, 255));
+        label_logout1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logOut.png"))); // NOI18N
+        label_logout1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        label_logout1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label_logout1MouseClicked(evt);
+            }
+        });
+        jPanel7.add(label_logout1);
+        label_logout1.setBounds(1120, 20, 110, 70);
+
+        jLabel27.setBackground(new java.awt.Color(255, 51, 51));
+        jLabel27.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel27.setText("         Datos Legales");
+        jLabel27.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        jLabel27.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel27.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel27MouseClicked(evt);
+            }
+        });
+        jPanel7.add(jLabel27);
+        jLabel27.setBounds(330, 290, 300, 50);
+
+        jLabel28.setBackground(new java.awt.Color(255, 51, 51));
+        jLabel28.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel28.setText("      Datos Sanitarios");
+        jLabel28.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        jLabel28.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel28.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel28MouseClicked(evt);
+            }
+        });
+        jPanel7.add(jLabel28);
+        jLabel28.setBounds(330, 450, 300, 50);
+
+        jLabel29.setBackground(new java.awt.Color(255, 51, 51));
+        jLabel29.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel29.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel29.setText("     Datos Profesionales");
+        jLabel29.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        jLabel29.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel29.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel29MouseClicked(evt);
+            }
+        });
+        jPanel7.add(jLabel29);
+        jLabel29.setBounds(330, 370, 300, 50);
+
+        jLabel30.setBackground(new java.awt.Color(255, 51, 51));
+        jLabel30.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel30.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel30.setText("       Datos Familiares");
+        jLabel30.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        jLabel30.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel30.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel30MouseClicked(evt);
+            }
+        });
+        jPanel7.add(jLabel30);
+        jLabel30.setBounds(670, 370, 300, 50);
+
+        jLabel31.setBackground(new java.awt.Color(255, 51, 51));
+        jLabel31.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel31.setText("      Datos Académicos");
+        jLabel31.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        jLabel31.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel31.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel31MouseClicked(evt);
+            }
+        });
+        jPanel7.add(jLabel31);
+        jLabel31.setBounds(670, 290, 300, 50);
+
+        label_fondo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/roguelogo.png"))); // NOI18N
+        jPanel7.add(label_fondo1);
+        label_fondo1.setBounds(0, 0, 1260, 680);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 730, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 340, Short.MAX_VALUE)
+        );
+
+        jPanel7.add(jPanel2);
+        jPanel2.setBounds(280, 240, 730, 340);
+
+        javax.swing.GroupLayout supermain1Layout = new javax.swing.GroupLayout(supermain1.getContentPane());
+        supermain1.getContentPane().setLayout(supermain1Layout);
+        supermain1Layout.setHorizontalGroup(
+            supermain1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 1251, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        supermain1Layout.setVerticalGroup(
+            supermain1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 679, Short.MAX_VALUE)
+        );
+
+        newEmployee1.setModalityType(java.awt.Dialog.ModalityType.TOOLKIT_MODAL);
+        newEmployee1.setUndecorated(true);
+
+        panel_Rep3.setBackground(new java.awt.Color(0, 0, 0));
+        panel_Rep3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        panel_Rep3.setLayout(null);
+
+        AddRep3.setBackground(new java.awt.Color(255, 51, 51));
+        AddRep3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        AddRep3.setForeground(new java.awt.Color(255, 255, 255));
+        AddRep3.setText(" Agregar a tabla");
+        AddRep3.setOpaque(true);
+        AddRep3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AddRep3MouseClicked(evt);
+            }
+        });
+        panel_Rep3.add(AddRep3);
+        AddRep3.setBounds(510, 140, 120, 34);
+
+        AddRep8.setBackground(new java.awt.Color(255, 51, 51));
+        AddRep8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        AddRep8.setForeground(new java.awt.Color(255, 255, 255));
+        AddRep8.setText("           Aceptar");
+        AddRep8.setOpaque(true);
+        AddRep8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AddRep8MouseClicked(evt);
+            }
+        });
+        panel_Rep3.add(AddRep8);
+        AddRep8.setBounds(280, 300, 145, 34);
+
+        label_descRep3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        label_descRep3.setForeground(new java.awt.Color(255, 255, 255));
+        label_descRep3.setText("Año de Obtención");
+        panel_Rep3.add(label_descRep3);
+        label_descRep3.setBounds(50, 150, 140, 17);
+
+        label_numParte2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        label_numParte2.setForeground(new java.awt.Color(255, 255, 255));
+        label_numParte2.setText("Institución");
+        panel_Rep3.add(label_numParte2);
+        label_numParte2.setBounds(370, 100, 70, 16);
+
+        label_marca5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        label_marca5.setForeground(new java.awt.Color(255, 255, 255));
+        label_marca5.setText("Título");
+        panel_Rep3.add(label_marca5);
+        label_marca5.setBounds(50, 100, 100, 17);
+
+        back8.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
+        back8.setForeground(new java.awt.Color(153, 153, 153));
+        back8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back.png"))); // NOI18N
+        back8.setToolTipText("");
+        back8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                back8MouseClicked(evt);
+            }
+        });
+        panel_Rep3.add(back8);
+        back8.setBounds(660, 20, 30, 30);
+        panel_Rep3.add(jSeparator7);
+        jSeparator7.setBounds(50, 70, 580, 10);
+
+        label_Rep5.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        label_Rep5.setForeground(new java.awt.Color(255, 255, 255));
+        label_Rep5.setText("Datos Académicos");
+        panel_Rep3.add(label_Rep5);
+        label_Rep5.setBounds(50, 40, 190, 23);
+
+        label_proveedor5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        label_proveedor5.setForeground(new java.awt.Color(255, 255, 255));
+        label_proveedor5.setText("Promedio");
+        panel_Rep3.add(label_proveedor5);
+        label_proveedor5.setBounds(330, 150, 80, 17);
+
+        tf_institution.setBackground(new java.awt.Color(0, 0, 0));
+        tf_institution.setForeground(new java.awt.Color(255, 255, 255));
+        tf_institution.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        panel_Rep3.add(tf_institution);
+        tf_institution.setBounds(460, 90, 170, 31);
+
+        tf_year.setModel(new javax.swing.SpinnerNumberModel(1900, 1900, 2018, 1));
+        panel_Rep3.add(tf_year);
+        tf_year.setBounds(190, 140, 100, 31);
+
+        tf_average.setModel(new javax.swing.SpinnerNumberModel(1, 1, 100, 1));
+        panel_Rep3.add(tf_average);
+        tf_average.setBounds(410, 140, 80, 31);
+
+        academicTable.setBackground(new java.awt.Color(0, 0, 0));
+        academicTable.setForeground(new java.awt.Color(255, 255, 255));
+        academicTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID", "Nombre", "Apellido", "Email", "Teléfono", "Detalles", "Eliminar"
+                "Título", "Insitución", "Año de Obtención", "Promedio", "Eliminar"
             }
         ));
-        scrollPane_agencies1.setViewportView(table_agencies1);
-
-        jPanel5.add(scrollPane_agencies1);
-        scrollPane_agencies1.setBounds(100, 200, 1010, 402);
-
-        jSeparator2.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel5.add(jSeparator2);
-        jSeparator2.setBounds(100, 170, 1010, 10);
-
-        jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
+        academicTable.setOpaque(false);
+        academicTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel17MouseClicked(evt);
+                academicTableMouseClicked(evt);
             }
         });
-        jPanel5.add(jLabel17);
-        jLabel17.setBounds(30, 30, 110, 0);
+        jScrollPane1.setViewportView(academicTable);
 
-        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/volver.png"))); // NOI18N
-        jLabel19.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel19MouseClicked(evt);
-            }
-        });
-        jPanel5.add(jLabel19);
-        jLabel19.setBounds(30, 30, 107, 40);
+        panel_Rep3.add(jScrollPane1);
+        jScrollPane1.setBounds(50, 200, 580, 80);
 
-        jLabel13.setBackground(new java.awt.Color(255, 51, 51));
-        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("  + Nuevo Aplicante");
-        jLabel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jLabel13.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel13MouseClicked(evt);
-            }
-        });
-        jPanel5.add(jLabel13);
-        jLabel13.setBounds(970, 110, 140, 30);
+        tf_titulo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione una opcion", "Licenciatura en Administración Aduanera", "Licenciatura en Administración de Empresas", "Licenciatura en Administración de Desastres", "Licenciatura en Administración", "Licenciatura en Administración en Salud", "Licenciatura en Administración Rural", "Licenciatura en Antropología", "Licenciatura en Archivología", "Licenciatura en Artes Combinadas y Escénicas", "Licenciatura en Artes Visuales", "Licenciatura en Bellas Artes", "Licenciatura en Bibliotecología", "Licenciatura en Bioanálisis", "Licenciatura en Biología", "Licenciatura en Bioquímica", "Licenciatura en Biotecnología", "Licenciatura en Cartografía", "Licenciatura en Ciencias de la Actividad Física y Deporte", "Licenciatura en Ciencias de la Computación", "Licenciatura en Ciencias de la Comunicación", "Licenciatura en Ciencias de la Salud Pública", "Licenciatura en Ciencias de la Información", "Licenciatura en Ciencias Físicas", "Licenciatura en Ciencias Matemáticas", "Licenciatura en Ciencias Militares", "Licenciatura en Ciencias Políticas y de la Administración", "Licenciatura en Comercio Internacional", "Licenciatura en Comunicación Audiovisual", "Licenciatura en Contaduría Publica", "Licenciatura en Comunicación Social", "Licenciatura en comunicación popular", "Licenciatura en Cosmetología y Cosmeatría Corporal", "Licenciatura en Creación y Desarrollo de Empresas", "Licenciatura en Criminología y Criminalística", "Licenciatura en Derecho", "Licenciatura en Cinematografía", "Licenciatura en Diseño Gráfico", "Licenciatura en Diseño Industrial", "Licenciatura en Documentación", "Licenciatura en Educación Primaria", "Licenciatura en Educación Secundaria", "Licenciatura en Educación Física", "Licenciatura en Educación Superior y Técnica Industrial", "Licenciatura en Educación de las Artes Combinadas y Escénicas", "Licenciatura en Enfermería", "Licenciatura en Farmacia", "Licenciatura en Filología Clásica", "Licenciatura en Filología Hispánica", "Licenciatura en Filosofía", "Licenciatura en Finanzas", "Licenciatura en Geografía", "Licenciatura en Historia", "Licenciatura en Historia del Arte", "Licenciatura en Informática", "Licenciatura en Ingeniería", "Licenciatura en Kinesiología", "Licenciatura en Lingüística", "Licenciatura en Medicina", "Licenciatura en Mercadotecnia", "Licenciatura en Músicoterapia", "Licenciatura en Nutrición", "Licenciatura en Obstetricia y Puericultura", "Licenciatura en Organización Industrial", "Licenciatura en Periodismo", "Licenciatura en Producción de bio imagen", "Licenciatura en Psicología", "Licenciatura en Psicopedagogía", "Licenciatura en Pedagogía Infantil", "Licenciatura en Publicidad y Relaciones Públicas", "Licenciatura en Química Industrial", "Licenciatura en Relaciones del Trabajo", "Licenciatura en Relaciones Internacionales", "Licenciatura en Seguridad e Higiene en el Trabajo", "Licenciatura en Sociología", "Licenciatura en Tecnología", "Licenciatura en Tecnología Médica", "Licenciatura en Tecnología Multimedia", "Licenciatura en Tecnologías de Información", "Licenciatura en Telecomunicaciones", "Licenciatura en Traducción e Interpretación", "Licenciatura en Urbanismo", "Licenciado en Cooperativas y Mutuales", "Licenciatura en Trabajo Social", "Animación", "Arquitectura", "Arquitectura Técnica / Ingeniería de la Edificación", "Desarrollo de Aplicaciones Web", "Diseño y Desarrollo de videojuegos", "Grado Abierto en Ingeniería y Arquitectura", "Ingeniería Aeroespacial", "Ingeniería Agroambiental", "Ingeniería Alimentaria", "Ingeniería Ambiental", "Ingeniería Biomédica", "Ingeniería de Caminos, Canales y Puertos / Ingeniería Civil", "Ingeniería de la Automoción", "Ingeniería de la Energía", "Ingeniería de las Industrias Agrarias y Alimentarias", "Ingeniería de los Materiales", "Ingeniería de Minas", "Ingeniería de Sistemas Audiovisuales / Sonido e Imagen", "Ingeniería de Sistemas Biológicos", "Ingeniería de Sistemas de Información", "Ingeniería de Tecnología y Diseño Textil", "Ingeniería de Telecomunicación (Teleco) y de Sistemas de Comunicación", "Ingeniería del Software", "Ingeniería Eléctrica y Electrónica", "Ingeniería en Diseño Industrial y Desarrollo de Producto", "Ingeniería en Informática", "Ingeniería en Organización Industrial", "Ingeniería en Tecnologías Industriales", "Ingeniería Física", "Ingeniería Forestal / Ingeniería del Medio Natural", "Ingeniería Geológica", "Ingeniería Geomática y Topografía", "Ingeniería Industrial", "Ingeniería Matemática", "Ingeniería Mecánica", "Ingeniería Mecatrónica", "Ingeniería Náutica y Transporte Marítimo", "Ingeniería Naval y Oceánica", "Ingeniería Química", "Ingeniería Robótica", "Ingeniería Telemática" }));
+        panel_Rep3.add(tf_titulo);
+        tf_titulo.setBounds(110, 90, 240, 31);
 
-        jLabel14.setBackground(new java.awt.Color(255, 51, 51));
-        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logOut.png"))); // NOI18N
-        jLabel14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel14MouseClicked(evt);
-            }
-        });
-        jPanel5.add(jLabel14);
-        jLabel14.setBounds(1120, 20, 110, 70);
-
-        jLabel15.setBackground(new java.awt.Color(255, 51, 51));
-        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("Aplicantes");
-        jLabel15.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel5.add(jLabel15);
-        jLabel15.setBounds(100, 100, 220, 50);
-
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/wallpaper.png"))); // NOI18N
-        jPanel5.add(jLabel16);
-        jLabel16.setBounds(0, 0, 1260, 680);
-
-        javax.swing.GroupLayout agencies1Layout = new javax.swing.GroupLayout(agencies1.getContentPane());
-        agencies1.getContentPane().setLayout(agencies1Layout);
-        agencies1Layout.setHorizontalGroup(
-            agencies1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 1251, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout newEmployee1Layout = new javax.swing.GroupLayout(newEmployee1.getContentPane());
+        newEmployee1.getContentPane().setLayout(newEmployee1Layout);
+        newEmployee1Layout.setHorizontalGroup(
+            newEmployee1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panel_Rep3, javax.swing.GroupLayout.PREFERRED_SIZE, 701, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
-        agencies1Layout.setVerticalGroup(
-            agencies1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 679, Short.MAX_VALUE)
+        newEmployee1Layout.setVerticalGroup(
+            newEmployee1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panel_Rep3, javax.swing.GroupLayout.DEFAULT_SIZE, 354, Short.MAX_VALUE)
+        );
+
+        newEmployee2.setModalityType(java.awt.Dialog.ModalityType.TOOLKIT_MODAL);
+        newEmployee2.setUndecorated(true);
+
+        panel_Rep4.setBackground(new java.awt.Color(0, 0, 0));
+        panel_Rep4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        panel_Rep4.setLayout(null);
+
+        AddRep4.setBackground(new java.awt.Color(255, 51, 51));
+        AddRep4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        AddRep4.setForeground(new java.awt.Color(255, 255, 255));
+        AddRep4.setText("           Aceptar");
+        AddRep4.setOpaque(true);
+        AddRep4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AddRep4MouseClicked(evt);
+            }
+        });
+        panel_Rep4.add(AddRep4);
+        AddRep4.setBounds(440, 320, 145, 34);
+
+        tf_director3.setBackground(new java.awt.Color(0, 0, 0));
+        tf_director3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        tf_director3.setForeground(new java.awt.Color(255, 255, 255));
+        tf_director3.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00;(¤#,##0.00)"))));
+        tf_director3.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        tf_director3.setVerifyInputWhenFocusTarget(false);
+        tf_director3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tf_director3KeyTyped(evt);
+            }
+        });
+        panel_Rep4.add(tf_director3);
+        tf_director3.setBounds(650, 200, 140, 31);
+
+        label_descRep4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        label_descRep4.setForeground(new java.awt.Color(255, 255, 255));
+        label_descRep4.setText("Primer Apellido");
+        panel_Rep4.add(label_descRep4);
+        label_descRep4.setBounds(210, 160, 100, 17);
+
+        label_proveedor6.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        label_proveedor6.setForeground(new java.awt.Color(255, 255, 255));
+        label_proveedor6.setText("N° de ID");
+        panel_Rep4.add(label_proveedor6);
+        label_proveedor6.setBounds(580, 210, 60, 17);
+
+        label_numParte3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        label_numParte3.setForeground(new java.awt.Color(255, 255, 255));
+        label_numParte3.setText("Segundo Nombre");
+        panel_Rep4.add(label_numParte3);
+        label_numParte3.setBounds(520, 110, 120, 16);
+
+        label_marca7.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        label_marca7.setForeground(new java.awt.Color(255, 255, 255));
+        label_marca7.setText("Primer Nombre");
+        panel_Rep4.add(label_marca7);
+        label_marca7.setBounds(210, 110, 100, 17);
+
+        tf_lastname5.setBackground(new java.awt.Color(0, 0, 0));
+        tf_lastname5.setForeground(new java.awt.Color(255, 255, 255));
+        tf_lastname5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        panel_Rep4.add(tf_lastname5);
+        tf_lastname5.setBounds(650, 150, 140, 31);
+
+        jLabel20.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel20.setText("Fecha de nacimiento");
+        panel_Rep4.add(jLabel20);
+        jLabel20.setBounds(500, 260, 140, 16);
+
+        back9.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
+        back9.setForeground(new java.awt.Color(153, 153, 153));
+        back9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back.png"))); // NOI18N
+        back9.setToolTipText("");
+        back9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                back9MouseClicked(evt);
+            }
+        });
+        panel_Rep4.add(back9);
+        back9.setBounds(960, 30, 30, 30);
+
+        label_marca8.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        label_marca8.setForeground(new java.awt.Color(255, 255, 255));
+        label_marca8.setText("Contraseña");
+        panel_Rep4.add(label_marca8);
+        label_marca8.setBounds(210, 260, 80, 17);
+        panel_Rep4.add(jSeparator8);
+        jSeparator8.setBounds(210, 80, 580, 10);
+
+        label_Rep6.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        label_Rep6.setForeground(new java.awt.Color(255, 255, 255));
+        label_Rep6.setText("Nuevo Aspirante");
+        panel_Rep4.add(label_Rep6);
+        label_Rep6.setBounds(210, 50, 150, 23);
+
+        label_name6.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        label_name6.setForeground(new java.awt.Color(255, 255, 255));
+        label_name6.setText("Correo electrónico");
+        panel_Rep4.add(label_name6);
+        label_name6.setBounds(210, 210, 130, 17);
+
+        tf_pass3.setBackground(new java.awt.Color(0, 0, 0));
+        tf_pass3.setForeground(new java.awt.Color(255, 255, 255));
+        tf_pass3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        tf_pass3.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        tf_pass3.setVerifyInputWhenFocusTarget(false);
+        tf_pass3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_pass3ActionPerformed(evt);
+            }
+        });
+        tf_pass3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tf_pass3KeyTyped(evt);
+            }
+        });
+        panel_Rep4.add(tf_pass3);
+        tf_pass3.setBounds(310, 250, 170, 31);
+
+        label_proveedor7.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        label_proveedor7.setForeground(new java.awt.Color(255, 255, 255));
+        label_proveedor7.setText("Segundo Apellido");
+        panel_Rep4.add(label_proveedor7);
+        label_proveedor7.setBounds(520, 160, 120, 17);
+
+        tf_email3.setBackground(new java.awt.Color(0, 0, 0));
+        tf_email3.setForeground(new java.awt.Color(255, 255, 255));
+        tf_email3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        tf_email3.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        tf_email3.setVerifyInputWhenFocusTarget(false);
+        tf_email3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_email3ActionPerformed(evt);
+            }
+        });
+        tf_email3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tf_email3KeyTyped(evt);
+            }
+        });
+        panel_Rep4.add(tf_email3);
+        tf_email3.setBounds(340, 200, 140, 31);
+
+        tf_name5.setBackground(new java.awt.Color(0, 0, 0));
+        tf_name5.setForeground(new java.awt.Color(255, 255, 255));
+        tf_name5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        panel_Rep4.add(tf_name5);
+        tf_name5.setBounds(330, 100, 150, 31);
+
+        tf_lastname6.setBackground(new java.awt.Color(0, 0, 0));
+        tf_lastname6.setForeground(new java.awt.Color(255, 255, 255));
+        tf_lastname6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        panel_Rep4.add(tf_lastname6);
+        tf_lastname6.setBounds(330, 150, 150, 31);
+
+        tf_name6.setBackground(new java.awt.Color(0, 0, 0));
+        tf_name6.setForeground(new java.awt.Color(255, 255, 255));
+        tf_name6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        panel_Rep4.add(tf_name6);
+        tf_name6.setBounds(650, 100, 140, 31);
+        panel_Rep4.add(dateChooserCombo3);
+        dateChooserCombo3.setBounds(645, 250, 150, 31);
+
+        javax.swing.GroupLayout newEmployee2Layout = new javax.swing.GroupLayout(newEmployee2.getContentPane());
+        newEmployee2.getContentPane().setLayout(newEmployee2Layout);
+        newEmployee2Layout.setHorizontalGroup(
+            newEmployee2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panel_Rep4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 1010, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        newEmployee2Layout.setVerticalGroup(
+            newEmployee2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panel_Rep4, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
+        );
+
+        newEmployee3.setModalityType(java.awt.Dialog.ModalityType.TOOLKIT_MODAL);
+        newEmployee3.setUndecorated(true);
+
+        panel_Rep5.setBackground(new java.awt.Color(0, 0, 0));
+        panel_Rep5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        panel_Rep5.setLayout(null);
+
+        AddRep5.setBackground(new java.awt.Color(255, 51, 51));
+        AddRep5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        AddRep5.setForeground(new java.awt.Color(255, 255, 255));
+        AddRep5.setText("           Aceptar");
+        AddRep5.setOpaque(true);
+        AddRep5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AddRep5MouseClicked(evt);
+            }
+        });
+        panel_Rep5.add(AddRep5);
+        AddRep5.setBounds(440, 320, 145, 34);
+
+        tf_director4.setBackground(new java.awt.Color(0, 0, 0));
+        tf_director4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        tf_director4.setForeground(new java.awt.Color(255, 255, 255));
+        tf_director4.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00;(¤#,##0.00)"))));
+        tf_director4.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        tf_director4.setVerifyInputWhenFocusTarget(false);
+        tf_director4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tf_director4KeyTyped(evt);
+            }
+        });
+        panel_Rep5.add(tf_director4);
+        tf_director4.setBounds(650, 200, 140, 31);
+
+        label_descRep5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        label_descRep5.setForeground(new java.awt.Color(255, 255, 255));
+        label_descRep5.setText("Primer Apellido");
+        panel_Rep5.add(label_descRep5);
+        label_descRep5.setBounds(210, 160, 100, 17);
+
+        label_proveedor8.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        label_proveedor8.setForeground(new java.awt.Color(255, 255, 255));
+        label_proveedor8.setText("N° de ID");
+        panel_Rep5.add(label_proveedor8);
+        label_proveedor8.setBounds(580, 210, 60, 17);
+
+        label_numParte4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        label_numParte4.setForeground(new java.awt.Color(255, 255, 255));
+        label_numParte4.setText("Segundo Nombre");
+        panel_Rep5.add(label_numParte4);
+        label_numParte4.setBounds(520, 110, 120, 16);
+
+        label_marca9.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        label_marca9.setForeground(new java.awt.Color(255, 255, 255));
+        label_marca9.setText("Primer Nombre");
+        panel_Rep5.add(label_marca9);
+        label_marca9.setBounds(210, 110, 100, 17);
+
+        tf_lastname7.setBackground(new java.awt.Color(0, 0, 0));
+        tf_lastname7.setForeground(new java.awt.Color(255, 255, 255));
+        tf_lastname7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        panel_Rep5.add(tf_lastname7);
+        tf_lastname7.setBounds(650, 150, 140, 31);
+
+        jLabel26.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel26.setText("Fecha de nacimiento");
+        panel_Rep5.add(jLabel26);
+        jLabel26.setBounds(500, 260, 140, 16);
+
+        back10.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
+        back10.setForeground(new java.awt.Color(153, 153, 153));
+        back10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back.png"))); // NOI18N
+        back10.setToolTipText("");
+        back10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                back10MouseClicked(evt);
+            }
+        });
+        panel_Rep5.add(back10);
+        back10.setBounds(960, 30, 30, 30);
+
+        label_marca10.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        label_marca10.setForeground(new java.awt.Color(255, 255, 255));
+        label_marca10.setText("Contraseña");
+        panel_Rep5.add(label_marca10);
+        label_marca10.setBounds(210, 260, 80, 17);
+        panel_Rep5.add(jSeparator9);
+        jSeparator9.setBounds(210, 80, 580, 10);
+
+        label_Rep7.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        label_Rep7.setForeground(new java.awt.Color(255, 255, 255));
+        label_Rep7.setText("Nuevo Aspirante");
+        panel_Rep5.add(label_Rep7);
+        label_Rep7.setBounds(210, 50, 150, 23);
+
+        label_name7.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        label_name7.setForeground(new java.awt.Color(255, 255, 255));
+        label_name7.setText("Correo electrónico");
+        panel_Rep5.add(label_name7);
+        label_name7.setBounds(210, 210, 130, 17);
+
+        tf_pass4.setBackground(new java.awt.Color(0, 0, 0));
+        tf_pass4.setForeground(new java.awt.Color(255, 255, 255));
+        tf_pass4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        tf_pass4.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        tf_pass4.setVerifyInputWhenFocusTarget(false);
+        tf_pass4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_pass4ActionPerformed(evt);
+            }
+        });
+        tf_pass4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tf_pass4KeyTyped(evt);
+            }
+        });
+        panel_Rep5.add(tf_pass4);
+        tf_pass4.setBounds(310, 250, 170, 31);
+
+        label_proveedor9.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        label_proveedor9.setForeground(new java.awt.Color(255, 255, 255));
+        label_proveedor9.setText("Segundo Apellido");
+        panel_Rep5.add(label_proveedor9);
+        label_proveedor9.setBounds(520, 160, 120, 17);
+
+        tf_email4.setBackground(new java.awt.Color(0, 0, 0));
+        tf_email4.setForeground(new java.awt.Color(255, 255, 255));
+        tf_email4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        tf_email4.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        tf_email4.setVerifyInputWhenFocusTarget(false);
+        tf_email4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_email4ActionPerformed(evt);
+            }
+        });
+        tf_email4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tf_email4KeyTyped(evt);
+            }
+        });
+        panel_Rep5.add(tf_email4);
+        tf_email4.setBounds(340, 200, 140, 31);
+
+        tf_name7.setBackground(new java.awt.Color(0, 0, 0));
+        tf_name7.setForeground(new java.awt.Color(255, 255, 255));
+        tf_name7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        panel_Rep5.add(tf_name7);
+        tf_name7.setBounds(330, 100, 150, 31);
+
+        tf_lastname8.setBackground(new java.awt.Color(0, 0, 0));
+        tf_lastname8.setForeground(new java.awt.Color(255, 255, 255));
+        tf_lastname8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        panel_Rep5.add(tf_lastname8);
+        tf_lastname8.setBounds(330, 150, 150, 31);
+
+        tf_name8.setBackground(new java.awt.Color(0, 0, 0));
+        tf_name8.setForeground(new java.awt.Color(255, 255, 255));
+        tf_name8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        panel_Rep5.add(tf_name8);
+        tf_name8.setBounds(650, 100, 140, 31);
+        panel_Rep5.add(dateChooserCombo4);
+        dateChooserCombo4.setBounds(645, 250, 150, 31);
+
+        javax.swing.GroupLayout newEmployee3Layout = new javax.swing.GroupLayout(newEmployee3.getContentPane());
+        newEmployee3.getContentPane().setLayout(newEmployee3Layout);
+        newEmployee3Layout.setHorizontalGroup(
+            newEmployee3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panel_Rep5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 1010, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        newEmployee3Layout.setVerticalGroup(
+            newEmployee3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panel_Rep5, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
+        );
+
+        newEmployee4.setModalityType(java.awt.Dialog.ModalityType.TOOLKIT_MODAL);
+        newEmployee4.setUndecorated(true);
+
+        panel_Rep6.setBackground(new java.awt.Color(0, 0, 0));
+        panel_Rep6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        panel_Rep6.setLayout(null);
+
+        AddRep6.setBackground(new java.awt.Color(255, 51, 51));
+        AddRep6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        AddRep6.setForeground(new java.awt.Color(255, 255, 255));
+        AddRep6.setText("           Aceptar");
+        AddRep6.setOpaque(true);
+        AddRep6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AddRep6MouseClicked(evt);
+            }
+        });
+        panel_Rep6.add(AddRep6);
+        AddRep6.setBounds(440, 320, 145, 34);
+
+        tf_director5.setBackground(new java.awt.Color(0, 0, 0));
+        tf_director5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        tf_director5.setForeground(new java.awt.Color(255, 255, 255));
+        tf_director5.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00;(¤#,##0.00)"))));
+        tf_director5.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        tf_director5.setVerifyInputWhenFocusTarget(false);
+        tf_director5.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tf_director5KeyTyped(evt);
+            }
+        });
+        panel_Rep6.add(tf_director5);
+        tf_director5.setBounds(650, 200, 140, 31);
+
+        label_descRep6.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        label_descRep6.setForeground(new java.awt.Color(255, 255, 255));
+        label_descRep6.setText("Primer Apellido");
+        panel_Rep6.add(label_descRep6);
+        label_descRep6.setBounds(210, 160, 100, 17);
+
+        label_proveedor10.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        label_proveedor10.setForeground(new java.awt.Color(255, 255, 255));
+        label_proveedor10.setText("N° de ID");
+        panel_Rep6.add(label_proveedor10);
+        label_proveedor10.setBounds(580, 210, 60, 17);
+
+        label_numParte5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        label_numParte5.setForeground(new java.awt.Color(255, 255, 255));
+        label_numParte5.setText("Segundo Nombre");
+        panel_Rep6.add(label_numParte5);
+        label_numParte5.setBounds(520, 110, 120, 16);
+
+        label_marca11.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        label_marca11.setForeground(new java.awt.Color(255, 255, 255));
+        label_marca11.setText("Primer Nombre");
+        panel_Rep6.add(label_marca11);
+        label_marca11.setBounds(210, 110, 100, 17);
+
+        tf_lastname9.setBackground(new java.awt.Color(0, 0, 0));
+        tf_lastname9.setForeground(new java.awt.Color(255, 255, 255));
+        tf_lastname9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        panel_Rep6.add(tf_lastname9);
+        tf_lastname9.setBounds(650, 150, 140, 31);
+
+        jLabel32.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel32.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel32.setText("Fecha de nacimiento");
+        panel_Rep6.add(jLabel32);
+        jLabel32.setBounds(500, 260, 140, 16);
+
+        back11.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
+        back11.setForeground(new java.awt.Color(153, 153, 153));
+        back11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back.png"))); // NOI18N
+        back11.setToolTipText("");
+        back11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                back11MouseClicked(evt);
+            }
+        });
+        panel_Rep6.add(back11);
+        back11.setBounds(960, 30, 30, 30);
+
+        label_marca12.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        label_marca12.setForeground(new java.awt.Color(255, 255, 255));
+        label_marca12.setText("Contraseña");
+        panel_Rep6.add(label_marca12);
+        label_marca12.setBounds(210, 260, 80, 17);
+        panel_Rep6.add(jSeparator10);
+        jSeparator10.setBounds(210, 80, 580, 10);
+
+        label_Rep8.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        label_Rep8.setForeground(new java.awt.Color(255, 255, 255));
+        label_Rep8.setText("Nuevo Aspirante");
+        panel_Rep6.add(label_Rep8);
+        label_Rep8.setBounds(210, 50, 150, 23);
+
+        label_name8.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        label_name8.setForeground(new java.awt.Color(255, 255, 255));
+        label_name8.setText("Correo electrónico");
+        panel_Rep6.add(label_name8);
+        label_name8.setBounds(210, 210, 130, 17);
+
+        tf_pass5.setBackground(new java.awt.Color(0, 0, 0));
+        tf_pass5.setForeground(new java.awt.Color(255, 255, 255));
+        tf_pass5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        tf_pass5.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        tf_pass5.setVerifyInputWhenFocusTarget(false);
+        tf_pass5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_pass5ActionPerformed(evt);
+            }
+        });
+        tf_pass5.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tf_pass5KeyTyped(evt);
+            }
+        });
+        panel_Rep6.add(tf_pass5);
+        tf_pass5.setBounds(310, 250, 170, 31);
+
+        label_proveedor11.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        label_proveedor11.setForeground(new java.awt.Color(255, 255, 255));
+        label_proveedor11.setText("Segundo Apellido");
+        panel_Rep6.add(label_proveedor11);
+        label_proveedor11.setBounds(520, 160, 120, 17);
+
+        tf_email5.setBackground(new java.awt.Color(0, 0, 0));
+        tf_email5.setForeground(new java.awt.Color(255, 255, 255));
+        tf_email5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        tf_email5.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        tf_email5.setVerifyInputWhenFocusTarget(false);
+        tf_email5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_email5ActionPerformed(evt);
+            }
+        });
+        tf_email5.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tf_email5KeyTyped(evt);
+            }
+        });
+        panel_Rep6.add(tf_email5);
+        tf_email5.setBounds(340, 200, 140, 31);
+
+        tf_name9.setBackground(new java.awt.Color(0, 0, 0));
+        tf_name9.setForeground(new java.awt.Color(255, 255, 255));
+        tf_name9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        panel_Rep6.add(tf_name9);
+        tf_name9.setBounds(330, 100, 150, 31);
+
+        tf_lastname10.setBackground(new java.awt.Color(0, 0, 0));
+        tf_lastname10.setForeground(new java.awt.Color(255, 255, 255));
+        tf_lastname10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        panel_Rep6.add(tf_lastname10);
+        tf_lastname10.setBounds(330, 150, 150, 31);
+
+        tf_name10.setBackground(new java.awt.Color(0, 0, 0));
+        tf_name10.setForeground(new java.awt.Color(255, 255, 255));
+        tf_name10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        panel_Rep6.add(tf_name10);
+        tf_name10.setBounds(650, 100, 140, 31);
+        panel_Rep6.add(dateChooserCombo5);
+        dateChooserCombo5.setBounds(645, 250, 150, 31);
+
+        javax.swing.GroupLayout newEmployee4Layout = new javax.swing.GroupLayout(newEmployee4.getContentPane());
+        newEmployee4.getContentPane().setLayout(newEmployee4Layout);
+        newEmployee4Layout.setHorizontalGroup(
+            newEmployee4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panel_Rep6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 1010, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        newEmployee4Layout.setVerticalGroup(
+            newEmployee4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panel_Rep6, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
+        );
+
+        newEmployee5.setModalityType(java.awt.Dialog.ModalityType.TOOLKIT_MODAL);
+        newEmployee5.setUndecorated(true);
+
+        panel_Rep7.setBackground(new java.awt.Color(0, 0, 0));
+        panel_Rep7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        panel_Rep7.setLayout(null);
+
+        AddRep7.setBackground(new java.awt.Color(255, 51, 51));
+        AddRep7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        AddRep7.setForeground(new java.awt.Color(255, 255, 255));
+        AddRep7.setText("           Aceptar");
+        AddRep7.setOpaque(true);
+        AddRep7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AddRep7MouseClicked(evt);
+            }
+        });
+        panel_Rep7.add(AddRep7);
+        AddRep7.setBounds(440, 320, 145, 34);
+
+        tf_director6.setBackground(new java.awt.Color(0, 0, 0));
+        tf_director6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        tf_director6.setForeground(new java.awt.Color(255, 255, 255));
+        tf_director6.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00;(¤#,##0.00)"))));
+        tf_director6.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        tf_director6.setVerifyInputWhenFocusTarget(false);
+        tf_director6.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tf_director6KeyTyped(evt);
+            }
+        });
+        panel_Rep7.add(tf_director6);
+        tf_director6.setBounds(650, 200, 140, 31);
+
+        label_descRep7.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        label_descRep7.setForeground(new java.awt.Color(255, 255, 255));
+        label_descRep7.setText("Primer Apellido");
+        panel_Rep7.add(label_descRep7);
+        label_descRep7.setBounds(210, 160, 100, 17);
+
+        label_proveedor12.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        label_proveedor12.setForeground(new java.awt.Color(255, 255, 255));
+        label_proveedor12.setText("N° de ID");
+        panel_Rep7.add(label_proveedor12);
+        label_proveedor12.setBounds(580, 210, 60, 17);
+
+        label_numParte6.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        label_numParte6.setForeground(new java.awt.Color(255, 255, 255));
+        label_numParte6.setText("Segundo Nombre");
+        panel_Rep7.add(label_numParte6);
+        label_numParte6.setBounds(520, 110, 120, 16);
+
+        label_marca13.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        label_marca13.setForeground(new java.awt.Color(255, 255, 255));
+        label_marca13.setText("Primer Nombre");
+        panel_Rep7.add(label_marca13);
+        label_marca13.setBounds(210, 110, 100, 17);
+
+        tf_lastname11.setBackground(new java.awt.Color(0, 0, 0));
+        tf_lastname11.setForeground(new java.awt.Color(255, 255, 255));
+        tf_lastname11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        panel_Rep7.add(tf_lastname11);
+        tf_lastname11.setBounds(650, 150, 140, 31);
+
+        jLabel33.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel33.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel33.setText("Fecha de nacimiento");
+        panel_Rep7.add(jLabel33);
+        jLabel33.setBounds(500, 260, 140, 16);
+
+        back12.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
+        back12.setForeground(new java.awt.Color(153, 153, 153));
+        back12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back.png"))); // NOI18N
+        back12.setToolTipText("");
+        back12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                back12MouseClicked(evt);
+            }
+        });
+        panel_Rep7.add(back12);
+        back12.setBounds(960, 30, 30, 30);
+
+        label_marca14.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        label_marca14.setForeground(new java.awt.Color(255, 255, 255));
+        label_marca14.setText("Contraseña");
+        panel_Rep7.add(label_marca14);
+        label_marca14.setBounds(210, 260, 80, 17);
+        panel_Rep7.add(jSeparator11);
+        jSeparator11.setBounds(210, 80, 580, 10);
+
+        label_Rep9.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        label_Rep9.setForeground(new java.awt.Color(255, 255, 255));
+        label_Rep9.setText("Nuevo Aspirante");
+        panel_Rep7.add(label_Rep9);
+        label_Rep9.setBounds(210, 50, 150, 23);
+
+        label_name9.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        label_name9.setForeground(new java.awt.Color(255, 255, 255));
+        label_name9.setText("Correo electrónico");
+        panel_Rep7.add(label_name9);
+        label_name9.setBounds(210, 210, 130, 17);
+
+        tf_pass6.setBackground(new java.awt.Color(0, 0, 0));
+        tf_pass6.setForeground(new java.awt.Color(255, 255, 255));
+        tf_pass6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        tf_pass6.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        tf_pass6.setVerifyInputWhenFocusTarget(false);
+        tf_pass6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_pass6ActionPerformed(evt);
+            }
+        });
+        tf_pass6.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tf_pass6KeyTyped(evt);
+            }
+        });
+        panel_Rep7.add(tf_pass6);
+        tf_pass6.setBounds(310, 250, 170, 31);
+
+        label_proveedor13.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        label_proveedor13.setForeground(new java.awt.Color(255, 255, 255));
+        label_proveedor13.setText("Segundo Apellido");
+        panel_Rep7.add(label_proveedor13);
+        label_proveedor13.setBounds(520, 160, 120, 17);
+
+        tf_email6.setBackground(new java.awt.Color(0, 0, 0));
+        tf_email6.setForeground(new java.awt.Color(255, 255, 255));
+        tf_email6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        tf_email6.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        tf_email6.setVerifyInputWhenFocusTarget(false);
+        tf_email6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_email6ActionPerformed(evt);
+            }
+        });
+        tf_email6.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tf_email6KeyTyped(evt);
+            }
+        });
+        panel_Rep7.add(tf_email6);
+        tf_email6.setBounds(340, 200, 140, 31);
+
+        tf_name11.setBackground(new java.awt.Color(0, 0, 0));
+        tf_name11.setForeground(new java.awt.Color(255, 255, 255));
+        tf_name11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        panel_Rep7.add(tf_name11);
+        tf_name11.setBounds(330, 100, 150, 31);
+
+        tf_lastname12.setBackground(new java.awt.Color(0, 0, 0));
+        tf_lastname12.setForeground(new java.awt.Color(255, 255, 255));
+        tf_lastname12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        panel_Rep7.add(tf_lastname12);
+        tf_lastname12.setBounds(330, 150, 150, 31);
+
+        tf_name12.setBackground(new java.awt.Color(0, 0, 0));
+        tf_name12.setForeground(new java.awt.Color(255, 255, 255));
+        tf_name12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(192, 192, 192)));
+        panel_Rep7.add(tf_name12);
+        tf_name12.setBounds(650, 100, 140, 31);
+        panel_Rep7.add(dateChooserCombo6);
+        dateChooserCombo6.setBounds(645, 250, 150, 31);
+
+        javax.swing.GroupLayout newEmployee5Layout = new javax.swing.GroupLayout(newEmployee5.getContentPane());
+        newEmployee5.getContentPane().setLayout(newEmployee5Layout);
+        newEmployee5Layout.setHorizontalGroup(
+            newEmployee5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panel_Rep7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 1010, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        newEmployee5Layout.setVerticalGroup(
+            newEmployee5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panel_Rep7, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -840,6 +2083,16 @@ Aspi.getRevision();
         });
         jPanel1.add(tf_user);
         tf_user.setBounds(460, 310, 340, 40);
+
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Si es un aspirante CLICK HERE");
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(830, 310, 190, 40);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/back.png"))); // NOI18N
         jLabel4.setText("jLabel4");
@@ -923,7 +2176,7 @@ Aspi.getRevision();
     }//GEN-LAST:event_tf_pwdMouseClicked
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-     /*   CouchDbConnector db = new StdCouchDbConnector("users", dbInstance);
+     /*CouchDbConnector db = new StdCouchDbConnector("users", dbInstance);
 
         List<String> docIds = db.getAllDocIds();
         Gson gson = new Gson();
@@ -935,11 +2188,12 @@ Aspi.getRevision();
         }
         for (int i = 0; i < listUsers.size(); i++) {
             if (this.tf_user.getText().equals(listUsers.get(i).getUsername()) && this.tf_pwd.getText().equals(listUsers.get(i).getPassword())) {
-                System.out.println("entro");
-                jFrame2.pack();
-                jFrame2.setLocationRelativeTo(null);
-                jFrame2.setVisible(true);
+                System.out.println("entro"); */
+                supermain.pack();
+                supermain.setLocationRelativeTo(null);
+                supermain.setVisible(true);
                 this.setVisible(false);
+            /*
             } else {
                 errorLogin.setVisible(true);
                 System.out.println("no entro");
@@ -949,7 +2203,7 @@ Aspi.getRevision();
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void label_logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_logoutMouseClicked
-        jFrame2.dispose();
+        supermain.dispose();
         this.setVisible(true);
     }//GEN-LAST:event_label_logoutMouseClicked
 
@@ -1042,7 +2296,7 @@ Aspi.getRevision();
 
     private void label_agencyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_agencyMouseClicked
         agencies.pack();
-        agencies.setLocationRelativeTo(jFrame2);
+        agencies.setLocationRelativeTo(supermain);
         agencies.setVisible(true);
     }//GEN-LAST:event_label_agencyMouseClicked
 
@@ -1101,8 +2355,8 @@ Aspi.getRevision();
     }//GEN-LAST:event_tf_director1KeyTyped
 
     private void back6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_back6MouseClicked
-        newAgency1.setVisible(false);
-        newAgency1.dispose();
+        newEmployee.setVisible(false);
+        newEmployee.dispose();
         scrollPane_agencies1.setVisible(true);
     }//GEN-LAST:event_back6MouseClicked
 
@@ -1123,41 +2377,340 @@ Aspi.getRevision();
     }//GEN-LAST:event_tf_email1KeyTyped
 
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
-        newAgency1.setSize(scrollPane_agencies1.getSize());
-        newAgency1.setLocationRelativeTo(scrollPane_agencies1);
+        newEmployee.setSize(scrollPane_agencies1.getSize());
+        newEmployee.setLocationRelativeTo(scrollPane_agencies1);
         scrollPane_agencies1.setVisible(false);
         panel_Rep1.setBackground(new Color(0, 0, 0, 0));
-        newAgency1.setBackground(new Color(0, 0, 0, 0));
-        newAgency1.setVisible(true);
+        newEmployee.setBackground(new Color(0, 0, 0, 0));
+        newEmployee.setVisible(true);
     }//GEN-LAST:event_jLabel13MouseClicked
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
-        agencies1.dispose();
+        employees.dispose();
         this.setVisible(true);
     }//GEN-LAST:event_jLabel14MouseClicked
-
-    private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
-        agencies1.setVisible(false);
-    }//GEN-LAST:event_jLabel17MouseClicked
 
     private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
         agencies.setVisible(false);
     }//GEN-LAST:event_jLabel18MouseClicked
 
     private void label_EmployeeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_EmployeeMouseClicked
-        agencies1.pack();
-        agencies1.setLocationRelativeTo(jFrame2);
-        agencies1.setVisible(true);
+        employees.pack();
+        employees.setLocationRelativeTo(supermain);
+        employees.setVisible(true);
     }//GEN-LAST:event_label_EmployeeMouseClicked
 
     private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
-        agencies1.dispose();
+        employees.dispose();
 
     }//GEN-LAST:event_jLabel19MouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         System.exit(0);
     }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void label_adminsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_adminsMouseClicked
+        admins.pack();
+        admins.setLocationRelativeTo(supermain);
+        admins.setVisible(true);
+    }//GEN-LAST:event_label_adminsMouseClicked
+
+    private void AddRep2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddRep2MouseClicked
+       boolean error = false;
+       
+       if (tf_password.getText().equals("")) {
+            tf_password.setBorder(BorderFactory.createLineBorder(Color.red));
+            error = true;
+        }
+
+        // error misssing marca
+        if (tf_username.getText().equals("")) {
+            tf_username.setBorder(BorderFactory.createLineBorder(Color.red));
+            error = true;
+        }
+
+        if (!error) {
+            //DB insert admin
+            
+            tf_username.setBorder(BorderFactory.createLineBorder(Color.white));
+            tf_password.setBorder(BorderFactory.createLineBorder(Color.white));
+        }
+    }//GEN-LAST:event_AddRep2MouseClicked
+
+    private void tf_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_passwordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_passwordActionPerformed
+
+    private void back7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_back7MouseClicked
+        newAdmin.setVisible(false);
+        newAdmin.dispose();
+        scrollPane_agencies2.setVisible(true);
+    }//GEN-LAST:event_back7MouseClicked
+
+    private void jLabel21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel21MouseClicked
+        admins.dispose();
+    }//GEN-LAST:event_jLabel21MouseClicked
+
+    private void jLabel22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseClicked
+        newAdmin.setSize(scrollPane_agencies2.getSize());
+        newAdmin.setLocationRelativeTo(scrollPane_agencies2);
+        scrollPane_agencies2.setVisible(false);
+        panel_Rep2.setBackground(new Color(0, 0, 0, 0));
+        newAdmin.setBackground(new Color(0, 0, 0, 0));
+        newAdmin.setVisible(true);
+    }//GEN-LAST:event_jLabel22MouseClicked
+
+    private void jLabel23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel23MouseClicked
+       admins.dispose();
+        this.setVisible(true);
+    }//GEN-LAST:event_jLabel23MouseClicked
+
+    private void label_logout1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_logout1MouseClicked
+         supermain1.dispose();
+        this.setVisible(true);
+    }//GEN-LAST:event_label_logout1MouseClicked
+
+    private void jLabel27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel27MouseClicked
+ 
+    }//GEN-LAST:event_jLabel27MouseClicked
+
+    private void jLabel28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel28MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel28MouseClicked
+
+    private void jLabel29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel29MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel29MouseClicked
+
+    private void jLabel30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel30MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel30MouseClicked
+
+    private void jLabel31MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel31MouseClicked
+       newEmployee1.pack();
+       newEmployee1.setLocationRelativeTo(jPanel2);
+       newEmployee1.setVisible(true);
+    }//GEN-LAST:event_jLabel31MouseClicked
+
+    private void AddRep3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddRep3MouseClicked
+             
+        boolean error = false;
+        if(tf_titulo.getSelectedItem().toString().contains("opcion")){
+            tf_titulo.setBorder(BorderFactory.createLineBorder(Color.red));
+            error = true;
+        }
+        
+        if(tf_institution.getText().isEmpty()){
+            tf_institution.setBorder(BorderFactory.createLineBorder(Color.red));
+            error = true;
+        }
+        
+        String title = tf_titulo.getSelectedItem().toString();
+        String institution = tf_institution.getText();
+        String year = tf_year.getValue().toString();
+        String average = tf_average.getValue().toString();
+        
+        if(!error){
+            academicTable.setDefaultRenderer(Object.class, new Render());
+
+            JButton btn1 = new JButton("Eliminar");
+            btn1.setName("e");
+            btn1.setFont(new Font("Verdana", Font.PLAIN, 14));
+            btn1.setBackground(new Color (255,203,13));
+            btn1.setForeground(Color.white);
+
+            DefaultTableModel model = (DefaultTableModel)academicTable.getModel();
+            Object[] row = new Object[5];     
+            row[0] = title;
+            row[1] = institution;
+            row[2] = year;
+            row[3] = average;
+            row[4] = btn1;
+            model.addRow(row); 
+            
+            tf_titulo.setSelectedIndex(0);
+            tf_year.setValue(1900);
+            tf_average.setValue(1);
+            tf_institution.setText("");
+            
+            tf_titulo.setBorder(BorderFactory.createLineBorder(Color.lightGray));
+            tf_year.setBorder(BorderFactory.createLineBorder(Color.lightGray));
+            tf_average.setBorder(BorderFactory.createLineBorder(Color.lightGray));
+            tf_institution.setBorder(BorderFactory.createLineBorder(Color.lightGray));
+            
+        }
+        
+        
+    }//GEN-LAST:event_AddRep3MouseClicked
+
+    private void back8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_back8MouseClicked
+        
+        newEmployee1.dispose();
+        
+            tf_titulo.setSelectedIndex(0);
+            tf_year.setValue(1900);
+            tf_average.setValue(1);
+            tf_institution.setText("");
+            
+            tf_titulo.setBorder(BorderFactory.createLineBorder(Color.lightGray));
+            tf_year.setBorder(BorderFactory.createLineBorder(Color.lightGray));
+            tf_average.setBorder(BorderFactory.createLineBorder(Color.lightGray));
+            tf_institution.setBorder(BorderFactory.createLineBorder(Color.lightGray));
+    }//GEN-LAST:event_back8MouseClicked
+
+    private void AddRep4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddRep4MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AddRep4MouseClicked
+
+    private void tf_director3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tf_director3KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_director3KeyTyped
+
+    private void back9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_back9MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_back9MouseClicked
+
+    private void tf_pass3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_pass3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_pass3ActionPerformed
+
+    private void tf_pass3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tf_pass3KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_pass3KeyTyped
+
+    private void tf_email3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_email3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_email3ActionPerformed
+
+    private void tf_email3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tf_email3KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_email3KeyTyped
+
+    private void AddRep5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddRep5MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AddRep5MouseClicked
+
+    private void tf_director4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tf_director4KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_director4KeyTyped
+
+    private void back10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_back10MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_back10MouseClicked
+
+    private void tf_pass4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_pass4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_pass4ActionPerformed
+
+    private void tf_pass4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tf_pass4KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_pass4KeyTyped
+
+    private void tf_email4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_email4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_email4ActionPerformed
+
+    private void tf_email4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tf_email4KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_email4KeyTyped
+
+    private void AddRep6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddRep6MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AddRep6MouseClicked
+
+    private void tf_director5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tf_director5KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_director5KeyTyped
+
+    private void back11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_back11MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_back11MouseClicked
+
+    private void tf_pass5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_pass5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_pass5ActionPerformed
+
+    private void tf_pass5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tf_pass5KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_pass5KeyTyped
+
+    private void tf_email5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_email5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_email5ActionPerformed
+
+    private void tf_email5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tf_email5KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_email5KeyTyped
+
+    private void AddRep7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddRep7MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AddRep7MouseClicked
+
+    private void tf_director6KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tf_director6KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_director6KeyTyped
+
+    private void back12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_back12MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_back12MouseClicked
+
+    private void tf_pass6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_pass6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_pass6ActionPerformed
+
+    private void tf_pass6KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tf_pass6KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_pass6KeyTyped
+
+    private void tf_email6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_email6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_email6ActionPerformed
+
+    private void tf_email6KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tf_email6KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_email6KeyTyped
+
+    private void AddRep8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddRep8MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AddRep8MouseClicked
+
+    private void academicTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_academicTableMouseClicked
+        int column = academicTable.getColumnModel().getColumnIndexAtX(evt.getX());
+        int row = evt.getY()/academicTable.getRowHeight();
+        
+        if(row < academicTable.getRowCount() && row >= 0 && column < academicTable.getColumnCount() && column >= 0){
+            Object value = academicTable.getValueAt(row, column);
+            if(value instanceof JButton){
+                ((JButton)value).doClick();
+                JButton boton = (JButton) value;
+
+                if(boton.getName().equals("e")){
+                    DefaultTableModel model = (DefaultTableModel)academicTable.getModel();
+                    model.removeRow(academicTable.getSelectedRow());     
+                }
+
+            }
+            if(value instanceof JCheckBox){
+                //((JCheckBox)value).doClick();
+                JCheckBox ch = (JCheckBox)value;
+                if(ch.isSelected()==true){
+                    ch.setSelected(false);
+                }
+                if(ch.isSelected()==false){
+                    ch.setSelected(true);
+                }
+                
+            }
+        }
+          
+    }//GEN-LAST:event_academicTableMouseClicked
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        supermain1.pack();
+        supermain1.setLocationRelativeTo(null);
+        supermain1.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel5MouseClicked
 
     /**
      * @param args the command line arguments
@@ -1197,13 +2750,31 @@ Aspi.getRevision();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AddRep;
     private javax.swing.JLabel AddRep1;
+    private javax.swing.JLabel AddRep2;
+    private javax.swing.JLabel AddRep3;
+    private javax.swing.JLabel AddRep4;
+    private javax.swing.JLabel AddRep5;
+    private javax.swing.JLabel AddRep6;
+    private javax.swing.JLabel AddRep7;
+    private javax.swing.JLabel AddRep8;
+    private javax.swing.JTable academicTable;
+    private javax.swing.JFrame admins;
     private javax.swing.JFrame agencies;
-    private javax.swing.JFrame agencies1;
+    private javax.swing.JLabel back10;
+    private javax.swing.JLabel back11;
+    private javax.swing.JLabel back12;
     private javax.swing.JLabel back5;
     private javax.swing.JLabel back6;
+    private javax.swing.JLabel back7;
+    private javax.swing.JLabel back8;
+    private javax.swing.JLabel back9;
     private datechooser.beans.DateChooserCombo dateChooserCombo1;
+    private datechooser.beans.DateChooserCombo dateChooserCombo3;
+    private datechooser.beans.DateChooserCombo dateChooserCombo4;
+    private datechooser.beans.DateChooserCombo dateChooserCombo5;
+    private datechooser.beans.DateChooserCombo dateChooserCombo6;
+    private javax.swing.JFrame employees;
     private javax.swing.JLabel errorLogin;
-    private javax.swing.JFrame jFrame2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1212,67 +2783,185 @@ Aspi.getRevision();
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator10;
+    private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JSeparator jSeparator9;
     private javax.swing.JLabel label_Employee;
     private javax.swing.JLabel label_Rep2;
     private javax.swing.JLabel label_Rep3;
+    private javax.swing.JLabel label_Rep4;
+    private javax.swing.JLabel label_Rep5;
+    private javax.swing.JLabel label_Rep6;
+    private javax.swing.JLabel label_Rep7;
+    private javax.swing.JLabel label_Rep8;
+    private javax.swing.JLabel label_Rep9;
+    private javax.swing.JLabel label_admins;
     private javax.swing.JLabel label_agency;
     private javax.swing.JLabel label_descRep;
     private javax.swing.JLabel label_descRep1;
+    private javax.swing.JLabel label_descRep2;
+    private javax.swing.JLabel label_descRep3;
+    private javax.swing.JLabel label_descRep4;
+    private javax.swing.JLabel label_descRep5;
+    private javax.swing.JLabel label_descRep6;
+    private javax.swing.JLabel label_descRep7;
     private javax.swing.JLabel label_fondo;
+    private javax.swing.JLabel label_fondo1;
     private javax.swing.JLabel label_logout;
+    private javax.swing.JLabel label_logout1;
     private javax.swing.JLabel label_marca;
     private javax.swing.JLabel label_marca1;
+    private javax.swing.JLabel label_marca10;
+    private javax.swing.JLabel label_marca11;
+    private javax.swing.JLabel label_marca12;
+    private javax.swing.JLabel label_marca13;
+    private javax.swing.JLabel label_marca14;
     private javax.swing.JLabel label_marca2;
     private javax.swing.JLabel label_marca3;
+    private javax.swing.JLabel label_marca4;
+    private javax.swing.JLabel label_marca5;
+    private javax.swing.JLabel label_marca7;
+    private javax.swing.JLabel label_marca8;
+    private javax.swing.JLabel label_marca9;
     private javax.swing.JLabel label_name3;
     private javax.swing.JLabel label_name4;
+    private javax.swing.JLabel label_name6;
+    private javax.swing.JLabel label_name7;
+    private javax.swing.JLabel label_name8;
+    private javax.swing.JLabel label_name9;
     private javax.swing.JLabel label_numParte;
     private javax.swing.JLabel label_numParte1;
+    private javax.swing.JLabel label_numParte2;
+    private javax.swing.JLabel label_numParte3;
+    private javax.swing.JLabel label_numParte4;
+    private javax.swing.JLabel label_numParte5;
+    private javax.swing.JLabel label_numParte6;
     private javax.swing.JLabel label_proveedor;
     private javax.swing.JLabel label_proveedor1;
+    private javax.swing.JLabel label_proveedor10;
+    private javax.swing.JLabel label_proveedor11;
+    private javax.swing.JLabel label_proveedor12;
+    private javax.swing.JLabel label_proveedor13;
     private javax.swing.JLabel label_proveedor2;
     private javax.swing.JLabel label_proveedor3;
+    private javax.swing.JLabel label_proveedor5;
+    private javax.swing.JLabel label_proveedor6;
+    private javax.swing.JLabel label_proveedor7;
+    private javax.swing.JLabel label_proveedor8;
+    private javax.swing.JLabel label_proveedor9;
+    private javax.swing.JDialog newAdmin;
     private javax.swing.JDialog newAgency;
-    private javax.swing.JDialog newAgency1;
+    private javax.swing.JDialog newEmployee;
+    private javax.swing.JDialog newEmployee1;
+    private javax.swing.JDialog newEmployee2;
+    private javax.swing.JDialog newEmployee3;
+    private javax.swing.JDialog newEmployee4;
+    private javax.swing.JDialog newEmployee5;
     private javax.swing.JPanel panel_Rep;
     private javax.swing.JPanel panel_Rep1;
+    private javax.swing.JPanel panel_Rep2;
+    private javax.swing.JPanel panel_Rep3;
+    private javax.swing.JPanel panel_Rep4;
+    private javax.swing.JPanel panel_Rep5;
+    private javax.swing.JPanel panel_Rep6;
+    private javax.swing.JPanel panel_Rep7;
     private javax.swing.JScrollPane scrollPane_agencies;
     private javax.swing.JScrollPane scrollPane_agencies1;
+    private javax.swing.JScrollPane scrollPane_agencies2;
+    private javax.swing.JFrame supermain;
+    private javax.swing.JFrame supermain1;
     private javax.swing.JTable table_agencies;
     private javax.swing.JTable table_agencies1;
+    private javax.swing.JTable table_agencies2;
     private javax.swing.JTextField tf_address;
+    private javax.swing.JSpinner tf_average;
     private javax.swing.JTextField tf_desc;
     private javax.swing.JFormattedTextField tf_director;
     private javax.swing.JFormattedTextField tf_director1;
+    private javax.swing.JFormattedTextField tf_director3;
+    private javax.swing.JFormattedTextField tf_director4;
+    private javax.swing.JFormattedTextField tf_director5;
+    private javax.swing.JFormattedTextField tf_director6;
     private javax.swing.JTextField tf_email;
     private javax.swing.JTextField tf_email1;
+    private javax.swing.JTextField tf_email3;
+    private javax.swing.JTextField tf_email4;
+    private javax.swing.JTextField tf_email5;
+    private javax.swing.JTextField tf_email6;
+    private javax.swing.JTextField tf_institution;
     private javax.swing.JTextField tf_lastname1;
+    private javax.swing.JTextField tf_lastname10;
+    private javax.swing.JTextField tf_lastname11;
+    private javax.swing.JTextField tf_lastname12;
     private javax.swing.JTextField tf_lastname2;
+    private javax.swing.JTextField tf_lastname5;
+    private javax.swing.JTextField tf_lastname6;
+    private javax.swing.JTextField tf_lastname7;
+    private javax.swing.JTextField tf_lastname8;
+    private javax.swing.JTextField tf_lastname9;
     private javax.swing.JTextField tf_name;
     private javax.swing.JTextField tf_name1;
+    private javax.swing.JTextField tf_name10;
+    private javax.swing.JTextField tf_name11;
+    private javax.swing.JTextField tf_name12;
     private javax.swing.JTextField tf_name2;
+    private javax.swing.JTextField tf_name5;
+    private javax.swing.JTextField tf_name6;
+    private javax.swing.JTextField tf_name7;
+    private javax.swing.JTextField tf_name8;
+    private javax.swing.JTextField tf_name9;
     private javax.swing.JTextField tf_pass;
     private javax.swing.JTextField tf_pass1;
+    private javax.swing.JTextField tf_pass3;
+    private javax.swing.JTextField tf_pass4;
+    private javax.swing.JTextField tf_pass5;
+    private javax.swing.JTextField tf_pass6;
+    private javax.swing.JTextField tf_password;
     private javax.swing.JTextField tf_pwd;
     private javax.swing.JTextField tf_rtn;
     private javax.swing.JTextField tf_tel;
+    private javax.swing.JComboBox<String> tf_titulo;
     private javax.swing.JTextField tf_user;
+    private javax.swing.JTextField tf_username;
+    private javax.swing.JSpinner tf_year;
     // End of variables declaration//GEN-END:variables
   CouchDbInstance dbInstance;
 }
