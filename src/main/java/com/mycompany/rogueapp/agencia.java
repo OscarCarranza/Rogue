@@ -13,11 +13,10 @@ public class agencia extends CouchDbDocument {
     String nombre;
     String direccion;
     int telefono;
-    String correo;
     String director;
     String descripcion;
 
-    public agencia(String _id, String _rev, String username, String RTN, String nombre, String direccion, int telefono, String correo, String director, String descripcion) {
+    public agencia(String _id, String _rev, String username, String RTN, String nombre, String direccion, int telefono, String director, String descripcion) {
         this._id = _id;
         this._rev = _rev;
         this.username = username;
@@ -25,18 +24,16 @@ public class agencia extends CouchDbDocument {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
-        this.correo = correo;
         this.director = director;
         this.descripcion = descripcion;
     }
 
-    public agencia(String username, String RTN, String nombre, String direccion, int telefono, String correo, String director, String descripcion) {
+    public agencia(String username, String RTN, String nombre, String direccion, int telefono, String director, String descripcion) {
         this.username = username;
         this.RTN = RTN;
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
-        this.correo = correo;
         this.director = director;
         this.descripcion = descripcion;
     }
@@ -81,14 +78,7 @@ public class agencia extends CouchDbDocument {
         this.telefono = telefono;
     }
 
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
+   
     public String getDirector() {
         return director;
     }
@@ -127,7 +117,7 @@ public class agencia extends CouchDbDocument {
 
     @Override
     public String toString() {
-        return "agencia{" + "username=" + username + ", RTN=" + RTN + ", nombre=" + nombre + ", direccion=" + direccion + ", telefono=" + telefono + ", correo=" + correo + ", director=" + director + ", descripcion=" + descripcion + '}';
+        return "agencia{" + "username=" + username + ", RTN=" + RTN + ", nombre=" + nombre + ", direccion=" + direccion + ", telefono=" + telefono +  ", director=" + director + ", descripcion=" + descripcion + '}';
     }
 
 }
