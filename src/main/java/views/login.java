@@ -5,14 +5,29 @@
  */
 package views;
 
+import com.google.gson.Gson;
+import com.mycompany.rogueapp.users;
 import java.awt.Color;
 import java.awt.Font;
+import java.util.List;
 import java.awt.event.KeyEvent;
+import java.net.MalformedURLException;
+import java.util.ArrayList;
+import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.table.DefaultTableModel;
+import org.apache.log4j.PropertyConfigurator;
+import org.ektorp.CouchDbConnector;
 import org.ektorp.CouchDbInstance;
+import org.ektorp.ViewQuery;
+import org.ektorp.http.HttpClient;
+import org.ektorp.http.StdHttpClient;
+import org.ektorp.impl.StdCouchDbConnector;
+import org.ektorp.impl.StdCouchDbInstance;
 
 /**
  *
@@ -24,13 +39,13 @@ public class login extends javax.swing.JFrame {
      * Creates new form login
      */
     public login() {
-    /*    try {
+        try {
             Properties log4jProp = new Properties();
             log4jProp.setProperty("log4j.rootLogger", "WARN");
             PropertyConfigurator.configure(log4jProp);
 //--------------- Creating Connection--------------------------//
             HttpClient httpClient = new StdHttpClient.Builder()
-                    .url("http://127.0.0.1:5984")
+                    .url("http://192.168.1.8:5984")
                     .username("administrator2")
                     .password("123456789")
                     .build();
@@ -38,43 +53,42 @@ public class login extends javax.swing.JFrame {
         } catch (MalformedURLException ex) {
             Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
         }
-        /*
+
 //--------------- Creating database----------------------------//
-CouchDbConnector db = new StdCouchDbConnector("aspirantes", dbInstance);
-db.createDatabaseIfNotExists();
-//--------------- Creating Document----------------------------//
-String date = new Date().toString();
-aspirantes Aspi = new aspirantes("gisselle", "1517199500614", "gisselle", "dilcia", "lagos", "doblado", date, "Ricardo");
-//   DesignDocument dd = new DesignDocument("light");
-// db.create(Aspi);
+/*CouchDbConnector db = new StdCouchDbConnector("aspirantes", dbInstance);
+         db.createDatabaseIfNotExists();
+         //--------------- Creating Document----------------------------//
+         String date = new Date().toString();
+         aspirantes Aspi = new aspirantes("gisselle", "1517199500614", "gisselle", "dilcia", "lagos", "doblado", date, "Ricardo");
+         //   DesignDocument dd = new DesignDocument("light");
+         // db.create(Aspi);
 
         
-//--------------- Reatriving Documents ---------------------------//
-List<String> docIds = db.getAllDocIds();
-Gson gson = new Gson();
-ViewQuery q = new ViewQuery().allDocs().includeDocs(true).keys(docIds);
-ArrayList<aspirantes> listAspirantes = new ArrayList();
-for (int i = 0; i < db.queryView(q).getRows().size(); i++) {
-System.out.println(db.queryView(q).getRows().get(i).getDoc());
-listAspirantes.add(gson.fromJson(db.queryView(q).getRows().get(i).getDoc(), aspirantes.class));
-}
-for (int i = 0; i < listAspirantes.size(); i++) {
-System.out.println(listAspirantes.get(i));
-}
-//------------------------------ delete data -------------------//
-System.out.println(listAspirantes.get(0).getId() + " " + listAspirantes.get(0).getRevision());
-//    db.delete(listAspirantes.get(0).getId(),listAspirantes.get(0).getRevision());
+         //--------------- Reatriving Documents ---------------------------//
+         List<String> docIds = db.getAllDocIds();
+         Gson gson = new Gson();
+         ViewQuery q = new ViewQuery().allDocs().includeDocs(true).keys(docIds);
+         ArrayList<aspirantes> listAspirantes = new ArrayList();
+         for (int i = 0; i < db.queryView(q).getRows().size(); i++) {
+         System.out.println(db.queryView(q).getRows().get(i).getDoc());
+         listAspirantes.add(gson.fromJson(db.queryView(q).getRows().get(i).getDoc(), aspirantes.class));
+         }
+         for (int i = 0; i < listAspirantes.size(); i++) {
+         System.out.println(listAspirantes.get(i));
+         }
+         //------------------------------ delete data -------------------//
+         System.out.println(listAspirantes.get(0).getId() + " " + listAspirantes.get(0).getRevision());
+         //    db.delete(listAspirantes.get(0).getId(),listAspirantes.get(0).getRevision());
 
-//----------------------------- update data--------------------//
+         //----------------------------- update data--------------------//
 
-aspirantes Aspi2 = new aspirantes(listAspirantes.get(0).getId(),listAspirantes.get(0).getRevision(),"Madrina", "1517199500614", "gisselle", "dilcia", "lagos", "doblado", date, "Ricardo");
-Aspi=Aspi2;
+         aspirantes Aspi2 = new aspirantes(listAspirantes.get(0).getId(),listAspirantes.get(0).getRevision(),"Madrina", "1517199500614", "gisselle", "dilcia", "lagos", "doblado", date, "Ricardo");
+         Aspi=Aspi2;
 
-db.update(Aspi);
-Aspi.getRevision();
+         db.update(Aspi);
+         Aspi.getRevision();
 
          */
-
         initComponents();
 
         //C:\Users\oscar\Documents\NetBeansProjects\Rogue\src\main\java\imgs\Black-Wallpaper-1080-12.jpg
@@ -111,6 +125,7 @@ Aspi.getRevision();
         label_admins = new javax.swing.JLabel();
         label_logout = new javax.swing.JLabel();
         label_agency = new javax.swing.JLabel();
+        label_puestos = new javax.swing.JLabel();
         label_fondo = new javax.swing.JLabel();
         agencies = new javax.swing.JFrame();
         jPanel4 = new javax.swing.JPanel();
@@ -222,7 +237,7 @@ Aspi.getRevision();
         tf_average = new javax.swing.JSpinner();
         jScrollPane1 = new javax.swing.JScrollPane();
         academicTable = new javax.swing.JTable();
-        tf_titulo = new javax.swing.JComboBox<>();
+        tf_titulo = new javax.swing.JComboBox<String>();
         newEmployee2 = new javax.swing.JDialog();
         panel_Rep4 = new javax.swing.JPanel();
         AddRep4 = new javax.swing.JLabel();
@@ -336,7 +351,7 @@ Aspi.getRevision();
             }
         });
         jPanel3.add(label_Employee);
-        label_Employee.setBounds(530, 270, 240, 250);
+        label_Employee.setBounds(360, 270, 240, 250);
 
         label_admins.setBackground(new java.awt.Color(255, 51, 51));
         label_admins.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -349,7 +364,7 @@ Aspi.getRevision();
             }
         });
         jPanel3.add(label_admins);
-        label_admins.setBounds(820, 270, 250, 250);
+        label_admins.setBounds(660, 270, 250, 250);
 
         label_logout.setBackground(new java.awt.Color(255, 51, 51));
         label_logout.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -375,7 +390,15 @@ Aspi.getRevision();
             }
         });
         jPanel3.add(label_agency);
-        label_agency.setBounds(240, 270, 240, 250);
+        label_agency.setBounds(70, 270, 240, 250);
+
+        label_puestos.setBackground(new java.awt.Color(255, 51, 51));
+        label_puestos.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        label_puestos.setForeground(new java.awt.Color(255, 255, 255));
+        label_puestos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/admins.png"))); // NOI18N
+        label_puestos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel3.add(label_puestos);
+        label_puestos.setBounds(940, 270, 250, 250);
 
         label_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/roguelogo.png"))); // NOI18N
         jPanel3.add(label_fondo);
@@ -1325,7 +1348,7 @@ Aspi.getRevision();
         panel_Rep3.add(jScrollPane1);
         jScrollPane1.setBounds(50, 200, 580, 80);
 
-        tf_titulo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione una opcion", "Licenciatura en Administración Aduanera", "Licenciatura en Administración de Empresas", "Licenciatura en Administración de Desastres", "Licenciatura en Administración", "Licenciatura en Administración en Salud", "Licenciatura en Administración Rural", "Licenciatura en Antropología", "Licenciatura en Archivología", "Licenciatura en Artes Combinadas y Escénicas", "Licenciatura en Artes Visuales", "Licenciatura en Bellas Artes", "Licenciatura en Bibliotecología", "Licenciatura en Bioanálisis", "Licenciatura en Biología", "Licenciatura en Bioquímica", "Licenciatura en Biotecnología", "Licenciatura en Cartografía", "Licenciatura en Ciencias de la Actividad Física y Deporte", "Licenciatura en Ciencias de la Computación", "Licenciatura en Ciencias de la Comunicación", "Licenciatura en Ciencias de la Salud Pública", "Licenciatura en Ciencias de la Información", "Licenciatura en Ciencias Físicas", "Licenciatura en Ciencias Matemáticas", "Licenciatura en Ciencias Militares", "Licenciatura en Ciencias Políticas y de la Administración", "Licenciatura en Comercio Internacional", "Licenciatura en Comunicación Audiovisual", "Licenciatura en Contaduría Publica", "Licenciatura en Comunicación Social", "Licenciatura en comunicación popular", "Licenciatura en Cosmetología y Cosmeatría Corporal", "Licenciatura en Creación y Desarrollo de Empresas", "Licenciatura en Criminología y Criminalística", "Licenciatura en Derecho", "Licenciatura en Cinematografía", "Licenciatura en Diseño Gráfico", "Licenciatura en Diseño Industrial", "Licenciatura en Documentación", "Licenciatura en Educación Primaria", "Licenciatura en Educación Secundaria", "Licenciatura en Educación Física", "Licenciatura en Educación Superior y Técnica Industrial", "Licenciatura en Educación de las Artes Combinadas y Escénicas", "Licenciatura en Enfermería", "Licenciatura en Farmacia", "Licenciatura en Filología Clásica", "Licenciatura en Filología Hispánica", "Licenciatura en Filosofía", "Licenciatura en Finanzas", "Licenciatura en Geografía", "Licenciatura en Historia", "Licenciatura en Historia del Arte", "Licenciatura en Informática", "Licenciatura en Ingeniería", "Licenciatura en Kinesiología", "Licenciatura en Lingüística", "Licenciatura en Medicina", "Licenciatura en Mercadotecnia", "Licenciatura en Músicoterapia", "Licenciatura en Nutrición", "Licenciatura en Obstetricia y Puericultura", "Licenciatura en Organización Industrial", "Licenciatura en Periodismo", "Licenciatura en Producción de bio imagen", "Licenciatura en Psicología", "Licenciatura en Psicopedagogía", "Licenciatura en Pedagogía Infantil", "Licenciatura en Publicidad y Relaciones Públicas", "Licenciatura en Química Industrial", "Licenciatura en Relaciones del Trabajo", "Licenciatura en Relaciones Internacionales", "Licenciatura en Seguridad e Higiene en el Trabajo", "Licenciatura en Sociología", "Licenciatura en Tecnología", "Licenciatura en Tecnología Médica", "Licenciatura en Tecnología Multimedia", "Licenciatura en Tecnologías de Información", "Licenciatura en Telecomunicaciones", "Licenciatura en Traducción e Interpretación", "Licenciatura en Urbanismo", "Licenciado en Cooperativas y Mutuales", "Licenciatura en Trabajo Social", "Animación", "Arquitectura", "Arquitectura Técnica / Ingeniería de la Edificación", "Desarrollo de Aplicaciones Web", "Diseño y Desarrollo de videojuegos", "Grado Abierto en Ingeniería y Arquitectura", "Ingeniería Aeroespacial", "Ingeniería Agroambiental", "Ingeniería Alimentaria", "Ingeniería Ambiental", "Ingeniería Biomédica", "Ingeniería de Caminos, Canales y Puertos / Ingeniería Civil", "Ingeniería de la Automoción", "Ingeniería de la Energía", "Ingeniería de las Industrias Agrarias y Alimentarias", "Ingeniería de los Materiales", "Ingeniería de Minas", "Ingeniería de Sistemas Audiovisuales / Sonido e Imagen", "Ingeniería de Sistemas Biológicos", "Ingeniería de Sistemas de Información", "Ingeniería de Tecnología y Diseño Textil", "Ingeniería de Telecomunicación (Teleco) y de Sistemas de Comunicación", "Ingeniería del Software", "Ingeniería Eléctrica y Electrónica", "Ingeniería en Diseño Industrial y Desarrollo de Producto", "Ingeniería en Informática", "Ingeniería en Organización Industrial", "Ingeniería en Tecnologías Industriales", "Ingeniería Física", "Ingeniería Forestal / Ingeniería del Medio Natural", "Ingeniería Geológica", "Ingeniería Geomática y Topografía", "Ingeniería Industrial", "Ingeniería Matemática", "Ingeniería Mecánica", "Ingeniería Mecatrónica", "Ingeniería Náutica y Transporte Marítimo", "Ingeniería Naval y Oceánica", "Ingeniería Química", "Ingeniería Robótica", "Ingeniería Telemática" }));
+        tf_titulo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione una opcion", "Licenciatura en Administración Aduanera", "Licenciatura en Administración de Empresas", "Licenciatura en Administración de Desastres", "Licenciatura en Administración", "Licenciatura en Administración en Salud", "Licenciatura en Administración Rural", "Licenciatura en Antropología", "Licenciatura en Archivología", "Licenciatura en Artes Combinadas y Escénicas", "Licenciatura en Artes Visuales", "Licenciatura en Bellas Artes", "Licenciatura en Bibliotecología", "Licenciatura en Bioanálisis", "Licenciatura en Biología", "Licenciatura en Bioquímica", "Licenciatura en Biotecnología", "Licenciatura en Cartografía", "Licenciatura en Ciencias de la Actividad Física y Deporte", "Licenciatura en Ciencias de la Computación", "Licenciatura en Ciencias de la Comunicación", "Licenciatura en Ciencias de la Salud Pública", "Licenciatura en Ciencias de la Información", "Licenciatura en Ciencias Físicas", "Licenciatura en Ciencias Matemáticas", "Licenciatura en Ciencias Militares", "Licenciatura en Ciencias Políticas y de la Administración", "Licenciatura en Comercio Internacional", "Licenciatura en Comunicación Audiovisual", "Licenciatura en Contaduría Publica", "Licenciatura en Comunicación Social", "Licenciatura en comunicación popular", "Licenciatura en Cosmetología y Cosmeatría Corporal", "Licenciatura en Creación y Desarrollo de Empresas", "Licenciatura en Criminología y Criminalística", "Licenciatura en Derecho", "Licenciatura en Cinematografía", "Licenciatura en Diseño Gráfico", "Licenciatura en Diseño Industrial", "Licenciatura en Documentación", "Licenciatura en Educación Primaria", "Licenciatura en Educación Secundaria", "Licenciatura en Educación Física", "Licenciatura en Educación Superior y Técnica Industrial", "Licenciatura en Educación de las Artes Combinadas y Escénicas", "Licenciatura en Enfermería", "Licenciatura en Farmacia", "Licenciatura en Filología Clásica", "Licenciatura en Filología Hispánica", "Licenciatura en Filosofía", "Licenciatura en Finanzas", "Licenciatura en Geografía", "Licenciatura en Historia", "Licenciatura en Historia del Arte", "Licenciatura en Informática", "Licenciatura en Ingeniería", "Licenciatura en Kinesiología", "Licenciatura en Lingüística", "Licenciatura en Medicina", "Licenciatura en Mercadotecnia", "Licenciatura en Músicoterapia", "Licenciatura en Nutrición", "Licenciatura en Obstetricia y Puericultura", "Licenciatura en Organización Industrial", "Licenciatura en Periodismo", "Licenciatura en Producción de bio imagen", "Licenciatura en Psicología", "Licenciatura en Psicopedagogía", "Licenciatura en Pedagogía Infantil", "Licenciatura en Publicidad y Relaciones Públicas", "Licenciatura en Química Industrial", "Licenciatura en Relaciones del Trabajo", "Licenciatura en Relaciones Internacionales", "Licenciatura en Seguridad e Higiene en el Trabajo", "Licenciatura en Sociología", "Licenciatura en Tecnología", "Licenciatura en Tecnología Médica", "Licenciatura en Tecnología Multimedia", "Licenciatura en Tecnologías de Información", "Licenciatura en Telecomunicaciones", "Licenciatura en Traducción e Interpretación", "Licenciatura en Urbanismo", "Licenciado en Cooperativas y Mutuales", "Licenciatura en Trabajo Social", "Animación", "Arquitectura", "Arquitectura Técnica / Ingeniería de la Edificación", "Desarrollo de Aplicaciones Web", "Diseño y Desarrollo de videojuegos", "Grado Abierto en Ingeniería y Arquitectura", "Ingeniería Aeroespacial", "Ingeniería Agroambiental", "Ingeniería Alimentaria", "Ingeniería Ambiental", "Ingeniería Biomédica", "Ingeniería de Caminos, Canales y Puertos / Ingeniería Civil", "Ingeniería de la Automoción", "Ingeniería de la Energía", "Ingeniería de las Industrias Agrarias y Alimentarias", "Ingeniería de los Materiales", "Ingeniería de Minas", "Ingeniería de Sistemas Audiovisuales / Sonido e Imagen", "Ingeniería de Sistemas Biológicos", "Ingeniería de Sistemas de Información", "Ingeniería de Tecnología y Diseño Textil", "Ingeniería de Telecomunicación (Teleco) y de Sistemas de Comunicación", "Ingeniería del Software", "Ingeniería Eléctrica y Electrónica", "Ingeniería en Diseño Industrial y Desarrollo de Producto", "Ingeniería en Informática", "Ingeniería en Organización Industrial", "Ingeniería en Tecnologías Industriales", "Ingeniería Física", "Ingeniería Forestal / Ingeniería del Medio Natural", "Ingeniería Geológica", "Ingeniería Geomática y Topografía", "Ingeniería Industrial", "Ingeniería Matemática", "Ingeniería Mecánica", "Ingeniería Mecatrónica", "Ingeniería Náutica y Transporte Marítimo", "Ingeniería Naval y Oceánica", "Ingeniería Química", "Ingeniería Robótica", "Ingeniería Telemática" }));
         panel_Rep3.add(tf_titulo);
         tf_titulo.setBounds(110, 90, 240, 31);
 
@@ -2102,7 +2125,7 @@ Aspi.getRevision();
             }
         });
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(1170, 40, 61, 30);
+        jLabel4.setBounds(1170, 40, 54, 30);
 
         errorLogin.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         errorLogin.setForeground(new java.awt.Color(255, 51, 51));
@@ -2176,30 +2199,34 @@ Aspi.getRevision();
     }//GEN-LAST:event_tf_pwdMouseClicked
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-     /*CouchDbConnector db = new StdCouchDbConnector("users", dbInstance);
+        CouchDbConnector db = new StdCouchDbConnector("users", dbInstance);
 
         List<String> docIds = db.getAllDocIds();
         Gson gson = new Gson();
         ViewQuery q = new ViewQuery().allDocs().includeDocs(true).keys(docIds);
         ArrayList<users> listUsers = new ArrayList();
         for (int i = 0; i < db.queryView(q).getRows().size(); i++) {
-            System.out.println(db.queryView(q).getRows().get(i).getDoc());
             listUsers.add(gson.fromJson(db.queryView(q).getRows().get(i).getDoc(), users.class));
         }
         for (int i = 0; i < listUsers.size(); i++) {
             if (this.tf_user.getText().equals(listUsers.get(i).getUsername()) && this.tf_pwd.getText().equals(listUsers.get(i).getPassword())) {
-                System.out.println("entro"); */
-                supermain.pack();
-                supermain.setLocationRelativeTo(null);
-                supermain.setVisible(true);
-                this.setVisible(false);
-            /*
+                if (listUsers.get(i).getType().equals("admin")) {
+                    supermain.pack();
+                    supermain.setLocationRelativeTo(null);
+                    supermain.setVisible(true);
+                    this.setVisible(false);
+                } else if (listUsers.get(i).getType().equals("aspirante")) {
+                    
+                } else if (listUsers.get(i).getType().equals("agencia")) {
+                    
+                }
+
             } else {
                 errorLogin.setVisible(true);
-                System.out.println("no entro");
+
             }
 
-        }*/
+        }
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void label_logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_logoutMouseClicked
@@ -2416,9 +2443,9 @@ Aspi.getRevision();
     }//GEN-LAST:event_label_adminsMouseClicked
 
     private void AddRep2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddRep2MouseClicked
-       boolean error = false;
-       
-       if (tf_password.getText().equals("")) {
+        boolean error = false;
+
+        if (tf_password.getText().equals("")) {
             tf_password.setBorder(BorderFactory.createLineBorder(Color.red));
             error = true;
         }
@@ -2431,7 +2458,7 @@ Aspi.getRevision();
 
         if (!error) {
             //DB insert admin
-            
+
             tf_username.setBorder(BorderFactory.createLineBorder(Color.white));
             tf_password.setBorder(BorderFactory.createLineBorder(Color.white));
         }
@@ -2461,17 +2488,17 @@ Aspi.getRevision();
     }//GEN-LAST:event_jLabel22MouseClicked
 
     private void jLabel23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel23MouseClicked
-       admins.dispose();
+        admins.dispose();
         this.setVisible(true);
     }//GEN-LAST:event_jLabel23MouseClicked
 
     private void label_logout1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_logout1MouseClicked
-         supermain1.dispose();
+        supermain1.dispose();
         this.setVisible(true);
     }//GEN-LAST:event_label_logout1MouseClicked
 
     private void jLabel27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel27MouseClicked
- 
+
     }//GEN-LAST:event_jLabel27MouseClicked
 
     private void jLabel28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel28MouseClicked
@@ -2487,75 +2514,75 @@ Aspi.getRevision();
     }//GEN-LAST:event_jLabel30MouseClicked
 
     private void jLabel31MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel31MouseClicked
-       newEmployee1.pack();
-       newEmployee1.setLocationRelativeTo(jPanel2);
-       newEmployee1.setVisible(true);
+        newEmployee1.pack();
+        newEmployee1.setLocationRelativeTo(jPanel2);
+        newEmployee1.setVisible(true);
     }//GEN-LAST:event_jLabel31MouseClicked
 
     private void AddRep3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddRep3MouseClicked
-             
+
         boolean error = false;
-        if(tf_titulo.getSelectedItem().toString().contains("opcion")){
+        if (tf_titulo.getSelectedItem().toString().contains("opcion")) {
             tf_titulo.setBorder(BorderFactory.createLineBorder(Color.red));
             error = true;
         }
-        
-        if(tf_institution.getText().isEmpty()){
+
+        if (tf_institution.getText().isEmpty()) {
             tf_institution.setBorder(BorderFactory.createLineBorder(Color.red));
             error = true;
         }
-        
+
         String title = tf_titulo.getSelectedItem().toString();
         String institution = tf_institution.getText();
         String year = tf_year.getValue().toString();
         String average = tf_average.getValue().toString();
-        
-        if(!error){
+
+        if (!error) {
             academicTable.setDefaultRenderer(Object.class, new Render());
 
             JButton btn1 = new JButton("Eliminar");
             btn1.setName("e");
             btn1.setFont(new Font("Verdana", Font.PLAIN, 14));
-            btn1.setBackground(new Color (255,203,13));
+            btn1.setBackground(new Color(255, 203, 13));
             btn1.setForeground(Color.white);
 
-            DefaultTableModel model = (DefaultTableModel)academicTable.getModel();
-            Object[] row = new Object[5];     
+            DefaultTableModel model = (DefaultTableModel) academicTable.getModel();
+            Object[] row = new Object[5];
             row[0] = title;
             row[1] = institution;
             row[2] = year;
             row[3] = average;
             row[4] = btn1;
-            model.addRow(row); 
-            
+            model.addRow(row);
+
             tf_titulo.setSelectedIndex(0);
             tf_year.setValue(1900);
             tf_average.setValue(1);
             tf_institution.setText("");
-            
+
             tf_titulo.setBorder(BorderFactory.createLineBorder(Color.lightGray));
             tf_year.setBorder(BorderFactory.createLineBorder(Color.lightGray));
             tf_average.setBorder(BorderFactory.createLineBorder(Color.lightGray));
             tf_institution.setBorder(BorderFactory.createLineBorder(Color.lightGray));
-            
+
         }
-        
-        
+
+
     }//GEN-LAST:event_AddRep3MouseClicked
 
     private void back8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_back8MouseClicked
-        
+
         newEmployee1.dispose();
-        
-            tf_titulo.setSelectedIndex(0);
-            tf_year.setValue(1900);
-            tf_average.setValue(1);
-            tf_institution.setText("");
-            
-            tf_titulo.setBorder(BorderFactory.createLineBorder(Color.lightGray));
-            tf_year.setBorder(BorderFactory.createLineBorder(Color.lightGray));
-            tf_average.setBorder(BorderFactory.createLineBorder(Color.lightGray));
-            tf_institution.setBorder(BorderFactory.createLineBorder(Color.lightGray));
+
+        tf_titulo.setSelectedIndex(0);
+        tf_year.setValue(1900);
+        tf_average.setValue(1);
+        tf_institution.setText("");
+
+        tf_titulo.setBorder(BorderFactory.createLineBorder(Color.lightGray));
+        tf_year.setBorder(BorderFactory.createLineBorder(Color.lightGray));
+        tf_average.setBorder(BorderFactory.createLineBorder(Color.lightGray));
+        tf_institution.setBorder(BorderFactory.createLineBorder(Color.lightGray));
     }//GEN-LAST:event_back8MouseClicked
 
     private void AddRep4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddRep4MouseClicked
@@ -2676,33 +2703,33 @@ Aspi.getRevision();
 
     private void academicTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_academicTableMouseClicked
         int column = academicTable.getColumnModel().getColumnIndexAtX(evt.getX());
-        int row = evt.getY()/academicTable.getRowHeight();
-        
-        if(row < academicTable.getRowCount() && row >= 0 && column < academicTable.getColumnCount() && column >= 0){
+        int row = evt.getY() / academicTable.getRowHeight();
+
+        if (row < academicTable.getRowCount() && row >= 0 && column < academicTable.getColumnCount() && column >= 0) {
             Object value = academicTable.getValueAt(row, column);
-            if(value instanceof JButton){
-                ((JButton)value).doClick();
+            if (value instanceof JButton) {
+                ((JButton) value).doClick();
                 JButton boton = (JButton) value;
 
-                if(boton.getName().equals("e")){
-                    DefaultTableModel model = (DefaultTableModel)academicTable.getModel();
-                    model.removeRow(academicTable.getSelectedRow());     
+                if (boton.getName().equals("e")) {
+                    DefaultTableModel model = (DefaultTableModel) academicTable.getModel();
+                    model.removeRow(academicTable.getSelectedRow());
                 }
 
             }
-            if(value instanceof JCheckBox){
+            if (value instanceof JCheckBox) {
                 //((JCheckBox)value).doClick();
-                JCheckBox ch = (JCheckBox)value;
-                if(ch.isSelected()==true){
+                JCheckBox ch = (JCheckBox) value;
+                if (ch.isSelected() == true) {
                     ch.setSelected(false);
                 }
-                if(ch.isSelected()==false){
+                if (ch.isSelected() == false) {
                     ch.setSelected(true);
                 }
-                
+
             }
         }
-          
+
     }//GEN-LAST:event_academicTableMouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
@@ -2887,6 +2914,7 @@ Aspi.getRevision();
     private javax.swing.JLabel label_proveedor7;
     private javax.swing.JLabel label_proveedor8;
     private javax.swing.JLabel label_proveedor9;
+    private javax.swing.JLabel label_puestos;
     private javax.swing.JDialog newAdmin;
     private javax.swing.JDialog newAgency;
     private javax.swing.JDialog newEmployee;
