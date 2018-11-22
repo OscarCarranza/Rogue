@@ -115,6 +115,7 @@ Aspi.getRevision();
     private void initComponents() {
 
         jToggleButton1 = new javax.swing.JToggleButton();
+        jPanel1 = new javax.swing.JPanel();
         login_button = new javax.swing.JButton();
         username_login = new javax.swing.JTextField();
         password_login = new javax.swing.JTextField();
@@ -122,6 +123,17 @@ Aspi.getRevision();
         jLabel2 = new javax.swing.JLabel();
 
         jToggleButton1.setText("jToggleButton1");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -211,9 +223,14 @@ Aspi.getRevision();
         });
     }
 
+    public CouchDbInstance getDbInstance() {
+        return dbInstance;
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JButton login_button;
     private javax.swing.JTextField password_login;
