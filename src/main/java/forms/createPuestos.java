@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package views;
+package forms;
 
 import com.mycompany.rogueapp.puesto;
 import java.awt.Color;
