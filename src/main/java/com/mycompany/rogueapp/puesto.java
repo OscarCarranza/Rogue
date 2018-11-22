@@ -8,27 +8,27 @@ public class puesto extends CouchDbDocument {
     String _rev;
     String _id;
     String idPuesto;
-    String RTNagencia;
+    String username;
     String rangoJerarquico;
     String rangoSalarial;
     String tipoPlaza;
     int cantidadPlazas;
     ArrayList<grados_academicos> gradosAcademicos = new ArrayList();
 
-    public puesto(String _id, String _rev, String idPuesto, String RTNagencia, String rangoJerarquico, String rangoSalarial, String tipoPlaza, int cantidadPlazas) {
+    public puesto(String _id, String _rev, String idPuesto, String username, String rangoJerarquico, String rangoSalarial, String tipoPlaza, int cantidadPlazas) {
         this._id = _id;
         this._rev = _rev;
         this.idPuesto = idPuesto;
-        this.RTNagencia = RTNagencia;
+        this.username = username;
         this.rangoJerarquico = rangoJerarquico;
         this.rangoSalarial = rangoSalarial;
         this.tipoPlaza = tipoPlaza;
         this.cantidadPlazas = cantidadPlazas;
     }
 
-    public puesto(String idPuesto, String RTNagencia, String rangoJerarquico, String rangoSalarial, String tipoPlaza, int cantidadPlazas) {
+    public puesto(String idPuesto, String username, String rangoJerarquico, String rangoSalarial, String tipoPlaza, int cantidadPlazas) {
         this.idPuesto = idPuesto;
-        this.RTNagencia = RTNagencia;
+        this.username = username;
         this.rangoJerarquico = rangoJerarquico;
         this.rangoSalarial = rangoSalarial;
         this.tipoPlaza = tipoPlaza;
@@ -43,12 +43,12 @@ public class puesto extends CouchDbDocument {
         this.idPuesto = idPuesto;
     }
 
-    public String getRTNagencia() {
-        return RTNagencia;
+    public String getUsername() {
+        return username;
     }
 
-    public void setRTNagencia(String RTNagencia) {
-        this.RTNagencia = RTNagencia;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getRangoJerarquico() {
@@ -113,7 +113,7 @@ public class puesto extends CouchDbDocument {
 
     @Override
     public String toString() {
-        return "puesto{" + "idPuesto=" + idPuesto + ", RTNagencia=" + RTNagencia + ", rangoJerarquico=" + rangoJerarquico + ", rangoSalarial=" + rangoSalarial + ", tipoPlaza=" + tipoPlaza + ", cantidadPlazas=" + cantidadPlazas + ", datosAcademicos=" + gradosAcademicos + '}';
+        return "puesto{" + "idPuesto=" + idPuesto + ", username=" + username + ", rangoJerarquico=" + rangoJerarquico + ", rangoSalarial=" + rangoSalarial + ", tipoPlaza=" + tipoPlaza + ", cantidadPlazas=" + cantidadPlazas + ", datosAcademicos=" + gradosAcademicos + '}';
     }
 
 }

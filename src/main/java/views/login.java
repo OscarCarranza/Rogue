@@ -7,6 +7,7 @@ package views;
 
 import com.google.gson.Gson;
 import com.mycompany.rogueapp.agencia;
+import com.mycompany.rogueapp.grados_academicos;
 import com.mycompany.rogueapp.puesto;
 import com.mycompany.rogueapp.users;
 import java.awt.Color;
@@ -27,7 +28,6 @@ import org.ektorp.http.StdHttpClient;
 import org.ektorp.impl.StdCouchDbConnector;
 import org.ektorp.impl.StdCouchDbInstance;
 
-
 /**
  *
  * @author Ricardo
@@ -46,74 +46,74 @@ public class login extends javax.swing.JFrame {
             PropertyConfigurator.configure(log4jProp);
 //--------------- Creating Connection--------------------------//
             HttpClient httpClient = new StdHttpClient.Builder()
-                    .url("http://127.0.0.1:5984")
+                    .url("http://192.168.1.8:5984")
                     .username("administrator2")
                     .password("123456789")
                     .build();
-            dbInstance = new StdCouchDbInstance(httpClient); 
+            dbInstance = new StdCouchDbInstance(httpClient);
         } catch (MalformedURLException ex) {
             Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
         }
         /*
-//--------------- Creating database----------------------------//
-CouchDbConnector db = new StdCouchDbConnector("aspirantes", dbInstance);
-db.createDatabaseIfNotExists();
-//--------------- Creating Document----------------------------//
-String date = new Date().toString();
-aspirantes Aspi = new aspirantes("gisselle", "1517199500614", "gisselle", "dilcia", "lagos", "doblado", date, "Ricardo");
-//   DesignDocument dd = new DesignDocument("light");
-// db.create(Aspi);
+         //--------------- Creating database----------------------------//
+         CouchDbConnector db = new StdCouchDbConnector("aspirantes", dbInstance);
+         db.createDatabaseIfNotExists();
+         //--------------- Creating Document----------------------------//
+         String date = new Date().toString();
+         aspirantes Aspi = new aspirantes("gisselle", "1517199500614", "gisselle", "dilcia", "lagos", "doblado", date, "Ricardo");
+         //   DesignDocument dd = new DesignDocument("light");
+         // db.create(Aspi);
         
-//--------------- Reatriving Documents ---------------------------//
-List<String> docIds = db.getAllDocIds();
-Gson gson = new Gson();
-ViewQuery q = new ViewQuery().allDocs().includeDocs(true).keys(docIds);
-ArrayList<aspirantes> listAspirantes = new ArrayList();
-for (int i = 0; i < db.queryView(q).getRows().size(); i++) {
-System.out.println(db.queryView(q).getRows().get(i).getDoc());
-listAspirantes.add(gson.fromJson(db.queryView(q).getRows().get(i).getDoc(), aspirantes.class));
-}
-for (int i = 0; i < listAspirantes.size(); i++) {
-System.out.println(listAspirantes.get(i));
-}
-//------------------------------ delete data -------------------//
-System.out.println(listAspirantes.get(0).getId() + " " + listAspirantes.get(0).getRevision());
-//    db.delete(listAspirantes.get(0).getId(),listAspirantes.get(0).getRevision());
-//----------------------------- update data--------------------//
-aspirantes Aspi2 = new aspirantes(listAspirantes.get(0).getId(),listAspirantes.get(0).getRevision(),"Madrina", "1517199500614", "gisselle", "dilcia", "lagos", "doblado", date, "Ricardo");
-Aspi=Aspi2;
-db.update(Aspi);
-Aspi.getRevision();
-        /*
-//--------------- Creating database----------------------------//
-CouchDbConnector db = new StdCouchDbConnector("aspirantes", dbInstance);
-db.createDatabaseIfNotExists();
-//--------------- Creating Document----------------------------//
-String date = new Date().toString();
-aspirantes Aspi = new aspirantes("gisselle", "1517199500614", "gisselle", "dilcia", "lagos", "doblado", date, "Ricardo");
-//   DesignDocument dd = new DesignDocument("light");
-// db.create(Aspi);
+         //--------------- Reatriving Documents ---------------------------//
+         List<String> docIds = db.getAllDocIds();
+         Gson gson = new Gson();
+         ViewQuery q = new ViewQuery().allDocs().includeDocs(true).keys(docIds);
+         ArrayList<aspirantes> listAspirantes = new ArrayList();
+         for (int i = 0; i < db.queryView(q).getRows().size(); i++) {
+         System.out.println(db.queryView(q).getRows().get(i).getDoc());
+         listAspirantes.add(gson.fromJson(db.queryView(q).getRows().get(i).getDoc(), aspirantes.class));
+         }
+         for (int i = 0; i < listAspirantes.size(); i++) {
+         System.out.println(listAspirantes.get(i));
+         }
+         //------------------------------ delete data -------------------//
+         System.out.println(listAspirantes.get(0).getId() + " " + listAspirantes.get(0).getRevision());
+         //    db.delete(listAspirantes.get(0).getId(),listAspirantes.get(0).getRevision());
+         //----------------------------- update data--------------------//
+         aspirantes Aspi2 = new aspirantes(listAspirantes.get(0).getId(),listAspirantes.get(0).getRevision(),"Madrina", "1517199500614", "gisselle", "dilcia", "lagos", "doblado", date, "Ricardo");
+         Aspi=Aspi2;
+         db.update(Aspi);
+         Aspi.getRevision();
+         /*
+         //--------------- Creating database----------------------------//
+         CouchDbConnector db = new StdCouchDbConnector("aspirantes", dbInstance);
+         db.createDatabaseIfNotExists();
+         //--------------- Creating Document----------------------------//
+         String date = new Date().toString();
+         aspirantes Aspi = new aspirantes("gisselle", "1517199500614", "gisselle", "dilcia", "lagos", "doblado", date, "Ricardo");
+         //   DesignDocument dd = new DesignDocument("light");
+         // db.create(Aspi);
         
-//--------------- Reatriving Documents ---------------------------//
-List<String> docIds = db.getAllDocIds();
-Gson gson = new Gson();
-ViewQuery q = new ViewQuery().allDocs().includeDocs(true).keys(docIds);
-ArrayList<aspirantes> listAspirantes = new ArrayList();
-for (int i = 0; i < db.queryView(q).getRows().size(); i++) {
-System.out.println(db.queryView(q).getRows().get(i).getDoc());
-listAspirantes.add(gson.fromJson(db.queryView(q).getRows().get(i).getDoc(), aspirantes.class));
-}
-for (int i = 0; i < listAspirantes.size(); i++) {
-System.out.println(listAspirantes.get(i));
-}
-//------------------------------ delete data -------------------//
-System.out.println(listAspirantes.get(0).getId() + " " + listAspirantes.get(0).getRevision());
-//    db.delete(listAspirantes.get(0).getId(),listAspirantes.get(0).getRevision());
-//----------------------------- update data--------------------//
-aspirantes Aspi2 = new aspirantes(listAspirantes.get(0).getId(),listAspirantes.get(0).getRevision(),"Madrina", "1517199500614", "gisselle", "dilcia", "lagos", "doblado", date, "Ricardo");
-Aspi=Aspi2;
-db.update(Aspi);
-Aspi.getRevision();
+         //--------------- Reatriving Documents ---------------------------//
+         List<String> docIds = db.getAllDocIds();
+         Gson gson = new Gson();
+         ViewQuery q = new ViewQuery().allDocs().includeDocs(true).keys(docIds);
+         ArrayList<aspirantes> listAspirantes = new ArrayList();
+         for (int i = 0; i < db.queryView(q).getRows().size(); i++) {
+         System.out.println(db.queryView(q).getRows().get(i).getDoc());
+         listAspirantes.add(gson.fromJson(db.queryView(q).getRows().get(i).getDoc(), aspirantes.class));
+         }
+         for (int i = 0; i < listAspirantes.size(); i++) {
+         System.out.println(listAspirantes.get(i));
+         }
+         //------------------------------ delete data -------------------//
+         System.out.println(listAspirantes.get(0).getId() + " " + listAspirantes.get(0).getRevision());
+         //    db.delete(listAspirantes.get(0).getId(),listAspirantes.get(0).getRevision());
+         //----------------------------- update data--------------------//
+         aspirantes Aspi2 = new aspirantes(listAspirantes.get(0).getId(),listAspirantes.get(0).getRevision(),"Madrina", "1517199500614", "gisselle", "dilcia", "lagos", "doblado", date, "Ricardo");
+         Aspi=Aspi2;
+         db.update(Aspi);
+         Aspi.getRevision();
          */
 
     }
@@ -159,6 +159,11 @@ Aspi.getRevision();
         jTextField3 = new javax.swing.JTextField();
         jSpinner3 = new javax.swing.JSpinner();
         jButton3 = new javax.swing.JButton();
+        viewAgencias = new javax.swing.JDialog();
+        jLabel58 = new javax.swing.JLabel();
+        jb_openCreateAgency = new javax.swing.JButton();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        viewAgenciesTable = new javax.swing.JTable();
         createAgencies = new javax.swing.JDialog();
         jp_createAgencyPassword = new javax.swing.JPasswordField();
         jLabel16 = new javax.swing.JLabel();
@@ -202,7 +207,7 @@ Aspi.getRevision();
         jLabel42 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<String>();
         jFormattedTextField2 = new javax.swing.JFormattedTextField();
         jLabel54 = new javax.swing.JLabel();
         jLabel53 = new javax.swing.JLabel();
@@ -211,7 +216,7 @@ Aspi.getRevision();
         jLabel43 = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
         jLabel48 = new javax.swing.JLabel();
-        jComboBox6 = new javax.swing.JComboBox<>();
+        jComboBox6 = new javax.swing.JComboBox<String>();
         jSpinner6 = new javax.swing.JSpinner();
         jLabel52 = new javax.swing.JLabel();
         jLabel56 = new javax.swing.JLabel();
@@ -220,7 +225,7 @@ Aspi.getRevision();
         jLabel51 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        jComboBox4 = new javax.swing.JComboBox<String>();
         jSpinner8 = new javax.swing.JSpinner();
         jSeparator1 = new javax.swing.JSeparator();
         jSpinner5 = new javax.swing.JSpinner();
@@ -232,7 +237,7 @@ Aspi.getRevision();
         jLabel39 = new javax.swing.JLabel();
         jTextField9 = new javax.swing.JTextField();
         jSeparator6 = new javax.swing.JSeparator();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        jComboBox3 = new javax.swing.JComboBox<String>();
         jLabel28 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         jScrollPane8 = new javax.swing.JScrollPane();
@@ -245,11 +250,11 @@ Aspi.getRevision();
         jTextArea6 = new javax.swing.JTextArea();
         jLabel46 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
-        jComboBox5 = new javax.swing.JComboBox<>();
+        jComboBox5 = new javax.swing.JComboBox<String>();
         jSeparator2 = new javax.swing.JSeparator();
         jButton4 = new javax.swing.JButton();
         jLabel49 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<String>();
         jLabel41 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
@@ -266,11 +271,6 @@ Aspi.getRevision();
         jLabel45 = new javax.swing.JLabel();
         cb_createRangoJerarquico1 = new javax.swing.JComboBox();
         jTextField10 = new javax.swing.JTextField();
-        viewAgencias = new javax.swing.JDialog();
-        jLabel58 = new javax.swing.JLabel();
-        jb_openCreateAgency = new javax.swing.JButton();
-        jScrollPane10 = new javax.swing.JScrollPane();
-        viewAgenciesTable = new javax.swing.JTable();
         viewDegree = new javax.swing.JDialog();
         jb_openCreateDegree = new javax.swing.JButton();
         jLabel61 = new javax.swing.JLabel();
@@ -280,6 +280,23 @@ Aspi.getRevision();
         cb_nivelGradoAcademico = new javax.swing.JComboBox();
         tf_gradoAcademico = new javax.swing.JTextField();
         jLabel59 = new javax.swing.JLabel();
+        viewPuestos = new javax.swing.JDialog();
+        jLabel62 = new javax.swing.JLabel();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        viewPuestosTable = new javax.swing.JTable();
+        crearNuevoPuesto = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        buscarPuestos = new javax.swing.JDialog();
+        jScrollPane13 = new javax.swing.JScrollPane();
+        viewPuestosAspirante = new javax.swing.JTable();
+        jLabel63 = new javax.swing.JLabel();
+        createAdmin = new javax.swing.JDialog();
+        jLabel64 = new javax.swing.JLabel();
+        tf_usernameAdmin = new javax.swing.JTextField();
+        jLabel65 = new javax.swing.JLabel();
+        pf_usernamePassword = new javax.swing.JPasswordField();
+        crearAdminUser = new javax.swing.JButton();
+        jLabel66 = new javax.swing.JLabel();
         login_button = new javax.swing.JButton();
         username_login = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -287,12 +304,27 @@ Aspi.getRevision();
         password_login = new javax.swing.JPasswordField();
 
         jButton12.setText("Agencias");
+        jButton12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton12MouseClicked(evt);
+            }
+        });
 
         jButton13.setText("Aspirantes");
 
         jButton14.setText("Super Administradores");
+        jButton14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton14MouseClicked(evt);
+            }
+        });
 
         jButton15.setText("Grados Academicos");
+        jButton15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton15MouseClicked(evt);
+            }
+        });
 
         jButton16.setText("Cerrar Sesion");
 
@@ -507,6 +539,63 @@ Aspi.getRevision();
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addGap(37, 37, 37))
+        );
+
+        jLabel58.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel58.setText("Agencias");
+
+        jb_openCreateAgency.setText("Crear Nueva Agencia");
+        jb_openCreateAgency.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_openCreateAgencyMouseClicked(evt);
+            }
+        });
+
+        viewAgenciesTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre", "RTN", "Dirección", "Teléfono", "Director", "Descripción"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane10.setViewportView(viewAgenciesTable);
+
+        javax.swing.GroupLayout viewAgenciasLayout = new javax.swing.GroupLayout(viewAgencias.getContentPane());
+        viewAgencias.getContentPane().setLayout(viewAgenciasLayout);
+        viewAgenciasLayout.setHorizontalGroup(
+            viewAgenciasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(viewAgenciasLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(viewAgenciasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(viewAgenciasLayout.createSequentialGroup()
+                        .addComponent(jLabel58, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jb_openCreateAgency))
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(36, Short.MAX_VALUE))
+        );
+        viewAgenciasLayout.setVerticalGroup(
+            viewAgenciasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(viewAgenciasLayout.createSequentialGroup()
+                .addGroup(viewAgenciasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(viewAgenciasLayout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(jb_openCreateAgency))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, viewAgenciasLayout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -744,7 +833,7 @@ Aspi.getRevision();
 
         jLabel30.setText("Estado Civil");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Si", "No" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Si", "No" }));
 
         try {
             jFormattedTextField2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-####")));
@@ -807,7 +896,7 @@ Aspi.getRevision();
 
         jSeparator6.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Si", "No" }));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Si", "No" }));
 
         jLabel28.setText("Datos Academicos");
 
@@ -842,7 +931,7 @@ Aspi.getRevision();
 
         jLabel49.setText("Lista De Historial Laboral ");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Soltero(a)", "Casado(a)", "Divorciado(a)" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Soltero(a)", "Casado(a)", "Divorciado(a)" }));
 
         jLabel41.setText("Idiomas");
 
@@ -1141,67 +1230,10 @@ Aspi.getRevision();
                 .addContainerGap())
         );
 
-        jLabel58.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel58.setText("Agencias");
-
-        jb_openCreateAgency.setText("Crear Nueva Agencia");
-        jb_openCreateAgency.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_openCreateAgencyActionPerformed(evt);
-            }
-        });
-
-        viewAgenciesTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Nombre", "RTN", "Dirección", "Teléfono", "Director", "Descripción"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane10.setViewportView(viewAgenciesTable);
-
-        javax.swing.GroupLayout viewAgenciasLayout = new javax.swing.GroupLayout(viewAgencias.getContentPane());
-        viewAgencias.getContentPane().setLayout(viewAgenciasLayout);
-        viewAgenciasLayout.setHorizontalGroup(
-            viewAgenciasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(viewAgenciasLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(viewAgenciasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(viewAgenciasLayout.createSequentialGroup()
-                        .addComponent(jLabel58, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jb_openCreateAgency))
-                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(36, Short.MAX_VALUE))
-        );
-        viewAgenciasLayout.setVerticalGroup(
-            viewAgenciasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(viewAgenciasLayout.createSequentialGroup()
-                .addGroup(viewAgenciasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(viewAgenciasLayout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addComponent(jb_openCreateAgency))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, viewAgenciasLayout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
-        );
-
         jb_openCreateDegree.setText("Crear");
-        jb_openCreateDegree.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_openCreateDegreeActionPerformed(evt);
+        jb_openCreateDegree.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_openCreateDegreeMouseClicked(evt);
             }
         });
 
@@ -1281,6 +1313,168 @@ Aspi.getRevision();
                 .addContainerGap(41, Short.MAX_VALUE))
         );
 
+        jLabel62.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel62.setText("Puestos");
+
+        viewPuestosTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "id", "Rango jerárquico", "Rango salarial", "Tipo de plaza", "Cantidad de plazas"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane12.setViewportView(viewPuestosTable);
+
+        crearNuevoPuesto.setText("Crear puesto");
+        crearNuevoPuesto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                crearNuevoPuestoMouseClicked(evt);
+            }
+        });
+
+        jButton6.setText("Buscar aspirantes");
+
+        javax.swing.GroupLayout viewPuestosLayout = new javax.swing.GroupLayout(viewPuestos.getContentPane());
+        viewPuestos.getContentPane().setLayout(viewPuestosLayout);
+        viewPuestosLayout.setHorizontalGroup(
+            viewPuestosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(viewPuestosLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(viewPuestosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(viewPuestosLayout.createSequentialGroup()
+                        .addComponent(jLabel62)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(crearNuevoPuesto))
+                    .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(39, Short.MAX_VALUE))
+        );
+        viewPuestosLayout.setVerticalGroup(
+            viewPuestosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(viewPuestosLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(viewPuestosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel62)
+                    .addComponent(crearNuevoPuesto)
+                    .addComponent(jButton6))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(33, Short.MAX_VALUE))
+        );
+
+        viewPuestosAspirante.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "id", "Rango jerárquico", "Rango salarial", "Tipo de plaza", "Cantidad de plazas"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane13.setViewportView(viewPuestosAspirante);
+
+        jLabel63.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel63.setText("Puestos disponibles");
+
+        javax.swing.GroupLayout buscarPuestosLayout = new javax.swing.GroupLayout(buscarPuestos.getContentPane());
+        buscarPuestos.getContentPane().setLayout(buscarPuestosLayout);
+        buscarPuestosLayout.setHorizontalGroup(
+            buscarPuestosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buscarPuestosLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jLabel63)
+                .addContainerGap(334, Short.MAX_VALUE))
+            .addGroup(buscarPuestosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(buscarPuestosLayout.createSequentialGroup()
+                    .addGap(17, 17, 17)
+                    .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(17, Short.MAX_VALUE)))
+        );
+        buscarPuestosLayout.setVerticalGroup(
+            buscarPuestosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buscarPuestosLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jLabel63)
+                .addContainerGap(294, Short.MAX_VALUE))
+            .addGroup(buscarPuestosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(buscarPuestosLayout.createSequentialGroup()
+                    .addGap(76, 76, 76)
+                    .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(49, Short.MAX_VALUE)))
+        );
+
+        jLabel64.setText("Username");
+
+        jLabel65.setText("Password");
+
+        crearAdminUser.setText("Crear");
+        crearAdminUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                crearAdminUserMouseClicked(evt);
+            }
+        });
+
+        jLabel66.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel66.setText("Crear administradores");
+
+        javax.swing.GroupLayout createAdminLayout = new javax.swing.GroupLayout(createAdmin.getContentPane());
+        createAdmin.getContentPane().setLayout(createAdminLayout);
+        createAdminLayout.setHorizontalGroup(
+            createAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, createAdminLayout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(jLabel66, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE))
+            .addGroup(createAdminLayout.createSequentialGroup()
+                .addGroup(createAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(createAdminLayout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addGroup(createAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel64)
+                            .addComponent(jLabel65))
+                        .addGap(18, 18, 18)
+                        .addGroup(createAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tf_usernameAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                            .addComponent(pf_usernamePassword)))
+                    .addGroup(createAdminLayout.createSequentialGroup()
+                        .addGap(116, 116, 116)
+                        .addComponent(crearAdminUser)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        createAdminLayout.setVerticalGroup(
+            createAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(createAdminLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(jLabel66)
+                .addGap(36, 36, 36)
+                .addGroup(createAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel64)
+                    .addComponent(tf_usernameAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(createAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel65)
+                    .addComponent(pf_usernamePassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addComponent(crearAdminUser)
+                .addContainerGap(31, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         login_button.setText("Iniciar sesion");
@@ -1331,15 +1525,15 @@ Aspi.getRevision();
 
     private void login_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_login_buttonMouseClicked
         // TODO add your handling code here:
-      CouchDbConnector db = new StdCouchDbConnector("users", dbInstance);
-         List<String> docIds = db.getAllDocIds();
+        CouchDbConnector db = new StdCouchDbConnector("users", dbInstance);
+        List<String> docIds = db.getAllDocIds();
         Gson gson = new Gson();
         ViewQuery q = new ViewQuery().allDocs().includeDocs(true).keys(docIds);
         ArrayList<users> listUsers = new ArrayList();
         for (int i = 0; i < db.queryView(q).getRows().size(); i++) {
             listUsers.add(gson.fromJson(db.queryView(q).getRows().get(i).getDoc(), users.class));
         }
-        boolean bandera =true;
+        boolean bandera = true;
         for (int i = 0; i < listUsers.size(); i++) {
             if (this.username_login.getText().equals(listUsers.get(i).getUsername()) && this.password_login.getText().equals(listUsers.get(i).getPassword())) {
                 if (listUsers.get(i).getType().equals("admin")) {
@@ -1347,21 +1541,25 @@ Aspi.getRevision();
                     adminView.pack();
                     adminView.setLocationRelativeTo(null);
                     adminView.setVisible(true);
-                    this.setVisible(false);                 
-                    bandera=false;
+                    this.setVisible(false);
+                    bandera = false;
                     break;
                 } else if (listUsers.get(i).getType().equals("aspirante")) {
-                       this.setVisible(false);
+                    this.setVisible(false);
                     updateAspiranteData.pack();
                     updateAspiranteData.setLocationRelativeTo(null);
                     updateAspiranteData.setVisible(true);
-                         bandera=false;
+                    bandera = false;
                 } else if (listUsers.get(i).getType().equals("agencia")) {
-                         bandera=false;
+                    bandera = false;
+                    currentUser = listUsers.get(i).getUsername();
+                    viewPuestos.pack();
+                    viewPuestos.setLocationRelativeTo(null);
+                    viewPuestos.setVisible(true);
                 }
-             } else {
-                
-             }
+            } else {
+
+            }
             if (bandera) {
                 System.out.println("");
             }
@@ -1414,7 +1612,7 @@ Aspi.getRevision();
             String password = jp_createAgencyPassword.getText();
             String RTN = tf_createAgencyRTN.getText();
             String nombre = tf_createAgencyName.getText();
-            String direccion = tf_createAgencyDirector.getText();
+            String direccion = tf_createAgencyAddress.getText();
             int telefono = parseInt(tf_createAgencyPhone.getText());
             String director = tf_createAgencyDirector.getText();
             String descripcion = tf_createAgencyDescription.getText();
@@ -1422,7 +1620,7 @@ Aspi.getRevision();
             users newUser = new users(username, password, "agencia");
 
             //--------------- Creating database----------------------------//
-            CouchDbConnector dbAgencia = new StdCouchDbConnector("agencia",dbInstance);
+            CouchDbConnector dbAgencia = new StdCouchDbConnector("agencia", dbInstance);
             CouchDbConnector dbUsers = new StdCouchDbConnector("users", dbInstance);
             dbAgencia.createDatabaseIfNotExists();
             dbAgencia.create(newAgencia);
@@ -1458,7 +1656,7 @@ Aspi.getRevision();
             String tipoPlaza = cb_createTipoPlaza.getSelectedItem().toString();
             int cantidadPlazas = parseInt(sp_createCantidadPlazas.getValue().toString());
 
-            puesto newPuesto = new puesto(idPuesto, "12345666", rangoJerarquico, rangoSalarial, tipoPlaza, cantidadPlazas);
+            puesto newPuesto = new puesto(idPuesto, currentUser, rangoJerarquico, rangoSalarial, tipoPlaza, cantidadPlazas);
 
             //--------------- Creating database----------------------------//
             CouchDbConnector dbPuesto = new StdCouchDbConnector("puesto", dbInstance);
@@ -1484,13 +1682,93 @@ Aspi.getRevision();
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jb_openCreateAgencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_openCreateAgencyActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jb_openCreateAgencyActionPerformed
+    private void jButton12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseClicked
+        viewAgencias.pack();
+        viewAgencias.setLocationRelativeTo(null);
+        viewAgencias.setVisible(true);
 
-    private void jb_openCreateDegreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_openCreateDegreeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jb_openCreateDegreeActionPerformed
+     }//GEN-LAST:event_jButton12MouseClicked
+
+    private void jb_openCreateAgencyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_openCreateAgencyMouseClicked
+        createAgencies.pack();
+        createAgencies.setLocationRelativeTo(null);
+        createAgencies.setVisible(true);
+    }//GEN-LAST:event_jb_openCreateAgencyMouseClicked
+
+    private void crearNuevoPuestoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearNuevoPuestoMouseClicked
+        createPuestos.pack();
+        createPuestos.setLocationRelativeTo(null);
+        createPuestos.setVisible(true);
+    }//GEN-LAST:event_crearNuevoPuestoMouseClicked
+
+    private void jButton14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton14MouseClicked
+        createAdmin.pack();
+        createAdmin.setLocationRelativeTo(null);
+        createAdmin.setVisible(true);
+    }//GEN-LAST:event_jButton14MouseClicked
+
+    private void crearAdminUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearAdminUserMouseClicked
+        boolean error = false;
+
+        if (tf_usernameAdmin.getText().equals("")) {
+            tf_usernameAdmin.setBorder(BorderFactory.createLineBorder(Color.red));
+            error = true;
+        }
+        if (pf_usernamePassword.getText().equals("")) {
+            pf_usernamePassword.setBorder(BorderFactory.createLineBorder(Color.red));
+            error = true;
+        }
+        if (!error) {
+
+            System.out.println("DB insert");
+
+            String username = tf_usernameAdmin.getText();
+            String password = pf_usernamePassword.getText();
+
+            users newUsers = new users(username, password, "admin");
+
+            //--------------- Creating database----------------------------//
+            CouchDbConnector dbUserAdmin = new StdCouchDbConnector("users", dbInstance);
+            dbUserAdmin.createDatabaseIfNotExists();
+            dbUserAdmin.create(newUsers);
+
+            tf_usernameAdmin.setText("");
+            pf_usernamePassword.setText("");
+
+        }
+    }//GEN-LAST:event_crearAdminUserMouseClicked
+
+    private void jButton15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton15MouseClicked
+        viewDegree.pack();
+        viewDegree.setLocationRelativeTo(null);
+        viewDegree.setVisible(true);
+    }//GEN-LAST:event_jButton15MouseClicked
+
+    private void jb_openCreateDegreeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_openCreateDegreeMouseClicked
+        boolean error = false;
+        if (tf_gradoAcademico.getText().equals("")) {
+            tf_gradoAcademico.setBorder(BorderFactory.createLineBorder(Color.red));
+            error = true;
+        }
+
+        if (!error) {
+
+            System.out.println("DB insert");
+            String gradoAcademico = tf_gradoAcademico.getText();
+            String nivel = cb_nivelGradoAcademico.getSelectedItem().toString();
+            grados_academicos newGradoAcademico = new grados_academicos(gradoAcademico, nivel);
+
+            //--------------- Creating database----------------------------//
+            CouchDbConnector dbGradoAcademico = new StdCouchDbConnector("grados_academicos", dbInstance);
+            dbGradoAcademico.createDatabaseIfNotExists();
+            dbGradoAcademico.create(newGradoAcademico);
+            
+            tf_gradoAcademico.setText("");
+            cb_nivelGradoAcademico.setSelectedIndex(0);
+
+        }
+// TODO add your handling code here:
+    }//GEN-LAST:event_jb_openCreateDegreeMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1535,6 +1813,7 @@ Aspi.getRevision();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog adminView;
     private javax.swing.JDialog aspirantesView;
+    private javax.swing.JDialog buscarPuestos;
     private javax.swing.JComboBox cb_createMinRangoSalarial;
     private javax.swing.JButton cb_createPuestoVacante;
     private javax.swing.JComboBox cb_createRangoJerarquico;
@@ -1543,6 +1822,9 @@ Aspi.getRevision();
     private javax.swing.JComboBox cb_createTipoPlaza;
     private javax.swing.JComboBox cb_createTipoPlaza1;
     private javax.swing.JComboBox cb_nivelGradoAcademico;
+    private javax.swing.JButton crearAdminUser;
+    private javax.swing.JButton crearNuevoPuesto;
+    private javax.swing.JDialog createAdmin;
     private javax.swing.JDialog createAgencies;
     private javax.swing.JDialog createAspirante_adminView;
     private javax.swing.JDialog createPuestos;
@@ -1557,6 +1839,7 @@ Aspi.getRevision();
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
@@ -1623,6 +1906,11 @@ Aspi.getRevision();
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
+    private javax.swing.JLabel jLabel62;
+    private javax.swing.JLabel jLabel63;
+    private javax.swing.JLabel jLabel64;
+    private javax.swing.JLabel jLabel65;
+    private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -1630,6 +1918,8 @@ Aspi.getRevision();
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
+    private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -1675,6 +1965,7 @@ Aspi.getRevision();
     private javax.swing.JPasswordField jp_createAgencyPassword;
     private javax.swing.JButton login_button;
     private javax.swing.JPasswordField password_login;
+    private javax.swing.JPasswordField pf_usernamePassword;
     private javax.swing.JSpinner sp_createCantidadPlazas;
     private javax.swing.JTextArea tf_createAgencyAddress;
     private javax.swing.JTextArea tf_createAgencyDescription;
@@ -1685,12 +1976,17 @@ Aspi.getRevision();
     private javax.swing.JTextField tf_createAgencyRTN;
     private javax.swing.JTextField tf_createIdPuesto;
     private javax.swing.JTextField tf_gradoAcademico;
+    private javax.swing.JTextField tf_usernameAdmin;
     private javax.swing.JDialog updateAspiranteData;
     private javax.swing.JTextField username_login;
     private javax.swing.JDialog viewAgencias;
     private javax.swing.JTable viewAgenciesTable;
     private javax.swing.JDialog viewDegree;
     private javax.swing.JTable viewDegree1;
+    private javax.swing.JDialog viewPuestos;
+    private javax.swing.JTable viewPuestosAspirante;
+    private javax.swing.JTable viewPuestosTable;
     // End of variables declaration//GEN-END:variables
  CouchDbInstance dbInstance;
+    String currentUser;
 }
