@@ -8,31 +8,36 @@ public class puesto extends CouchDbDocument {
     String _rev;
     String _id;
     String idPuesto;
+    String nombre;
     String username;
     String rangoJerarquico;
     String rangoSalarial;
     String tipoPlaza;
     int cantidadPlazas;
-    ArrayList<grados_academicos> gradosAcademicos = new ArrayList();
-
-    public puesto(String _id, String _rev, String idPuesto, String username, String rangoJerarquico, String rangoSalarial, String tipoPlaza, int cantidadPlazas) {
+    String gradoAcademico;
+    
+    public puesto(String _id, String _rev, String idPuesto, String nombre, String username, String rangoJerarquico, String rangoSalarial, String tipoPlaza, int cantidadPlazas, String gradoAcademico) {
         this._id = _id;
         this._rev = _rev;
         this.idPuesto = idPuesto;
+        this.nombre = nombre;
         this.username = username;
         this.rangoJerarquico = rangoJerarquico;
         this.rangoSalarial = rangoSalarial;
         this.tipoPlaza = tipoPlaza;
         this.cantidadPlazas = cantidadPlazas;
+        this.gradoAcademico = gradoAcademico;
     }
 
-    public puesto(String idPuesto, String username, String rangoJerarquico, String rangoSalarial, String tipoPlaza, int cantidadPlazas) {
+    public puesto(String idPuesto, String nombre, String username, String rangoJerarquico, String rangoSalarial, String tipoPlaza, int cantidadPlazas, String gradoAcademico) {
         this.idPuesto = idPuesto;
+        this.nombre = nombre;
         this.username = username;
         this.rangoJerarquico = rangoJerarquico;
         this.rangoSalarial = rangoSalarial;
         this.tipoPlaza = tipoPlaza;
         this.cantidadPlazas = cantidadPlazas;
+        this.gradoAcademico = gradoAcademico;
     }
 
     public String getIdPuesto() {
@@ -42,6 +47,16 @@ public class puesto extends CouchDbDocument {
     public void setIdPuesto(String idPuesto) {
         this.idPuesto = idPuesto;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    
+    
 
     public String getUsername() {
         return username;
@@ -83,12 +98,12 @@ public class puesto extends CouchDbDocument {
         this.cantidadPlazas = cantidadPlazas;
     }
 
-    public ArrayList<grados_academicos> getGradosAcademicos() {
-        return gradosAcademicos;
+    public String getGradosAcademicos() {
+        return gradoAcademico;
     }
 
-    public void setGradosAcademicos(ArrayList<grados_academicos> gradosAcademicos) {
-        this.gradosAcademicos = gradosAcademicos;
+    public void setGradosAcademicos(String gradosAcademicos) {
+        this.gradoAcademico = gradoAcademico;
     }
 
     @Override
@@ -113,7 +128,7 @@ public class puesto extends CouchDbDocument {
 
     @Override
     public String toString() {
-        return "puesto{" + "idPuesto=" + idPuesto + ", username=" + username + ", rangoJerarquico=" + rangoJerarquico + ", rangoSalarial=" + rangoSalarial + ", tipoPlaza=" + tipoPlaza + ", cantidadPlazas=" + cantidadPlazas + ", datosAcademicos=" + gradosAcademicos + '}';
+        return "puesto{" + "idPuesto=" + idPuesto + ", username=" + username + ", rangoJerarquico=" + rangoJerarquico + ", rangoSalarial=" + rangoSalarial + ", tipoPlaza=" + tipoPlaza + ", cantidadPlazas=" + cantidadPlazas + ", gradoAcademico=" + gradoAcademico + '}';
     }
 
 }

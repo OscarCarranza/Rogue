@@ -20,6 +20,7 @@ import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BorderFactory;
+import javax.swing.table.DefaultTableModel;
 import org.apache.log4j.PropertyConfigurator;
 import org.ektorp.CouchDbConnector;
 import org.ektorp.CouchDbInstance;
@@ -118,16 +119,11 @@ public class login extends javax.swing.JFrame {
          Aspi.getRevision();
          */
         
-        
-        
-        
-        CouchDbConnector db_puestos = new StdCouchDbConnector("puesto", dbInstance);
-        List<String> dbPuestoDoc = db_puestos.getAllDocIds();
-        Gson gson = new Gson();
-        ViewQuery q = new ViewQuery().allDocs().includeDocs(true).keys(dbPuestoDoc);
-        ArrayList<users> listPuesto = new ArrayList();
-        for (int i = 0; i < db_puestos.queryView(q).getRows().size(); i++) {
-            listPuesto.add(gson.fromJson(db_puestos.queryView(q).getRows().get(i).getDoc(), users.class));
+        //FILLING COMBOBOX
+        getDegreeDB();
+        for (int i = 0; i < grados_academicos.size(); i++) {
+            cb_createGradoAcademico.addItem(grados_academicos.get(i));
+            
         }
 
     }
@@ -220,18 +216,22 @@ public class login extends javax.swing.JFrame {
         createPuestos = new javax.swing.JDialog();
         jPanel7 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
         tf_createIdPuesto = new javax.swing.JTextField();
+        jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         cb_createRangoJerarquico = new javax.swing.JComboBox();
         cb_createRangoSalarial = new javax.swing.JComboBox();
         jLabel27 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        cb_createTipoPlaza = new javax.swing.JComboBox();
+        cb_createGradoAcademico = new javax.swing.JComboBox();
         jLabel23 = new javax.swing.JLabel();
         sp_createCantidadPlazas = new javax.swing.JSpinner();
         jSeparator10 = new javax.swing.JSeparator();
         createPuesto = new javax.swing.JLabel();
+        tf_createNombrePuesto = new javax.swing.JTextField();
+        jLabel73 = new javax.swing.JLabel();
+        cb_createTipoPlaza = new javax.swing.JComboBox();
+        jLabel74 = new javax.swing.JLabel();
         jLabel83 = new javax.swing.JLabel();
         updateAspiranteData = new javax.swing.JDialog();
         jPanel8 = new javax.swing.JPanel();
@@ -332,11 +332,9 @@ public class login extends javax.swing.JFrame {
         jLabel90 = new javax.swing.JLabel();
         viewPuestos = new javax.swing.JDialog();
         jPanel16 = new javax.swing.JPanel();
-        jButton6 = new javax.swing.JButton();
         jLabel62 = new javax.swing.JLabel();
         jScrollPane12 = new javax.swing.JScrollPane();
         viewPuestosTable = new javax.swing.JTable();
-        crearNuevoPuesto = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
         openCreatePuesto = new javax.swing.JLabel();
         jLabel95 = new javax.swing.JLabel();
@@ -885,59 +883,58 @@ public class login extends javax.swing.JFrame {
         jPanel7.add(jLabel24);
         jLabel24.setBounds(320, 340, 270, 29);
 
-        jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel25.setText("ID Puesto");
-        jPanel7.add(jLabel25);
-        jLabel25.setBounds(350, 410, 130, 31);
-
         tf_createIdPuesto.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jPanel7.add(tf_createIdPuesto);
-        tf_createIdPuesto.setBounds(530, 410, 220, 31);
+        tf_createIdPuesto.setBounds(410, 410, 220, 31);
+
+        jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel25.setText("Nombre");
+        jPanel7.add(jLabel25);
+        jLabel25.setBounds(230, 470, 130, 31);
 
         jLabel26.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(255, 255, 255));
         jLabel26.setText("Rango jerárquico");
         jPanel7.add(jLabel26);
-        jLabel26.setBounds(350, 460, 130, 31);
+        jLabel26.setBounds(230, 520, 130, 31);
 
         cb_createRangoJerarquico.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cb_createRangoJerarquico.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Supervisor", "Gerente", "Director", "Nivel bajo" }));
         jPanel7.add(cb_createRangoJerarquico);
-        cb_createRangoJerarquico.setBounds(530, 460, 220, 31);
+        cb_createRangoJerarquico.setBounds(410, 520, 220, 31);
 
         cb_createRangoSalarial.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cb_createRangoSalarial.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "5,000 - 10,000", "10,500 - 20,000 ", "20,500 - 30,000" }));
         jPanel7.add(cb_createRangoSalarial);
-        cb_createRangoSalarial.setBounds(530, 590, 220, 31);
+        cb_createRangoSalarial.setBounds(410, 650, 220, 31);
 
         jLabel27.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel27.setForeground(new java.awt.Color(255, 255, 255));
         jLabel27.setText("Rango salario");
         jPanel7.add(jLabel27);
-        jLabel27.setBounds(350, 590, 110, 31);
+        jLabel27.setBounds(230, 650, 110, 31);
 
         jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel22.setText("Tipo plaza");
+        jLabel22.setText("Grado académico");
         jPanel7.add(jLabel22);
-        jLabel22.setBounds(350, 640, 100, 31);
+        jLabel22.setBounds(720, 480, 140, 31);
 
-        cb_createTipoPlaza.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cb_createTipoPlaza.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tiempo completo", "Medio tiempo", "Contrato", "Temporal" }));
-        jPanel7.add(cb_createTipoPlaza);
-        cb_createTipoPlaza.setBounds(530, 640, 220, 30);
+        cb_createGradoAcademico.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jPanel7.add(cb_createGradoAcademico);
+        cb_createGradoAcademico.setBounds(900, 490, 220, 30);
 
         jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
         jLabel23.setText("Plazas Disponibles");
         jPanel7.add(jLabel23);
-        jLabel23.setBounds(350, 520, 160, 31);
+        jLabel23.setBounds(230, 580, 160, 31);
 
         sp_createCantidadPlazas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         sp_createCantidadPlazas.setModel(new javax.swing.SpinnerNumberModel(1, 1, 10, 1));
         jPanel7.add(sp_createCantidadPlazas);
-        sp_createCantidadPlazas.setBounds(530, 520, 70, 31);
+        sp_createCantidadPlazas.setBounds(410, 580, 70, 31);
         jPanel7.add(jSeparator10);
         jSeparator10.setBounds(320, 390, 610, 2);
 
@@ -952,7 +949,28 @@ public class login extends javax.swing.JFrame {
             }
         });
         jPanel7.add(createPuesto);
-        createPuesto.setBounds(810, 700, 120, 30);
+        createPuesto.setBounds(870, 590, 120, 30);
+
+        tf_createNombrePuesto.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jPanel7.add(tf_createNombrePuesto);
+        tf_createNombrePuesto.setBounds(410, 470, 220, 31);
+
+        jLabel73.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel73.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel73.setText("ID Puesto");
+        jPanel7.add(jLabel73);
+        jLabel73.setBounds(240, 410, 130, 31);
+
+        cb_createTipoPlaza.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cb_createTipoPlaza.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tiempo completo", "Medio tiempo", "Contrato", "Temporal" }));
+        jPanel7.add(cb_createTipoPlaza);
+        cb_createTipoPlaza.setBounds(900, 420, 220, 30);
+
+        jLabel74.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel74.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel74.setText("Tipo plaza");
+        jPanel7.add(jLabel74);
+        jLabel74.setBounds(720, 420, 100, 31);
 
         jLabel83.setIcon(new javax.swing.ImageIcon(getClass().getResource("/roguelogo.png"))); // NOI18N
         jPanel7.add(jLabel83);
@@ -1454,7 +1472,6 @@ public class login extends javax.swing.JFrame {
                         .addGap(4, 4, 4)
                         .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel14Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
                         .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1653,15 +1670,6 @@ public class login extends javax.swing.JFrame {
 
         jPanel16.setLayout(null);
 
-        jButton6.setText("Buscar aspirantes");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-        jPanel16.add(jButton6);
-        jButton6.setBounds(920, 60, 117, 23);
-
         jLabel62.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel62.setForeground(new java.awt.Color(255, 255, 255));
         jLabel62.setText("Puestos");
@@ -1673,11 +1681,11 @@ public class login extends javax.swing.JFrame {
 
             },
             new String [] {
-                "id", "Rango jerárquico", "Rango salarial", "Tipo de plaza", "Cantidad de plazas"
+                "id", "Nombre posición", "Rango jerárquico", "Rango salarial", "Tipo de plaza", "Cantidad de plazas"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -1688,15 +1696,6 @@ public class login extends javax.swing.JFrame {
 
         jPanel16.add(jScrollPane12);
         jScrollPane12.setBounds(310, 390, 590, 230);
-
-        crearNuevoPuesto.setText("Crear puesto");
-        crearNuevoPuesto.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                crearNuevoPuestoMouseClicked(evt);
-            }
-        });
-        jPanel16.add(crearNuevoPuesto);
-        crearNuevoPuesto.setBounds(1080, 60, 95, 23);
         jPanel16.add(jSeparator3);
         jSeparator3.setBounds(310, 360, 590, 10);
 
@@ -1929,12 +1928,6 @@ public class login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void crearNuevoPuestoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearNuevoPuestoMouseClicked
-        createPuestos.pack();
-        createPuestos.setLocationRelativeTo(null);
-        createPuestos.setVisible(true);
-    }//GEN-LAST:event_crearNuevoPuestoMouseClicked
-
     private void tf_identidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_identidadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tf_identidadActionPerformed
@@ -1949,33 +1942,33 @@ public class login extends javax.swing.JFrame {
             tf_usernameAspirante.setBorder(BorderFactory.createLineBorder(Color.red));
             error = true;
         }
-        
+
         if (tf_identidad.getText().equals("")) {
             tf_identidad.setBorder(BorderFactory.createLineBorder(Color.red));
             error = true;
         }
-        
+
         if (tf_primerNombre.getText().equals("")) {
             tf_primerNombre.setBorder(BorderFactory.createLineBorder(Color.red));
             error = true;
         }
-        
+
         if (tf_segundoNombre.getText().equals("")) {
             tf_segundoNombre.setBorder(BorderFactory.createLineBorder(Color.red));
             error = true;
         }
-        
+
         if (tf_primerApellido.getText().equals("")) {
             tf_primerApellido.setBorder(BorderFactory.createLineBorder(Color.red));
             error = true;
         }
-        
+
         if (tf_segundoApellido.getText().equals("")) {
             tf_segundoApellido.setBorder(BorderFactory.createLineBorder(Color.red));
             error = true;
         }
-        
-        if(pf_passwordAspirante.getText().equals("")){
+
+        if (pf_passwordAspirante.getText().equals("")) {
             pf_passwordAspirante.setBorder(BorderFactory.createLineBorder(Color.red));
             error = true;
         }
@@ -1993,7 +1986,7 @@ public class login extends javax.swing.JFrame {
             Date fechaNacimiento = new Date();
             fechaNacimiento.setMonth((int) sp_month.getValue());
             fechaNacimiento.setYear((int) sp_year.getValue());
-            
+
             //Para que los usuarios puedan hacer CRUD de los perfiles creados por ellos
             String createdBy;
 
@@ -2048,7 +2041,7 @@ public class login extends javax.swing.JFrame {
             } else {
                 //no existe ese user
                 //errorLog.setVisible(true);
-               // username_login.setText("");
+                // username_login.setText("");
                 //password_login.setText("");
             }
             if (bandera) {
@@ -2090,7 +2083,7 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_tf_createAgencyNameActionPerformed
 
     private void createAgencyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createAgencyMouseClicked
-                boolean error = false;
+        boolean error = false;
 
         if (tf_createAgencyEmail.getText().equals("")) {
             tf_createAgencyEmail.setBorder(BorderFactory.createLineBorder(Color.red));
@@ -2158,23 +2151,31 @@ public class login extends javax.swing.JFrame {
 
     private void createPuestoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createPuestoMouseClicked
         boolean error = false;
+        getPuestosDB();
 
         if (tf_createIdPuesto.getText().equals("")) {
-            tf_createIdPuesto.setBorder(BorderFactory.createLineBorder(Color.red));
             error = true;
+        } else {
+            for (int i = 0; i < listPuestos.size(); i++) {
+                if (tf_createIdPuesto.getText().equals(listPuestos.get(i).getIdPuesto())) {
+                    tf_createIdPuesto.setBorder(BorderFactory.createLineBorder(Color.red));
+                    error = true;
+                    break;
+                }
+            }
         }
 
         if (!error) {
-
             System.out.println("DB insert");
-
             String idPuesto = tf_createIdPuesto.getText();
+            String nombre = tf_createNombrePuesto.getText();
             String rangoJerarquico = cb_createRangoJerarquico.getSelectedItem().toString();
             String rangoSalarial = cb_createRangoSalarial.getSelectedItem().toString();
             String tipoPlaza = cb_createTipoPlaza.getSelectedItem().toString();
             int cantidadPlazas = parseInt(sp_createCantidadPlazas.getValue().toString());
+            String gradoAcademico = cb_createGradoAcademico.getSelectedItem().toString();
 
-            puesto newPuesto = new puesto(idPuesto, currentUser, rangoJerarquico, rangoSalarial, tipoPlaza, cantidadPlazas);
+            puesto newPuesto = new puesto(idPuesto, nombre, currentUser, rangoJerarquico, rangoSalarial, tipoPlaza, cantidadPlazas, gradoAcademico);
 
             //--------------- Creating database----------------------------//
             CouchDbConnector dbPuesto = new StdCouchDbConnector("puesto", dbInstance);
@@ -2182,11 +2183,13 @@ public class login extends javax.swing.JFrame {
             dbPuesto.create(newPuesto);
 
             tf_createIdPuesto.setText("");
+            tf_createNombrePuesto.setText("");
             cb_createRangoJerarquico.setSelectedIndex(0);
             cb_createRangoSalarial.setSelectedIndex(0);
             cb_createRangoJerarquico.setSelectedIndex(0);
             cb_createTipoPlaza.setSelectedIndex(0);
             sp_createCantidadPlazas.setValue(1);
+            cb_createGradoAcademico.setSelectedIndex(0);
 
         }
     }//GEN-LAST:event_createPuestoMouseClicked
@@ -2217,14 +2220,20 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_createDegreeMouseClicked
 
     private void openCreatePuestoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_openCreatePuestoMouseClicked
+        getPuestosDB();
+        for (int i = 0; i < listPuestos.size(); i++) {
+            if (listPuestos.get(i).getUsername().equals(currentUser)) {
+                listPuestosCurrentUser.add(listPuestos.get(i));
+            }
+        }
+        
+        addRowToPuestosTable();
         createPuestos.pack();
         createPuestos.setLocationRelativeTo(null);
         createPuestos.setVisible(true);
-    }//GEN-LAST:event_openCreatePuestoMouseClicked
+        
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_openCreatePuestoMouseClicked
 
     private void createAdminButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createAdminButtonMouseClicked
         boolean error = false;
@@ -2297,10 +2306,59 @@ public class login extends javax.swing.JFrame {
         return dbInstance;
     }
 
+    public void getPuestosDB() {
+        CouchDbConnector db_puestos = new StdCouchDbConnector("puesto", dbInstance);
+        List<String> dbPuestoDoc = db_puestos.getAllDocIds();
+        Gson gson = new Gson();
+        ViewQuery q = new ViewQuery().allDocs().includeDocs(true).keys(dbPuestoDoc);
+
+        for (int i = 0; i < db_puestos.queryView(q).getRows().size(); i++) {
+            listPuestos.add(gson.fromJson(db_puestos.queryView(q).getRows().get(i).getDoc(), puesto.class));
+        }
+    }
+    
+    public void getDegreeDB() {
+        CouchDbConnector db_gradosAcademicos = new StdCouchDbConnector("grados_academicos", dbInstance);
+        List<String> dbGradosAcademicosDoc = db_gradosAcademicos.getAllDocIds();
+        Gson gson = new Gson();
+        ViewQuery q = new ViewQuery().allDocs().includeDocs(true).keys(dbGradosAcademicosDoc);
+
+        for (int i = 0; i < db_gradosAcademicos.queryView(q).getRows().size(); i++) {
+            grados_academicos.add(gson.fromJson(db_gradosAcademicos.queryView(q).getRows().get(i).getDoc(), grados_academicos.class));
+        }
+    }
+
+    public void addRowToPuestosTable() {
+        
+        DefaultTableModel model = (DefaultTableModel) viewPuestosTable.getModel();
+        
+        getPuestosDB();
+        for (int i = 0; i < listPuestos.size(); i++) {
+            if (listPuestos.get(i).getUsername().equals(currentUser)) {
+                listPuestosCurrentUser.add(listPuestos.get(i));
+            }
+        }
+        
+        Object rowData[] = new Object [6];
+        
+        for (int i = 0; i < listPuestosCurrentUser.size(); i++) {
+            rowData[0] = listPuestosCurrentUser.get(i).getIdPuesto();
+            rowData[1] = listPuestosCurrentUser.get(i).getNombre();
+            rowData[2] = listPuestosCurrentUser.get(i).getRangoJerarquico();
+            rowData[3] = listPuestosCurrentUser.get(i).getRangoSalarial();
+            rowData[4] = listPuestosCurrentUser.get(i).getTipoPlaza();
+            rowData[5] = listPuestosCurrentUser.get(i).getCantidadPlazas();
+            model.addRow(rowData);
+
+        }
+
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog adminView;
     private javax.swing.JDialog aspirantesView;
     private javax.swing.JDialog buscarPuestos;
+    private javax.swing.JComboBox cb_createGradoAcademico;
     private javax.swing.JComboBox cb_createMinRangoSalarial;
     private javax.swing.JComboBox cb_createRangoJerarquico;
     private javax.swing.JComboBox cb_createRangoJerarquico1;
@@ -2308,7 +2366,6 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JComboBox cb_createTipoPlaza;
     private javax.swing.JComboBox cb_createTipoPlaza1;
     private javax.swing.JComboBox cb_nivelGradoAcademico;
-    private javax.swing.JButton crearNuevoPuesto;
     private javax.swing.JDialog createAdmin;
     private javax.swing.JLabel createAdminButton;
     private javax.swing.JDialog createAgencies;
@@ -2322,7 +2379,6 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
@@ -2401,6 +2457,8 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel71;
     private javax.swing.JLabel jLabel72;
+    private javax.swing.JLabel jLabel73;
+    private javax.swing.JLabel jLabel74;
     private javax.swing.JLabel jLabel75;
     private javax.swing.JLabel jLabel77;
     private javax.swing.JLabel jLabel78;
@@ -2506,6 +2564,7 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JTextField tf_createAgencyPhone;
     private javax.swing.JTextField tf_createAgencyRTN;
     private javax.swing.JTextField tf_createIdPuesto;
+    private javax.swing.JTextField tf_createNombrePuesto;
     private javax.swing.JTextField tf_gradoAcademico;
     private javax.swing.JTextField tf_identidad;
     private javax.swing.JTextField tf_primerApellido;
@@ -2525,6 +2584,9 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JTable viewPuestosTable;
     private javax.swing.JLabel volver;
     // End of variables declaration//GEN-END:variables
- CouchDbInstance dbInstance;
+    CouchDbInstance dbInstance;
     String currentUser;
+    ArrayList<puesto> listPuestos = new ArrayList();
+    ArrayList<grados_academicos> grados_academicos = new ArrayList();
+    ArrayList<puesto> listPuestosCurrentUser = new ArrayList();
 }
