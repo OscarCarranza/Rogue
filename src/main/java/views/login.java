@@ -117,6 +117,18 @@ public class login extends javax.swing.JFrame {
          db.update(Aspi);
          Aspi.getRevision();
          */
+        
+        
+        
+        
+        CouchDbConnector db_puestos = new StdCouchDbConnector("puesto", dbInstance);
+        List<String> dbPuestoDoc = db_puestos.getAllDocIds();
+        Gson gson = new Gson();
+        ViewQuery q = new ViewQuery().allDocs().includeDocs(true).keys(dbPuestoDoc);
+        ArrayList<users> listPuesto = new ArrayList();
+        for (int i = 0; i < db_puestos.queryView(q).getRows().size(); i++) {
+            listPuesto.add(gson.fromJson(db_puestos.queryView(q).getRows().get(i).getDoc(), users.class));
+        }
 
     }
 
@@ -2009,14 +2021,9 @@ public class login extends javax.swing.JFrame {
         ArrayList<users> listUsers = new ArrayList();
         for (int i = 0; i < db.queryView(q).getRows().size(); i++) {
             listUsers.add(gson.fromJson(db.queryView(q).getRows().get(i).getDoc(), users.class));
-            System.out.println(gson.fromJson(db.queryView(q).getRows().get(i).getDoc(), users.class)+" ");
         }
         boolean bandera = true;
         for (int i = 0; i < listUsers.size(); i++) {
-            System.out.println(listUsers.get(i).getUsername());
-            System.out.println(listUsers.get(i).getPassword());
-            System.out.println(this.username_login.getText());
-            System.out.println(this.password_login.getText());
             if (this.username_login.getText().equals(listUsers.get(i).getUsername()) && this.password_login.getText().equals(listUsers.get(i).getPassword())) {
                 if (listUsers.get(i).getType().equals("admin")) {
                     this.setVisible(false);
