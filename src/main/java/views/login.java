@@ -49,8 +49,8 @@ public class login extends javax.swing.JFrame {
 //--------------- Creating Connection--------------------------//
             HttpClient httpClient = new StdHttpClient.Builder()
                     .url("http://127.0.0.1:5984")
-                    .username("administrator2")
-                    .password("123456789")
+                    .username("admin1")
+                    .password("123456")
                     .build();
             dbInstance = new StdCouchDbInstance(httpClient);
         } catch (MalformedURLException ex) {
@@ -131,15 +131,10 @@ public class login extends javax.swing.JFrame {
 
         adminView = new javax.swing.JDialog();
         jPanel3 = new javax.swing.JPanel();
-        jButton16 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        jLabel73 = new javax.swing.JLabel();
-        jLabel74 = new javax.swing.JLabel();
+        labelCreateAgency = new javax.swing.JLabel();
+        labelCreateAdmins = new javax.swing.JLabel();
         jLabel75 = new javax.swing.JLabel();
-        jLabel76 = new javax.swing.JLabel();
+        labelCreateDegree = new javax.swing.JLabel();
         logOut = new javax.swing.JLabel();
         jLabel71 = new javax.swing.JLabel();
         aspirantesView = new javax.swing.JDialog();
@@ -181,9 +176,8 @@ public class login extends javax.swing.JFrame {
         viewAgencias = new javax.swing.JDialog();
         jPanel5 = new javax.swing.JPanel();
         jLabel58 = new javax.swing.JLabel();
-        jLabel81 = new javax.swing.JLabel();
+        openCreateNewAgency = new javax.swing.JLabel();
         jSeparator8 = new javax.swing.JSeparator();
-        jb_openCreateAgency = new javax.swing.JButton();
         jScrollPane10 = new javax.swing.JScrollPane();
         viewAgenciesTable = new javax.swing.JTable();
         jLabel80 = new javax.swing.JLabel();
@@ -209,7 +203,6 @@ public class login extends javax.swing.JFrame {
         jSeparator9 = new javax.swing.JSeparator();
         jLabel18 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jb_createAgency = new javax.swing.JButton();
         createAgency = new javax.swing.JLabel();
         jLabel82 = new javax.swing.JLabel();
         createPuestos = new javax.swing.JDialog();
@@ -225,7 +218,6 @@ public class login extends javax.swing.JFrame {
         cb_createTipoPlaza = new javax.swing.JComboBox();
         jLabel23 = new javax.swing.JLabel();
         sp_createCantidadPlazas = new javax.swing.JSpinner();
-        cb_createPuestoVacante = new javax.swing.JButton();
         jSeparator10 = new javax.swing.JSeparator();
         createPuesto = new javax.swing.JLabel();
         jLabel83 = new javax.swing.JLabel();
@@ -233,21 +225,21 @@ public class login extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jLabel30 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<String>();
         jSpinner6 = new javax.swing.JSpinner();
         jLabel31 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        jComboBox3 = new javax.swing.JComboBox<String>();
         jLabel36 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<String>();
         jLabel84 = new javax.swing.JLabel();
         jSeparator11 = new javax.swing.JSeparator();
         jPanel10 = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        jComboBox4 = new javax.swing.JComboBox<String>();
         jLabel42 = new javax.swing.JLabel();
-        jComboBox5 = new javax.swing.JComboBox<>();
+        jComboBox5 = new javax.swing.JComboBox<String>();
         jLabel44 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
         jLabel43 = new javax.swing.JLabel();
@@ -271,7 +263,7 @@ public class login extends javax.swing.JFrame {
         jTextField9 = new javax.swing.JTextField();
         jLabel53 = new javax.swing.JLabel();
         jButton11 = new javax.swing.JButton();
-        jComboBox6 = new javax.swing.JComboBox<>();
+        jComboBox6 = new javax.swing.JComboBox<String>();
         jLabel52 = new javax.swing.JLabel();
         jSpinner7 = new javax.swing.JSpinner();
         jLabel49 = new javax.swing.JLabel();
@@ -322,10 +314,9 @@ public class login extends javax.swing.JFrame {
         cb_nivelGradoAcademico = new javax.swing.JComboBox();
         tf_gradoAcademico = new javax.swing.JTextField();
         jLabel59 = new javax.swing.JLabel();
-        jb_openCreateDegree = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel61 = new javax.swing.JLabel();
-        jLabel91 = new javax.swing.JLabel();
+        createDegree = new javax.swing.JLabel();
         jLabel90 = new javax.swing.JLabel();
         viewPuestos = new javax.swing.JDialog();
         jPanel16 = new javax.swing.JPanel();
@@ -335,7 +326,7 @@ public class login extends javax.swing.JFrame {
         viewPuestosTable = new javax.swing.JTable();
         crearNuevoPuesto = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
-        jLabel94 = new javax.swing.JLabel();
+        openCreatePuesto = new javax.swing.JLabel();
         jLabel95 = new javax.swing.JLabel();
         jLabel92 = new javax.swing.JLabel();
         jLabel93 = new javax.swing.JLabel();
@@ -354,8 +345,7 @@ public class login extends javax.swing.JFrame {
         jLabel65 = new javax.swing.JLabel();
         pf_usernamePassword = new javax.swing.JPasswordField();
         jSeparator5 = new javax.swing.JSeparator();
-        crearAdminUser = new javax.swing.JButton();
-        jLabel98 = new javax.swing.JLabel();
+        createAdminButton = new javax.swing.JLabel();
         jLabel97 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         username_login = new javax.swing.JTextField();
@@ -368,78 +358,38 @@ public class login extends javax.swing.JFrame {
 
         jPanel3.setLayout(null);
 
-        jButton16.setText("Cerrar Sesion");
-        jPanel3.add(jButton16);
-        jButton16.setBounds(630, 120, 111, 25);
-
-        jButton15.setText("Grados Academicos");
-        jButton15.addMouseListener(new java.awt.event.MouseAdapter() {
+        labelCreateAgency.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonAgency.png"))); // NOI18N
+        labelCreateAgency.setToolTipText("");
+        labelCreateAgency.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton15MouseClicked(evt);
+                labelCreateAgencyMouseClicked(evt);
             }
         });
-        jPanel3.add(jButton15);
-        jButton15.setBounds(470, 120, 145, 25);
+        jPanel3.add(labelCreateAgency);
+        labelCreateAgency.setBounds(130, 330, 241, 242);
 
-        jButton14.setText("Super Administradores");
-        jButton14.addMouseListener(new java.awt.event.MouseAdapter() {
+        labelCreateAdmins.setIcon(new javax.swing.ImageIcon(getClass().getResource("/admins.png"))); // NOI18N
+        labelCreateAdmins.setText("jLabel73");
+        labelCreateAdmins.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton14MouseClicked(evt);
+                labelCreateAdminsMouseClicked(evt);
             }
         });
-        jPanel3.add(jButton14);
-        jButton14.setBounds(290, 120, 163, 25);
-
-        jButton13.setText("Aspirantes");
-        jButton13.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton13MouseClicked(evt);
-            }
-        });
-        jPanel3.add(jButton13);
-        jButton13.setBounds(190, 120, 93, 25);
-
-        jButton12.setText("Agencias");
-        jButton12.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton12MouseClicked(evt);
-            }
-        });
-        jPanel3.add(jButton12);
-        jButton12.setBounds(200, 170, 83, 25);
-
-        jLabel73.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonAgency.png"))); // NOI18N
-        jLabel73.setToolTipText("");
-        jLabel73.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel73MouseClicked(evt);
-            }
-        });
-        jPanel3.add(jLabel73);
-        jLabel73.setBounds(130, 330, 241, 242);
-
-        jLabel74.setIcon(new javax.swing.ImageIcon(getClass().getResource("/admins.png"))); // NOI18N
-        jLabel74.setText("jLabel73");
-        jLabel74.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel74MouseClicked(evt);
-            }
-        });
-        jPanel3.add(jLabel74);
-        jLabel74.setBounds(910, 330, 250, 240);
+        jPanel3.add(labelCreateAdmins);
+        labelCreateAdmins.setBounds(910, 330, 250, 240);
 
         jLabel75.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonEmployee.png"))); // NOI18N
         jPanel3.add(jLabel75);
         jLabel75.setBounds(390, 330, 241, 242);
 
-        jLabel76.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonAcaemics.png"))); // NOI18N
-        jLabel76.addMouseListener(new java.awt.event.MouseAdapter() {
+        labelCreateDegree.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonAcaemics.png"))); // NOI18N
+        labelCreateDegree.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel76MouseClicked(evt);
+                labelCreateDegreeMouseClicked(evt);
             }
         });
-        jPanel3.add(jLabel76);
-        jLabel76.setBounds(650, 330, 242, 242);
+        jPanel3.add(labelCreateDegree);
+        labelCreateDegree.setBounds(650, 330, 242, 242);
 
         logOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logOut.png"))); // NOI18N
         logOut.setText("jLabel77");
@@ -475,7 +425,7 @@ public class login extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jButton1);
-        jButton1.setBounds(920, 260, 123, 25);
+        jButton1.setBounds(920, 260, 109, 23);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -561,7 +511,7 @@ public class login extends javax.swing.JFrame {
 
         sp_month.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
         jPanel1.add(sp_month);
-        sp_month.setBounds(620, 460, 45, 22);
+        sp_month.setBounds(620, 460, 39, 20);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -586,7 +536,7 @@ public class login extends javax.swing.JFrame {
         sp_day.setMinimumSize(new java.awt.Dimension(1, 1));
         sp_day.setName(""); // NOI18N
         jPanel1.add(sp_day);
-        sp_day.setBounds(510, 460, 45, 22);
+        sp_day.setBounds(510, 460, 39, 20);
 
         pf_passwordAspirante.setBackground(new java.awt.Color(0, 0, 0));
         pf_passwordAspirante.setForeground(new java.awt.Color(255, 255, 255));
@@ -644,11 +594,11 @@ public class login extends javax.swing.JFrame {
 
         sp_year.setModel(new javax.swing.SpinnerNumberModel(2018, 1900, 9999, 1));
         jPanel1.add(sp_year);
-        sp_year.setBounds(730, 460, 78, 22);
+        sp_year.setBounds(730, 460, 63, 20);
 
         jButton3.setText("Regresar");
         jPanel1.add(jButton3);
-        jButton3.setBounds(1140, 20, 85, 25);
+        jButton3.setBounds(1140, 20, 77, 23);
 
         jLabel67.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel67.setForeground(new java.awt.Color(255, 255, 255));
@@ -707,27 +657,18 @@ public class login extends javax.swing.JFrame {
         jPanel5.add(jLabel58);
         jLabel58.setBounds(281, 290, 270, 67);
 
-        jLabel81.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel81.setText("  + Crear Agencia");
-        jLabel81.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jLabel81.addMouseListener(new java.awt.event.MouseAdapter() {
+        openCreateNewAgency.setForeground(new java.awt.Color(255, 255, 255));
+        openCreateNewAgency.setText("  + Crear Agencia");
+        openCreateNewAgency.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        openCreateNewAgency.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel81MouseClicked(evt);
+                openCreateNewAgencyMouseClicked(evt);
             }
         });
-        jPanel5.add(jLabel81);
-        jLabel81.setBounds(910, 310, 120, 30);
+        jPanel5.add(openCreateNewAgency);
+        openCreateNewAgency.setBounds(910, 310, 120, 30);
         jPanel5.add(jSeparator8);
         jSeparator8.setBounds(270, 360, 760, 20);
-
-        jb_openCreateAgency.setText("Crear Nueva Agencia");
-        jb_openCreateAgency.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jb_openCreateAgencyMouseClicked(evt);
-            }
-        });
-        jPanel5.add(jb_openCreateAgency);
-        jb_openCreateAgency.setBounds(930, 170, 153, 25);
 
         viewAgenciesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -767,10 +708,11 @@ public class login extends javax.swing.JFrame {
 
         jPanel6.setLayout(null);
 
+        jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("Descripción");
         jPanel6.add(jLabel21);
-        jLabel21.setBounds(340, 540, 65, 16);
+        jLabel21.setBounds(174, 550, 110, 20);
 
         tf_createAgencyName.setBackground(new java.awt.Color(0, 0, 0));
         tf_createAgencyName.setForeground(new java.awt.Color(255, 255, 255));
@@ -782,24 +724,26 @@ public class login extends javax.swing.JFrame {
             }
         });
         jPanel6.add(tf_createAgencyName);
-        tf_createAgencyName.setBounds(490, 380, 170, 30);
+        tf_createAgencyName.setBounds(350, 390, 240, 30);
 
         tf_createAgencyEmail.setBackground(new java.awt.Color(0, 0, 0));
         tf_createAgencyEmail.setForeground(new java.awt.Color(255, 255, 255));
         tf_createAgencyEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         tf_createAgencyEmail.setPreferredSize(new java.awt.Dimension(2, 18));
         jPanel6.add(tf_createAgencyEmail);
-        tf_createAgencyEmail.setBounds(460, 430, 200, 30);
+        tf_createAgencyEmail.setBounds(350, 440, 240, 30);
 
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("Nombre de la empresa");
         jPanel6.add(jLabel20);
-        jLabel20.setBounds(340, 370, 131, 30);
+        jLabel20.setBounds(177, 380, 160, 30);
 
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("RTN Empresarial");
         jPanel6.add(jLabel15);
-        jLabel15.setBounds(340, 480, 96, 30);
+        jLabel15.setBounds(178, 490, 130, 30);
 
         tf_createAgencyDirector.setBackground(new java.awt.Color(0, 0, 0));
         tf_createAgencyDirector.setForeground(new java.awt.Color(255, 255, 255));
@@ -811,12 +755,13 @@ public class login extends javax.swing.JFrame {
             }
         });
         jPanel6.add(tf_createAgencyDirector);
-        tf_createAgencyDirector.setBounds(820, 380, 120, 30);
+        tf_createAgencyDirector.setBounds(810, 380, 240, 30);
 
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Contraseña");
         jPanel6.add(jLabel14);
-        jLabel14.setBounds(690, 430, 70, 30);
+        jLabel14.setBounds(650, 430, 130, 30);
 
         tf_createAgencyDescription.setBackground(new java.awt.Color(0, 0, 0));
         tf_createAgencyDescription.setColumns(20);
@@ -826,19 +771,20 @@ public class login extends javax.swing.JFrame {
         jScrollPane2.setViewportView(tf_createAgencyDescription);
 
         jPanel6.add(jScrollPane2);
-        jScrollPane2.setBounds(420, 540, 240, 59);
+        jScrollPane2.setBounds(350, 540, 240, 100);
 
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Dirección");
         jPanel6.add(jLabel17);
-        jLabel17.setBounds(710, 540, 52, 16);
+        jLabel17.setBounds(653, 540, 100, 20);
 
         tf_createAgencyRTN.setBackground(new java.awt.Color(0, 0, 0));
         tf_createAgencyRTN.setForeground(new java.awt.Color(255, 255, 255));
         tf_createAgencyRTN.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         tf_createAgencyRTN.setPreferredSize(new java.awt.Dimension(2, 18));
         jPanel6.add(tf_createAgencyRTN);
-        tf_createAgencyRTN.setBounds(460, 480, 200, 30);
+        tf_createAgencyRTN.setBounds(350, 490, 240, 30);
 
         tf_createAgencyAddress.setBackground(new java.awt.Color(0, 0, 0));
         tf_createAgencyAddress.setColumns(20);
@@ -848,53 +794,47 @@ public class login extends javax.swing.JFrame {
         jScrollPane3.setViewportView(tf_createAgencyAddress);
 
         jPanel6.add(jScrollPane3);
-        jScrollPane3.setBounds(770, 540, 170, 59);
+        jScrollPane3.setBounds(810, 540, 240, 100);
 
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Correo Electrónico");
         jPanel6.add(jLabel13);
-        jLabel13.setBounds(340, 430, 110, 30);
+        jLabel13.setBounds(170, 440, 170, 30);
 
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Director");
         jPanel6.add(jLabel19);
-        jLabel19.setBounds(760, 390, 45, 16);
+        jLabel19.setBounds(658, 390, 90, 20);
 
         jp_createAgencyPassword.setBackground(new java.awt.Color(0, 0, 0));
         jp_createAgencyPassword.setForeground(new java.awt.Color(255, 255, 255));
         jp_createAgencyPassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jp_createAgencyPassword.setPreferredSize(new java.awt.Dimension(2, 18));
         jPanel6.add(jp_createAgencyPassword);
-        jp_createAgencyPassword.setBounds(780, 430, 160, 30);
+        jp_createAgencyPassword.setBounds(810, 430, 240, 30);
 
         tf_createAgencyPhone.setBackground(new java.awt.Color(0, 0, 0));
         tf_createAgencyPhone.setForeground(new java.awt.Color(255, 255, 255));
         tf_createAgencyPhone.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         tf_createAgencyPhone.setPreferredSize(new java.awt.Dimension(2, 18));
         jPanel6.add(tf_createAgencyPhone);
-        tf_createAgencyPhone.setBounds(830, 480, 110, 30);
+        tf_createAgencyPhone.setBounds(810, 480, 240, 30);
         jPanel6.add(jSeparator9);
         jSeparator9.setBounds(340, 350, 600, 20);
 
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("Teléfono");
         jPanel6.add(jLabel18);
-        jLabel18.setBounds(760, 490, 50, 16);
+        jLabel18.setBounds(652, 490, 100, 20);
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Nueva agencia");
         jPanel6.add(jLabel16);
         jLabel16.setBounds(340, 310, 175, 29);
-
-        jb_createAgency.setText("Crear");
-        jb_createAgency.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jb_createAgencyMouseClicked(evt);
-            }
-        });
-        jPanel6.add(jb_createAgency);
-        jb_createAgency.setBounds(1040, 450, 91, 31);
 
         createAgency.setBackground(new java.awt.Color(255, 51, 51));
         createAgency.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -908,7 +848,7 @@ public class login extends javax.swing.JFrame {
             }
         });
         jPanel6.add(createAgency);
-        createAgency.setBounds(600, 640, 140, 30);
+        createAgency.setBounds(610, 700, 140, 30);
 
         jLabel82.setIcon(new javax.swing.ImageIcon(getClass().getResource("/roguelogo.png"))); // NOI18N
         jPanel6.add(jLabel82);
@@ -933,59 +873,61 @@ public class login extends javax.swing.JFrame {
         jPanel7.add(jLabel24);
         jLabel24.setBounds(320, 340, 270, 29);
 
+        jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(255, 255, 255));
         jLabel25.setText("ID Puesto");
         jPanel7.add(jLabel25);
-        jLabel25.setBounds(320, 420, 80, 31);
-        jPanel7.add(tf_createIdPuesto);
-        tf_createIdPuesto.setBounds(450, 420, 170, 31);
+        jLabel25.setBounds(350, 410, 130, 31);
 
+        tf_createIdPuesto.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jPanel7.add(tf_createIdPuesto);
+        tf_createIdPuesto.setBounds(530, 410, 220, 31);
+
+        jLabel26.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(255, 255, 255));
         jLabel26.setText("Rango jerárquico");
         jPanel7.add(jLabel26);
-        jLabel26.setBounds(320, 470, 98, 31);
+        jLabel26.setBounds(350, 460, 130, 31);
 
+        cb_createRangoJerarquico.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cb_createRangoJerarquico.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Supervisor", "Gerente", "Director", "Nivel bajo" }));
         jPanel7.add(cb_createRangoJerarquico);
-        cb_createRangoJerarquico.setBounds(430, 470, 100, 31);
+        cb_createRangoJerarquico.setBounds(530, 460, 220, 31);
 
+        cb_createRangoSalarial.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cb_createRangoSalarial.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "5,000 - 10,000", "10,500 - 20,000 ", "20,500 - 30,000" }));
         jPanel7.add(cb_createRangoSalarial);
-        cb_createRangoSalarial.setBounds(770, 420, 160, 31);
+        cb_createRangoSalarial.setBounds(530, 590, 220, 31);
 
+        jLabel27.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel27.setForeground(new java.awt.Color(255, 255, 255));
         jLabel27.setText("Rango salario");
         jPanel7.add(jLabel27);
-        jLabel27.setBounds(670, 420, 78, 31);
+        jLabel27.setBounds(350, 590, 110, 31);
 
+        jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
         jLabel22.setText("Tipo plaza");
         jPanel7.add(jLabel22);
-        jLabel22.setBounds(730, 470, 59, 31);
+        jLabel22.setBounds(350, 640, 100, 31);
 
+        cb_createTipoPlaza.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cb_createTipoPlaza.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tiempo completo", "Medio tiempo", "Contrato", "Temporal" }));
         jPanel7.add(cb_createTipoPlaza);
-        cb_createTipoPlaza.setBounds(800, 470, 130, 30);
+        cb_createTipoPlaza.setBounds(530, 640, 220, 30);
 
+        jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
         jLabel23.setText("Plazas Disponibles");
         jPanel7.add(jLabel23);
-        jLabel23.setBounds(550, 470, 110, 31);
+        jLabel23.setBounds(350, 520, 160, 31);
 
+        sp_createCantidadPlazas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         sp_createCantidadPlazas.setModel(new javax.swing.SpinnerNumberModel(1, 1, 10, 1));
         jPanel7.add(sp_createCantidadPlazas);
-        sp_createCantidadPlazas.setBounds(660, 470, 45, 31);
-
-        cb_createPuestoVacante.setText("Crear");
-        cb_createPuestoVacante.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                cb_createPuestoVacanteMouseClicked(evt);
-            }
-        });
-        jPanel7.add(cb_createPuestoVacante);
-        cb_createPuestoVacante.setBounds(780, 630, 65, 25);
+        sp_createCantidadPlazas.setBounds(530, 520, 70, 31);
         jPanel7.add(jSeparator10);
-        jSeparator10.setBounds(320, 390, 610, 10);
+        jSeparator10.setBounds(320, 390, 610, 2);
 
         createPuesto.setBackground(new java.awt.Color(255, 51, 51));
         createPuesto.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -998,7 +940,7 @@ public class login extends javax.swing.JFrame {
             }
         });
         jPanel7.add(createPuesto);
-        createPuesto.setBounds(570, 550, 120, 30);
+        createPuesto.setBounds(810, 700, 120, 30);
 
         jLabel83.setIcon(new javax.swing.ImageIcon(getClass().getResource("/roguelogo.png"))); // NOI18N
         jPanel7.add(jLabel83);
@@ -1024,7 +966,7 @@ public class login extends javax.swing.JFrame {
         jLabel30.setForeground(new java.awt.Color(255, 255, 255));
         jLabel30.setText("Estado Civil");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Soltero(a)", "Casado(a)", "Divorciado(a)" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Soltero(a)", "Casado(a)", "Divorciado(a)" }));
 
         jSpinner6.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
 
@@ -1034,12 +976,12 @@ public class login extends javax.swing.JFrame {
         jLabel35.setForeground(new java.awt.Color(255, 255, 255));
         jLabel35.setText("Antecedentes Penales");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Si", "No" }));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Si", "No" }));
 
         jLabel36.setForeground(new java.awt.Color(255, 255, 255));
         jLabel36.setText("Servicio Militar");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Si", "No" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Si", "No" }));
 
         jLabel84.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel84.setForeground(new java.awt.Color(255, 255, 255));
@@ -1195,9 +1137,7 @@ public class login extends javax.swing.JFrame {
                     .addComponent(jSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addComponent(jLabel45)
-                        .addGap(6, 6, 6))
+                    .addComponent(jLabel45)
                     .addComponent(jSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton5)
@@ -1442,7 +1382,7 @@ public class login extends javax.swing.JFrame {
         jPanel14Layout.setHorizontalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel14Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(10, 10, 10)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel14Layout.createSequentialGroup()
                         .addComponent(jLabel86)
@@ -1458,9 +1398,9 @@ public class login extends javax.swing.JFrame {
                                     .addComponent(jScrollPane9)
                                     .addComponent(jLabel48)
                                     .addComponent(jScrollPane7))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane8)
                                     .addComponent(jLabel38)
                                     .addComponent(jLabel37)
                                     .addComponent(jLabel47)
@@ -1471,7 +1411,7 @@ public class login extends javax.swing.JFrame {
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel14Layout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel86)
                 .addGap(9, 9, 9)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1488,12 +1428,13 @@ public class login extends javax.swing.JFrame {
                         .addGap(19, 19, 19)
                         .addComponent(jLabel37)
                         .addGap(4, 4, 4)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel14Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel41)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(9, 9, 9)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel14Layout.createSequentialGroup()
                         .addGap(17, 17, 17)
@@ -1505,7 +1446,7 @@ public class login extends javax.swing.JFrame {
                         .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel8.add(jPanel14);
@@ -1637,36 +1578,29 @@ public class login extends javax.swing.JFrame {
         jScrollPane11.setViewportView(viewDegree1);
 
         jPanel15.add(jScrollPane11);
-        jScrollPane11.setBounds(400, 450, 450, 170);
+        jScrollPane11.setBounds(410, 510, 450, 170);
 
+        jLabel60.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel60.setForeground(new java.awt.Color(255, 255, 255));
         jLabel60.setText("Nivel");
         jPanel15.add(jLabel60);
-        jLabel60.setBounds(630, 410, 27, 16);
+        jLabel60.setBounds(410, 460, 30, 20);
 
         cb_nivelGradoAcademico.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Secundaria", "Pregrado", "Posgrado", "Doctorado", "Especialización" }));
         jPanel15.add(cb_nivelGradoAcademico);
-        cb_nivelGradoAcademico.setBounds(670, 400, 132, 31);
+        cb_nivelGradoAcademico.setBounds(480, 460, 190, 31);
 
         tf_gradoAcademico.setBackground(new java.awt.Color(0, 0, 0));
         tf_gradoAcademico.setForeground(new java.awt.Color(255, 255, 255));
         tf_gradoAcademico.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jPanel15.add(tf_gradoAcademico);
-        tf_gradoAcademico.setBounds(450, 400, 132, 31);
+        tf_gradoAcademico.setBounds(480, 400, 230, 31);
 
+        jLabel59.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel59.setForeground(new java.awt.Color(255, 255, 255));
         jLabel59.setText("Grado");
         jPanel15.add(jLabel59);
-        jLabel59.setBounds(400, 410, 34, 16);
-
-        jb_openCreateDegree.setText("Crear");
-        jb_openCreateDegree.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jb_openCreateDegreeMouseClicked(evt);
-            }
-        });
-        jPanel15.add(jb_openCreateDegree);
-        jb_openCreateDegree.setBounds(1010, 250, 94, 25);
+        jLabel59.setBounds(400, 400, 38, 20);
         jPanel15.add(jSeparator2);
         jSeparator2.setBounds(400, 370, 450, 20);
 
@@ -1676,17 +1610,19 @@ public class login extends javax.swing.JFrame {
         jPanel15.add(jLabel61);
         jLabel61.setBounds(400, 330, 250, 29);
 
-        jLabel91.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel91.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel91.setText(" +");
-        jLabel91.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jLabel91.addMouseListener(new java.awt.event.MouseAdapter() {
+        createDegree.setBackground(new java.awt.Color(255, 51, 51));
+        createDegree.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        createDegree.setForeground(new java.awt.Color(255, 255, 255));
+        createDegree.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        createDegree.setText("Aceptar");
+        createDegree.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        createDegree.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel91MouseClicked(evt);
+                createDegreeMouseClicked(evt);
             }
         });
-        jPanel15.add(jLabel91);
-        jLabel91.setBounds(820, 400, 30, 30);
+        jPanel15.add(createDegree);
+        createDegree.setBounds(750, 420, 110, 40);
 
         jLabel90.setIcon(new javax.swing.ImageIcon(getClass().getResource("/roguelogo.png"))); // NOI18N
         jPanel15.add(jLabel90);
@@ -1712,7 +1648,7 @@ public class login extends javax.swing.JFrame {
             }
         });
         jPanel16.add(jButton6);
-        jButton6.setBounds(920, 60, 133, 25);
+        jButton6.setBounds(920, 60, 117, 23);
 
         jLabel62.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel62.setForeground(new java.awt.Color(255, 255, 255));
@@ -1748,22 +1684,22 @@ public class login extends javax.swing.JFrame {
             }
         });
         jPanel16.add(crearNuevoPuesto);
-        crearNuevoPuesto.setBounds(1080, 60, 107, 25);
+        crearNuevoPuesto.setBounds(1080, 60, 95, 23);
         jPanel16.add(jSeparator3);
         jSeparator3.setBounds(310, 360, 590, 10);
 
-        jLabel94.setBackground(new java.awt.Color(255, 51, 51));
-        jLabel94.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel94.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel94.setText("      Crear Puesto");
-        jLabel94.setOpaque(true);
-        jLabel94.addMouseListener(new java.awt.event.MouseAdapter() {
+        openCreatePuesto.setBackground(new java.awt.Color(255, 51, 51));
+        openCreatePuesto.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        openCreatePuesto.setForeground(new java.awt.Color(255, 255, 255));
+        openCreatePuesto.setText("      Crear Puesto");
+        openCreatePuesto.setOpaque(true);
+        openCreatePuesto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel94MouseClicked(evt);
+                openCreatePuestoMouseClicked(evt);
             }
         });
-        jPanel16.add(jLabel94);
-        jLabel94.setBounds(610, 320, 140, 30);
+        jPanel16.add(openCreatePuesto);
+        openCreatePuesto.setBounds(610, 320, 140, 30);
 
         jLabel95.setBackground(new java.awt.Color(255, 51, 51));
         jLabel95.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -1779,7 +1715,7 @@ public class login extends javax.swing.JFrame {
 
         jLabel93.setText("jLabel93");
         jPanel16.add(jLabel93);
-        jLabel93.setBounds(850, 220, 48, 16);
+        jLabel93.setBounds(850, 220, 40, 14);
 
         javax.swing.GroupLayout viewPuestosLayout = new javax.swing.GroupLayout(viewPuestos.getContentPane());
         viewPuestos.getContentPane().setLayout(viewPuestosLayout);
@@ -1826,7 +1762,7 @@ public class login extends javax.swing.JFrame {
         jPanel17.add(jLabel63);
         jLabel63.setBounds(360, 310, 250, 29);
         jPanel17.add(jSeparator4);
-        jSeparator4.setBounds(360, 350, 530, 10);
+        jSeparator4.setBounds(360, 350, 530, 2);
 
         jLabel96.setIcon(new javax.swing.ImageIcon(getClass().getResource("/roguelogo.png"))); // NOI18N
         jPanel17.add(jLabel96);
@@ -1853,10 +1789,11 @@ public class login extends javax.swing.JFrame {
         jPanel18.add(jLabel66);
         jLabel66.setBounds(520, 310, 240, 29);
 
+        jLabel64.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel64.setForeground(new java.awt.Color(255, 255, 255));
         jLabel64.setText("Username");
         jPanel18.add(jLabel64);
-        jLabel64.setBounds(510, 390, 58, 16);
+        jLabel64.setBounds(478, 390, 80, 20);
 
         tf_usernameAdmin.setBackground(new java.awt.Color(0, 0, 0));
         tf_usernameAdmin.setForeground(new java.awt.Color(255, 255, 255));
@@ -1864,10 +1801,11 @@ public class login extends javax.swing.JFrame {
         jPanel18.add(tf_usernameAdmin);
         tf_usernameAdmin.setBounds(580, 390, 190, 31);
 
+        jLabel65.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel65.setForeground(new java.awt.Color(255, 255, 255));
         jLabel65.setText("Password");
         jPanel18.add(jLabel65);
-        jLabel65.setBounds(510, 440, 55, 16);
+        jLabel65.setBounds(486, 440, 70, 20);
 
         pf_usernamePassword.setBackground(new java.awt.Color(0, 0, 0));
         pf_usernamePassword.setForeground(new java.awt.Color(255, 255, 255));
@@ -1877,27 +1815,19 @@ public class login extends javax.swing.JFrame {
         jPanel18.add(jSeparator5);
         jSeparator5.setBounds(490, 360, 290, 20);
 
-        crearAdminUser.setText("Crear");
-        crearAdminUser.addMouseListener(new java.awt.event.MouseAdapter() {
+        createAdminButton.setBackground(new java.awt.Color(255, 51, 51));
+        createAdminButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        createAdminButton.setForeground(new java.awt.Color(255, 255, 255));
+        createAdminButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        createAdminButton.setText("Agregar");
+        createAdminButton.setOpaque(true);
+        createAdminButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                crearAdminUserMouseClicked(evt);
+                createAdminButtonMouseClicked(evt);
             }
         });
-        jPanel18.add(crearAdminUser);
-        crearAdminUser.setBounds(860, 400, 65, 25);
-
-        jLabel98.setBackground(new java.awt.Color(255, 51, 51));
-        jLabel98.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel98.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel98.setText("       Agregar Admin");
-        jLabel98.setOpaque(true);
-        jLabel98.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel98MouseClicked(evt);
-            }
-        });
-        jPanel18.add(jLabel98);
-        jLabel98.setBounds(560, 500, 160, 31);
+        jPanel18.add(createAdminButton);
+        createAdminButton.setBounds(560, 500, 160, 31);
 
         jLabel97.setIcon(new javax.swing.ImageIcon(getClass().getResource("/roguelogo.png"))); // NOI18N
         jPanel18.add(jLabel97);
@@ -1983,175 +1913,15 @@ public class login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jb_createAgencyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_createAgencyMouseClicked
-        boolean error = false;
-
-        if (tf_createAgencyEmail.getText().equals("")) {
-            tf_createAgencyEmail.setBorder(BorderFactory.createLineBorder(Color.red));
-            error = true;
-        }
-        if (jp_createAgencyPassword.getText().equals("")) {
-            jp_createAgencyPassword.setBorder(BorderFactory.createLineBorder(Color.red));
-            error = true;
-        }
-        if (tf_createAgencyRTN.getText().equals("")) {
-            tf_createAgencyRTN.setBorder(BorderFactory.createLineBorder(Color.red));
-            error = true;
-        }
-        if (tf_createAgencyName.getText().equals("")) {
-            tf_createAgencyName.setBorder(BorderFactory.createLineBorder(Color.red));
-            error = true;
-        }
-        if (tf_createAgencyPhone.getText().equals("")) {
-            tf_createAgencyPhone.setBorder(BorderFactory.createLineBorder(Color.red));
-            error = true;
-        }
-        if (tf_createAgencyDirector.getText().equals("")) {
-            tf_createAgencyDirector.setBorder(BorderFactory.createLineBorder(Color.red));
-            error = true;
-        }
-        if (tf_createAgencyAddress.getText().equals("")) {
-            tf_createAgencyAddress.setBorder(BorderFactory.createLineBorder(Color.red));
-            error = true;
-        }
-        if (tf_createAgencyDescription.getText().equals("")) {
-            tf_createAgencyDescription.setBorder(BorderFactory.createLineBorder(Color.red));
-            error = true;
-        }
-        if (!error) {
-
-            System.out.println("DB insert");
-            String username = tf_createAgencyEmail.getText();
-            String password = jp_createAgencyPassword.getText();
-            String RTN = tf_createAgencyRTN.getText();
-            String nombre = tf_createAgencyName.getText();
-            String direccion = tf_createAgencyAddress.getText();
-            int telefono = parseInt(tf_createAgencyPhone.getText());
-            String director = tf_createAgencyDirector.getText();
-            String descripcion = tf_createAgencyDescription.getText();
-            agencia newAgencia = new agencia(username, RTN, nombre, direccion, telefono, director, descripcion);
-            users newUser = new users(username, password, "agencia");
-
-            //--------------- Creating database----------------------------//
-            CouchDbConnector dbAgencia = new StdCouchDbConnector("agencia", dbInstance);
-            CouchDbConnector dbUsers = new StdCouchDbConnector("users", dbInstance);
-            dbAgencia.createDatabaseIfNotExists();
-            dbAgencia.create(newAgencia);
-            dbUsers.createDatabaseIfNotExists();
-            dbUsers.create(newUser);
-            tf_createAgencyEmail.setText("");
-            jp_createAgencyPassword.setText("");
-            tf_createAgencyRTN.setText("");
-            tf_createAgencyName.setText("");
-            tf_createAgencyDirector.setText("");
-            tf_createAgencyPhone.setText("");
-            tf_createAgencyDescription.setText("");
-            tf_createAgencyEmail.setText("");
-        }
-    }//GEN-LAST:event_jb_createAgencyMouseClicked
-
-    private void cb_createPuestoVacanteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cb_createPuestoVacanteMouseClicked
-        // TODO add your handling code here:
-        boolean error = false;
-
-        if (tf_createIdPuesto.getText().equals("")) {
-            tf_createIdPuesto.setBorder(BorderFactory.createLineBorder(Color.red));
-            error = true;
-        }
-
-        if (!error) {
-
-            System.out.println("DB insert");
-
-            String idPuesto = tf_createIdPuesto.getText();
-            String rangoJerarquico = cb_createRangoJerarquico.getSelectedItem().toString();
-            String rangoSalarial = cb_createRangoSalarial.getSelectedItem().toString();
-            String tipoPlaza = cb_createTipoPlaza.getSelectedItem().toString();
-            int cantidadPlazas = parseInt(sp_createCantidadPlazas.getValue().toString());
-
-            puesto newPuesto = new puesto(idPuesto, currentUser, rangoJerarquico, rangoSalarial, tipoPlaza, cantidadPlazas);
-
-            //--------------- Creating database----------------------------//
-            CouchDbConnector dbPuesto = new StdCouchDbConnector("puesto", dbInstance);
-            dbPuesto.createDatabaseIfNotExists();
-            dbPuesto.create(newPuesto);
-
-            tf_createIdPuesto.setText("");
-            cb_createRangoJerarquico.setSelectedIndex(0);
-            cb_createRangoSalarial.setSelectedIndex(0);
-            cb_createRangoJerarquico.setSelectedIndex(0);
-            cb_createTipoPlaza.setSelectedIndex(0);
-            sp_createCantidadPlazas.setValue(1);
-
-        }
-
-    }//GEN-LAST:event_cb_createPuestoVacanteMouseClicked
-
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseClicked
-        viewAgencias.pack();
-        viewAgencias.setLocationRelativeTo(null);
-        viewAgencias.setVisible(true);
-
-     }//GEN-LAST:event_jButton12MouseClicked
-
-    private void jb_openCreateAgencyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_openCreateAgencyMouseClicked
-        createAgencies.pack();
-        createAgencies.setLocationRelativeTo(null);
-        createAgencies.setVisible(true);
-    }//GEN-LAST:event_jb_openCreateAgencyMouseClicked
 
     private void crearNuevoPuestoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearNuevoPuestoMouseClicked
         createPuestos.pack();
         createPuestos.setLocationRelativeTo(null);
         createPuestos.setVisible(true);
     }//GEN-LAST:event_crearNuevoPuestoMouseClicked
-
-    private void jButton14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton14MouseClicked
-        createAdmin.pack();
-        createAdmin.setLocationRelativeTo(null);
-        createAdmin.setVisible(true);
-    }//GEN-LAST:event_jButton14MouseClicked
-
-    private void crearAdminUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearAdminUserMouseClicked
-        boolean error = false;
-
-        if (tf_usernameAdmin.getText().equals("")) {
-            tf_usernameAdmin.setBorder(BorderFactory.createLineBorder(Color.red));
-            error = true;
-        }
-        if (pf_usernamePassword.getText().equals("")) {
-            pf_usernamePassword.setBorder(BorderFactory.createLineBorder(Color.red));
-            error = true;
-        }
-        if (!error) {
-
-            System.out.println("DB insert");
-
-            String username = tf_usernameAdmin.getText();
-            String password = pf_usernamePassword.getText();
-
-            users newUsers = new users(username, password, "admin");
-
-            //--------------- Creating database----------------------------//
-            CouchDbConnector dbUserAdmin = new StdCouchDbConnector("users", dbInstance);
-            dbUserAdmin.createDatabaseIfNotExists();
-            dbUserAdmin.create(newUsers);
-
-            tf_usernameAdmin.setText("");
-            pf_usernamePassword.setText("");
-
-        }
-    }//GEN-LAST:event_crearAdminUserMouseClicked
-
-    private void jButton15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton15MouseClicked
-        viewDegree.pack();
-        viewDegree.setLocationRelativeTo(null);
-        viewDegree.setVisible(true);
-    }//GEN-LAST:event_jButton15MouseClicked
 
     private void tf_identidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_identidadActionPerformed
         // TODO add your handling code here:
@@ -2280,33 +2050,29 @@ public class login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jLabel72MouseClicked
 
-    private void jButton13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton13MouseClicked
-
-    private void jLabel73MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel73MouseClicked
+    private void labelCreateAgencyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCreateAgencyMouseClicked
         viewAgencias.pack();
         viewAgencias.setLocationRelativeTo(null);
         viewAgencias.setVisible(true);
-    }//GEN-LAST:event_jLabel73MouseClicked
+    }//GEN-LAST:event_labelCreateAgencyMouseClicked
 
-    private void jLabel74MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel74MouseClicked
+    private void labelCreateAdminsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCreateAdminsMouseClicked
         createAdmin.pack();
         createAdmin.setLocationRelativeTo(null);
         createAdmin.setVisible(true);
-    }//GEN-LAST:event_jLabel74MouseClicked
+    }//GEN-LAST:event_labelCreateAdminsMouseClicked
 
-    private void jLabel76MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel76MouseClicked
+    private void labelCreateDegreeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCreateDegreeMouseClicked
         viewDegree.pack();
         viewDegree.setLocationRelativeTo(null);
         viewDegree.setVisible(true);
-    }//GEN-LAST:event_jLabel76MouseClicked
+    }//GEN-LAST:event_labelCreateDegreeMouseClicked
 
-    private void jLabel81MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel81MouseClicked
+    private void openCreateNewAgencyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_openCreateNewAgencyMouseClicked
         createAgencies.pack();
         createAgencies.setLocationRelativeTo(null);
         createAgencies.setVisible(true);
-    }//GEN-LAST:event_jLabel81MouseClicked
+    }//GEN-LAST:event_openCreateNewAgencyMouseClicked
 
     private void tf_createAgencyDirectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_createAgencyDirectorActionPerformed
         // TODO add your handling code here:
@@ -2418,7 +2184,7 @@ public class login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_createPuestoMouseClicked
 
-    private void jb_openCreateDegreeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_openCreateDegreeMouseClicked
+    private void createDegreeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createDegreeMouseClicked
         boolean error = false;
         if (tf_gradoAcademico.getText().equals("")) {
             tf_gradoAcademico.setBorder(BorderFactory.createLineBorder(Color.red));
@@ -2441,45 +2207,19 @@ public class login extends javax.swing.JFrame {
             cb_nivelGradoAcademico.setSelectedIndex(0);
 
         }
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jb_openCreateDegreeMouseClicked
+    }//GEN-LAST:event_createDegreeMouseClicked
 
-    private void jLabel91MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel91MouseClicked
-        boolean error = false;
-        if (tf_gradoAcademico.getText().equals("")) {
-            tf_gradoAcademico.setBorder(BorderFactory.createLineBorder(Color.red));
-            error = true;
-        }
-
-        if (!error) {
-
-            System.out.println("DB insert");
-            String gradoAcademico = tf_gradoAcademico.getText();
-            String nivel = cb_nivelGradoAcademico.getSelectedItem().toString();
-            grados_academicos newGradoAcademico = new grados_academicos(gradoAcademico, nivel);
-
-            //--------------- Creating database----------------------------//
-            CouchDbConnector dbGradoAcademico = new StdCouchDbConnector("grados_academicos", dbInstance);
-            dbGradoAcademico.createDatabaseIfNotExists();
-            dbGradoAcademico.create(newGradoAcademico);
-
-            tf_gradoAcademico.setText("");
-            cb_nivelGradoAcademico.setSelectedIndex(0);
-
-        }
-    }//GEN-LAST:event_jLabel91MouseClicked
-
-    private void jLabel94MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel94MouseClicked
+    private void openCreatePuestoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_openCreatePuestoMouseClicked
         createPuestos.pack();
         createPuestos.setLocationRelativeTo(null);
         createPuestos.setVisible(true);
-    }//GEN-LAST:event_jLabel94MouseClicked
+    }//GEN-LAST:event_openCreatePuestoMouseClicked
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void jLabel98MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel98MouseClicked
+    private void createAdminButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createAdminButtonMouseClicked
         boolean error = false;
 
         if (tf_usernameAdmin.getText().equals("")) {
@@ -2508,7 +2248,7 @@ public class login extends javax.swing.JFrame {
             pf_usernamePassword.setText("");
 
         }
-    }//GEN-LAST:event_jLabel98MouseClicked
+    }//GEN-LAST:event_createAdminButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -2555,29 +2295,24 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JDialog aspirantesView;
     private javax.swing.JDialog buscarPuestos;
     private javax.swing.JComboBox cb_createMinRangoSalarial;
-    private javax.swing.JButton cb_createPuestoVacante;
     private javax.swing.JComboBox cb_createRangoJerarquico;
     private javax.swing.JComboBox cb_createRangoJerarquico1;
     private javax.swing.JComboBox cb_createRangoSalarial;
     private javax.swing.JComboBox cb_createTipoPlaza;
     private javax.swing.JComboBox cb_createTipoPlaza1;
     private javax.swing.JComboBox cb_nivelGradoAcademico;
-    private javax.swing.JButton crearAdminUser;
     private javax.swing.JButton crearNuevoPuesto;
     private javax.swing.JDialog createAdmin;
+    private javax.swing.JLabel createAdminButton;
     private javax.swing.JDialog createAgencies;
     private javax.swing.JLabel createAgency;
     private javax.swing.JDialog createAspirante_adminView;
+    private javax.swing.JLabel createDegree;
     private javax.swing.JLabel createPuesto;
     private javax.swing.JDialog createPuestos;
     private javax.swing.JLabel errorLog;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -2659,16 +2394,12 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel71;
     private javax.swing.JLabel jLabel72;
-    private javax.swing.JLabel jLabel73;
-    private javax.swing.JLabel jLabel74;
     private javax.swing.JLabel jLabel75;
-    private javax.swing.JLabel jLabel76;
     private javax.swing.JLabel jLabel77;
     private javax.swing.JLabel jLabel78;
     private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel80;
-    private javax.swing.JLabel jLabel81;
     private javax.swing.JLabel jLabel82;
     private javax.swing.JLabel jLabel83;
     private javax.swing.JLabel jLabel84;
@@ -2679,14 +2410,11 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel89;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabel90;
-    private javax.swing.JLabel jLabel91;
     private javax.swing.JLabel jLabel92;
     private javax.swing.JLabel jLabel93;
-    private javax.swing.JLabel jLabel94;
     private javax.swing.JLabel jLabel95;
     private javax.swing.JLabel jLabel96;
     private javax.swing.JLabel jLabel97;
-    private javax.swing.JLabel jLabel98;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -2749,11 +2477,13 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
-    private javax.swing.JButton jb_createAgency;
-    private javax.swing.JButton jb_openCreateAgency;
-    private javax.swing.JButton jb_openCreateDegree;
     private javax.swing.JPasswordField jp_createAgencyPassword;
+    private javax.swing.JLabel labelCreateAdmins;
+    private javax.swing.JLabel labelCreateAgency;
+    private javax.swing.JLabel labelCreateDegree;
     private javax.swing.JLabel logOut;
+    private javax.swing.JLabel openCreateNewAgency;
+    private javax.swing.JLabel openCreatePuesto;
     private javax.swing.JPasswordField password_login;
     private javax.swing.JPasswordField pf_passwordAspirante;
     private javax.swing.JPasswordField pf_usernamePassword;
